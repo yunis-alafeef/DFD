@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2460" height="1620" viewBox="0 0 2460 1620">
+  <defs>
+    <marker id="arrow-navy" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 11 5 L 0 9 z" fill="#1E3A5F" />
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 11 5 L 0 9 z" fill="#0F766E" />
+    </marker>
+    <marker id="arrow-slate" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 11 5 L 0 9 z" fill="#334155" />
+    </marker>
+    <!-- Crow's Foot Markers -->
+    <marker id="cf-one" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <line x1="6" y1="2" x2="6" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
+      <line x1="10" y1="2" x2="10" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
+    </marker>
+    <marker id="cf-many" viewBox="0 0 16 14" refX="14" refY="7" markerWidth="14" markerHeight="12" orient="auto-start-reverse">
+      <path d="M 14 2 L 4 7 L 14 12" fill="none" stroke="#1E3A5F" stroke-width="1.8" />
+      <line x1="4" y1="2" x2="4" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
+    </marker>
+    <marker id="cf-zero-one" viewBox="0 0 18 14" refX="16" refY="7" markerWidth="16" markerHeight="12" orient="auto-start-reverse">
+      <circle cx="5" cy="7" r="3.2" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
+      <line x1="12" y1="2" x2="12" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
+    </marker>
+    <marker id="cf-zero-many" viewBox="0 0 20 14" refX="18" refY="7" markerWidth="18" markerHeight="12" orient="auto-start-reverse">
+      <circle cx="5" cy="7" r="3.2" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
+      <path d="M 18 2 L 9 7 L 18 12" fill="none" stroke="#1E3A5F" stroke-width="1.8" />
+    </marker>
+    <style>
+      .halo { paint-order: stroke; stroke: #FFFFFF; stroke-width: 7px; stroke-linejoin: round; stroke-linecap: round; }
+      .halo-sm { paint-order: stroke; stroke: #FFFFFF; stroke-width: 5px; stroke-linejoin: round; stroke-linecap: round; }
+    </style>
+  </defs>
+  <rect width="2460" height="1620" fill="#FFFFFF" />
+  <rect x="18" y="18" width="2424" height="1584" rx="10" fill="none" stroke="#CBD5E1" stroke-width="1.5" />
+  <!-- Academic Title Header -->
+  <rect x="18" y="18" width="2424" height="82" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" />
+  <line x1="18" y1="100" x2="2442" y2="100" stroke="#1E3A5F" stroke-width="2" />
+  <text x="1230" y="53" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="22" font-weight="bold" fill="#1E3A5F">الشكل (3-5): مخطط الكيانات والعلاقات المفاهيمي (Conceptual ERD)</text>
+  <text x="1230" y="82" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" fill="#334155">التمثيل التصوري للكيانات الأساسية والخصائص الدلالية وعلاقاتها (1:1، 1:N، M:N) قبل التطبيع التنفيذي</text>
+<g class="concept-entity">
+      <rect x="1840" y="150" width="260" height="128" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="1840" y="150" width="260" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="1970" y="170" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">الأدوار الوظيفية</text>
+      <text x="1970" y="187" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Roles</text>
+      <text x="1970" y="214" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف الدور (PK)</text>
+      <text x="1970" y="233" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">اسم الدور</text>
+      <text x="1970" y="252" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الوصف</text>
+    </g><g class="concept-entity">
+      <rect x="1260" y="150" width="260" height="128" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="1260" y="150" width="260" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="1390" y="170" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">الصلاحيات</text>
+      <text x="1390" y="187" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Permissions</text>
+      <text x="1390" y="214" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف الصلاحية (PK)</text>
+      <text x="1390" y="233" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">رمز الصلاحية</text>
+      <text x="1390" y="252" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الوحدة الوظيفية</text>
+    </g><g class="concept-entity">
+      <rect x="1840" y="420" width="260" height="165" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="1840" y="420" width="260" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="1970" y="440" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">المستخدمون</text>
+      <text x="1970" y="457" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Users</text>
+      <text x="1970" y="484" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف المستخدم (PK)</text>
+      <text x="1970" y="503" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الاسم والهوية</text>
+      <text x="1970" y="522" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">البريد والهاتف</text>
+      <text x="1970" y="541" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">حالة الحساب</text>
+    </g><g class="concept-entity">
+      <rect x="2140" y="420" width="175" height="145" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="2140" y="420" width="175" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="2227.5" y="440" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">سجل التدقيق</text>
+      <text x="2227.5" y="457" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Audit_Logs</text>
+      <text x="2227.5" y="484" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف السجل (PK)</text>
+      <text x="2227.5" y="503" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">نوع العملية</text>
+      <text x="2227.5" y="522" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الكيان المستهدف</text>
+      <text x="2227.5" y="541" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">التاريخ</text>
+    </g><g class="concept-entity">
+      <rect x="1330" y="420" width="260" height="145" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="1330" y="420" width="260" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="1460" y="440" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">الواقفون</text>
+      <text x="1460" y="457" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Waqifs</text>
+      <text x="1460" y="484" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف الواقف (PK)</text>
+      <text x="1460" y="503" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">اسم الواقف</text>
+      <text x="1460" y="522" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الهوية / المرجع</text>
+      <text x="1460" y="541" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">تاريخ الوقف</text>
+    </g><g class="concept-entity">
+      <rect x="1330" y="700" width="270" height="165" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="1330" y="700" width="270" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="1465" y="720" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">الأوقاف</text>
+      <text x="1465" y="737" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Waqfs</text>
+      <text x="1465" y="764" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف الوقف (PK)</text>
+      <text x="1465" y="783" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">اسم الوقف ونوعه</text>
+      <text x="1465" y="802" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">رقم الصك الوقفي</text>
+      <text x="1465" y="821" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الحالة التنظيمية</text>
+    </g><g class="concept-entity">
+      <rect x="830" y="700" width="270" height="165" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="830" y="700" width="270" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="965" y="720" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">الممتلكات الوقفية</text>
+      <text x="965" y="737" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Properties</text>
+      <text x="965" y="764" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف العقار (PK)</text>
+      <text x="965" y="783" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الرمز والتصنيف</text>
+      <text x="965" y="802" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">المساحة والعنوان</text>
+      <text x="965" y="821" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">القيمة والحالة</text>
+    </g><g class="concept-entity">
+      <rect x="320" y="700" width="275" height="150" rx="6" fill="#FFFFFF" stroke="#0F766E" stroke-width="2.2" />
+      <rect x="320" y="700" width="275" height="44" rx="6" fill="#F0FDFA" stroke="#0F766E" stroke-width="1.5" />
+      <text x="457.5" y="720" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">القطع الجغرافية</text>
+      <text x="457.5" y="737" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#0F766E">GIS_Parcels</text>
+      <text x="457.5" y="764" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف القطعة (PK)</text>
+      <text x="457.5" y="783" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">مضلع الحدود (Polygon)</text>
+      <text x="457.5" y="802" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">المركز الهندسي (Point)</text>
+      <text x="457.5" y="821" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">تاريخ المسح</text>
+    </g><g class="concept-entity">
+      <rect x="830" y="420" width="270" height="165" rx="6" fill="#FFFFFF" stroke="#0F766E" stroke-width="2.2" />
+      <rect x="830" y="420" width="270" height="44" rx="6" fill="#F0FDFA" stroke="#0F766E" stroke-width="1.5" />
+      <text x="965" y="440" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">الوثائق المؤرشفة</text>
+      <text x="965" y="457" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#0F766E">Documents</text>
+      <text x="965" y="484" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف الوثيقة (PK)</text>
+      <text x="965" y="503" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">نوع الوثيقة</text>
+      <text x="965" y="522" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">النص المستخلص (OCR)</text>
+      <text x="965" y="541" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">بصمة SHA-256</text>
+    </g><g class="concept-entity">
+      <rect x="1840" y="700" width="260" height="145" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="1840" y="700" width="260" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="1970" y="720" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">شروط الواقفين</text>
+      <text x="1970" y="737" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Waqif_Conditions</text>
+      <text x="1970" y="764" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف الشرط (PK)</text>
+      <text x="1970" y="783" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">عنوان المصرف</text>
+      <text x="1970" y="802" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">النص الشرعي</text>
+      <text x="1970" y="821" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">أولوية التنفيذ</text>
+    </g><g class="concept-entity">
+      <rect x="1840" y="1000" width="260" height="150" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="1840" y="1000" width="260" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="1970" y="1020" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">المستفيدون</text>
+      <text x="1970" y="1037" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Beneficiaries</text>
+      <text x="1970" y="1064" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف المستفيد (PK)</text>
+      <text x="1970" y="1083" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الاسم والهوية</text>
+      <text x="1970" y="1102" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">فئة الاستحقاق</text>
+      <text x="1970" y="1121" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الحساب البنكي (IBAN)</text>
+    </g><g class="concept-entity">
+      <rect x="1330" y="1020" width="270" height="145" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="1330" y="1020" width="270" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="1465" y="1040" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">صرفيات العوائد</text>
+      <text x="1465" y="1057" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Disbursements</text>
+      <text x="1465" y="1084" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف الصرف (PK)</text>
+      <text x="1465" y="1103" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">المبلغ المصروف</text>
+      <text x="1465" y="1122" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">تاريخ التحويل</text>
+      <text x="1465" y="1141" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">رقم المرجع</text>
+    </g><g class="concept-entity">
+      <rect x="830" y="1010" width="270" height="165" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="830" y="1010" width="270" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="965" y="1030" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">عقود الإيجار</text>
+      <text x="965" y="1047" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Lease_Contracts</text>
+      <text x="965" y="1074" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف العقد (PK)</text>
+      <text x="965" y="1093" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">رقم العقد</text>
+      <text x="965" y="1112" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">تاريخ البداية والنهاية</text>
+      <text x="965" y="1131" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الأجرة السنوية</text>
+    </g><g class="concept-entity">
+      <rect x="320" y="1010" width="275" height="145" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="320" y="1010" width="275" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="457.5" y="1030" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">المستأجرون</text>
+      <text x="457.5" y="1047" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Tenants</text>
+      <text x="457.5" y="1074" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف المستأجر (PK)</text>
+      <text x="457.5" y="1093" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الاسم الكامل</text>
+      <text x="457.5" y="1112" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الهوية / السجل</text>
+      <text x="457.5" y="1131" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">بيانات التواصل</text>
+    </g><g class="concept-entity">
+      <rect x="830" y="1300" width="270" height="145" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="830" y="1300" width="270" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="965" y="1320" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">الفواتير والمطالبات</text>
+      <text x="965" y="1337" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Invoices</text>
+      <text x="965" y="1364" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف الفاتورة (PK)</text>
+      <text x="965" y="1383" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">تاريخ الاستحقاق</text>
+      <text x="965" y="1402" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">المبلغ المطلوب</text>
+      <text x="965" y="1421" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">حالة الفاتورة</text>
+    </g><g class="concept-entity">
+      <rect x="320" y="1300" width="275" height="145" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="320" y="1300" width="275" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="457.5" y="1320" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">التحصيل والسداد</text>
+      <text x="457.5" y="1337" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Payments</text>
+      <text x="457.5" y="1364" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف السداد (PK)</text>
+      <text x="457.5" y="1383" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">المبلغ المدفوع</text>
+      <text x="457.5" y="1402" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">تاريخ التحصيل</text>
+      <text x="457.5" y="1421" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">رقم الإيصال</text>
+    </g><g class="concept-entity">
+      <rect x="1840" y="1300" width="260" height="145" rx="6" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.2" />
+      <rect x="1840" y="1300" width="260" height="44" rx="6" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.5" />
+      <text x="1970" y="1320" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">الخدمات والطلبات</text>
+      <text x="1970" y="1337" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11" font-weight="bold" fill="#1E3A5F">Service_Requests</text>
+      <text x="1970" y="1364" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">معرف الطلب (PK)</text>
+      <text x="1970" y="1383" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">نوع الطلب</text>
+      <text x="1970" y="1402" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">الوصف والتاريخ</text>
+      <text x="1970" y="1421" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12" fill="#334155">حالة الطلب</text>
+    </g><path d="M 1840 214 L 1520 214" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="1680,186 1738,214 1680,242 1622,214" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="1680" y="218" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يمتلك</text>
+      <text x="1815" y="204" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">M</text>
+      <text x="1545" y="204" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 1970 278 L 1970 420" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="1970,323 2024,349 1970,375 1916,349" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="1970" y="353" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يُسند لـ</text>
+      <text x="1988" y="298" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="1988" y="405" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 2100 495 L 2140 495" fill="none" stroke="#334155" stroke-width="1.8" /><text x="2108" y="485" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="12" font-weight="bold" fill="#1E3A5F">1</text><text x="2128" y="485" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="12" font-weight="bold" fill="#1E3A5F">N</text><path d="M 1840 520 L 1710 520 L 1710 740 L 1600 740" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="1710,594 1764,620 1710,646 1656,620" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="1710" y="624" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يدير</text>
+      <text x="1818" y="510" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="1622" y="730" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 1465 565 L 1465 700" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="1465,606 1519,632 1465,658 1411,632" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="1465" y="636" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">ينشئ</text>
+      <text x="1484" y="585" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="1484" y="686" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 1330 782 L 1100 782" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="1215,756 1269,782 1215,808 1161,782" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="1215" y="786" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يحتوي</text>
+      <text x="1308" y="770" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="1122" y="770" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 830 782 L 595 782" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="712,756 774,782 712,808 650,782" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="712" y="786" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يمتلك موقعاً</text>
+      <text x="808" y="770" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="618" y="770" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+    </g><path d="M 965 700 L 965 585" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="965,616 1019,642 965,668 911,642" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="965" y="646" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يوثق بـ</text>
+      <text x="985" y="686" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="985" y="603" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 1600 772 L 1840 772" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="1720,746 1774,772 1720,798 1666,772" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="1720" y="776" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يخضع لـ</text>
+      <text x="1622" y="760" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="1818" y="760" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 1520 865 L 1520 935 L 1930 935 L 1930 1000" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="1720,907 1782,935 1720,963 1658,935" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="1720" y="939" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يستحق منه</text>
+      <text x="1540" y="888" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">M</text>
+      <text x="1912" y="985" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 1840 1090 L 1600 1090" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="1720,1064 1776,1090 1720,1116 1664,1090" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="1720" y="1094" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يستلم</text>
+      <text x="1818" y="1078" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="1622" y="1078" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 965 865 L 965 1010" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="965,911 1019,937 965,963 911,937" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="965" y="941" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يُؤجر بـ</text>
+      <text x="985" y="885" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="985" y="995" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 595 1090 L 830 1090" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="712,1064 766,1090 712,1116 658,1090" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="712" y="1094" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يُبرم</text>
+      <text x="618" y="1078" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="808" y="1078" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 965 1175 L 965 1300" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="965,1211 1019,1237 965,1263 911,1237" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="965" y="1241" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يُصدر</text>
+      <text x="985" y="1195" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="985" y="1285" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 830 1372 L 595 1372" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="712,1346 766,1372 712,1398 658,1372" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="712" y="1376" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يُسدد بـ</text>
+      <text x="808" y="1360" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="618" y="1360" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 2100 550 L 2270 550 L 2270 1372 L 2100 1372" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="2270,934 2326,960 2270,986 2214,960" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="2270" y="964" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يقدم</text>
+      <text x="2122" y="540" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">1</text>
+      <text x="2122" y="1360" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><path d="M 1100 1140 L 1230 1140 L 1230 1390 L 1840 1390" fill="none" stroke="#334155" stroke-width="1.8" /><g class="concept-rel">
+      <polygon points="1490,1364 1552,1390 1490,1416 1428,1390" fill="#FFFBEB" stroke="#92400E" stroke-width="1.8" />
+      <text x="1490" y="1394" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="bold" fill="#92400E">يرتبط بطلب</text>
+      <text x="1248" y="1375" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">0..1</text>
+      <text x="1815" y="1378" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F" class="halo-sm">N</text>
+    </g><rect x="40" y="1520" width="2380" height="62" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" /><text x="1230" y="1556" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F">دليل المخطط المفاهيمي (Chen / Conceptual ERD): المستطيل يمثل الكيان وخصائصه الأساسية · المعين يمثل العلاقة الدلالية · الرموز (1:1، 1:N، M:N) تمثل الكاردينالية قبل فك علاقات متعدد إلى متعدد.</text></svg>

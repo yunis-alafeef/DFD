@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2640" height="1780" viewBox="0 0 2640 1780">
+  <defs>
+    <marker id="arrow-navy" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 11 5 L 0 9 z" fill="#1E3A5F" />
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 11 5 L 0 9 z" fill="#0F766E" />
+    </marker>
+    <marker id="arrow-slate" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 11 5 L 0 9 z" fill="#334155" />
+    </marker>
+    <!-- Crow's Foot Markers -->
+    <marker id="cf-one" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <line x1="6" y1="2" x2="6" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
+      <line x1="10" y1="2" x2="10" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
+    </marker>
+    <marker id="cf-many" viewBox="0 0 16 14" refX="14" refY="7" markerWidth="14" markerHeight="12" orient="auto-start-reverse">
+      <path d="M 14 2 L 4 7 L 14 12" fill="none" stroke="#1E3A5F" stroke-width="1.8" />
+      <line x1="4" y1="2" x2="4" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
+    </marker>
+    <marker id="cf-zero-one" viewBox="0 0 18 14" refX="16" refY="7" markerWidth="16" markerHeight="12" orient="auto-start-reverse">
+      <circle cx="5" cy="7" r="3.2" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
+      <line x1="12" y1="2" x2="12" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
+    </marker>
+    <marker id="cf-zero-many" viewBox="0 0 20 14" refX="18" refY="7" markerWidth="18" markerHeight="12" orient="auto-start-reverse">
+      <circle cx="5" cy="7" r="3.2" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
+      <path d="M 18 2 L 9 7 L 18 12" fill="none" stroke="#1E3A5F" stroke-width="1.8" />
+    </marker>
+    <style>
+      .halo { paint-order: stroke; stroke: #FFFFFF; stroke-width: 7px; stroke-linejoin: round; stroke-linecap: round; }
+      .halo-sm { paint-order: stroke; stroke: #FFFFFF; stroke-width: 5px; stroke-linejoin: round; stroke-linecap: round; }
+    </style>
+  </defs>
+  <rect width="2640" height="1780" fill="#FFFFFF" />
+  <rect x="18" y="18" width="2604" height="1744" rx="10" fill="none" stroke="#CBD5E1" stroke-width="1.5" />
+  <!-- Academic Title Header -->
+  <rect x="18" y="18" width="2604" height="82" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" />
+  <line x1="18" y1="100" x2="2622" y2="100" stroke="#1E3A5F" stroke-width="2" />
+  <text x="1320" y="53" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="22" font-weight="bold" fill="#1E3A5F">الشكل (3-2): مخطط تدفق البيانات من المستوى الصفري (DFD Level 0)</text>
+  <text x="1320" y="82" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="14" fill="#334155">تفصيل العمليات السبع الرئيسية (1.0 – 7.0) وتدفقاتها المتزنة مع الكيانات الخارجية ومخازن البيانات (D1 – D8)</text>
+<rect x="40" y="122" width="290" height="1535" rx="8" fill="#FAFBFD" stroke="#E2E8F0" stroke-width="1" /><text x="185" y="150" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#64748B">كيانات خارجية (المتعاملون)</text><rect x="2310" y="122" width="290" height="1535" rx="8" fill="#FAFBFD" stroke="#E2E8F0" stroke-width="1" /><text x="2455" y="150" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#64748B">كيانات خارجية (الإدارة والنظارة)</text><rect x="1160" y="122" width="350" height="1535" rx="8" fill="#F6FEFC" stroke="#CCFBF1" stroke-width="1.2" /><text x="1335" y="150" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#0F766E">مخازن البيانات المركزية (D1 – D8)</text><g class="external-entity">
+    <rect x="60" y="580" width="250" height="76" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="2.2" />
+    <line x1="70" y1="580" x2="70" y2="656" stroke="#0F172A" stroke-width="1.6" />
+    <line x1="60" y1="588" x2="310" y2="588" stroke="#0F172A" stroke-width="1.2" opacity="0.25" />
+    <text x="189" y="614" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">المستأجر</text>
+    <text x="189" y="635" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11.5" fill="#64748B">Tenant</text>
+  </g><g class="external-entity">
+    <rect x="60" y="1140" width="250" height="76" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="2.2" />
+    <line x1="70" y1="1140" x2="70" y2="1216" stroke="#0F172A" stroke-width="1.6" />
+    <line x1="60" y1="1148" x2="310" y2="1148" stroke="#0F172A" stroke-width="1.2" opacity="0.25" />
+    <text x="189" y="1174" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">المستفيد</text>
+    <text x="189" y="1195" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11.5" fill="#64748B">Beneficiary</text>
+  </g><g class="external-entity">
+    <rect x="2330" y="210" width="250" height="76" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="2.2" />
+    <line x1="2340" y1="210" x2="2340" y2="286" stroke="#0F172A" stroke-width="1.6" />
+    <line x1="2330" y1="218" x2="2580" y2="218" stroke="#0F172A" stroke-width="1.2" opacity="0.25" />
+    <text x="2459" y="244" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">مدير النظام</text>
+    <text x="2459" y="265" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11.5" fill="#64748B">System Administrator</text>
+  </g><g class="external-entity">
+    <rect x="2330" y="690" width="250" height="82" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="2.2" />
+    <line x1="2340" y1="690" x2="2340" y2="772" stroke="#0F172A" stroke-width="1.6" />
+    <line x1="2330" y1="698" x2="2580" y2="698" stroke="#0F172A" stroke-width="1.2" opacity="0.25" />
+    <text x="2459" y="727" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">موظف إدارة الأوقاف</text>
+    <text x="2459" y="748" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11.5" fill="#64748B">Waqf Management Employee</text>
+  </g><g class="external-entity">
+    <rect x="2330" y="1180" width="250" height="76" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="2.2" />
+    <line x1="2340" y1="1180" x2="2340" y2="1256" stroke="#0F172A" stroke-width="1.6" />
+    <line x1="2330" y1="1188" x2="2580" y2="1188" stroke="#0F172A" stroke-width="1.2" opacity="0.25" />
+    <text x="2459" y="1214" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">الناظر أو الوكيل</text>
+    <text x="2459" y="1235" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="11.5" fill="#64748B">Nazir / Waqf Trustee</text>
+  </g><g class="data-store">
+    <rect x="1185" y="205" width="300" height="56" fill="#F0FDFA" />
+    <line x1="1185" y1="205" x2="1485" y2="205" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="261" x2="1485" y2="261" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="205" x2="1185" y2="261" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="1185" y="205" width="46" height="56" fill="#0F766E" />
+    <text x="1208" y="238" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D1</text>
+    <text x="1358" y="238" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">سجل المستخدمين والصلاحيات</text>
+  </g><g class="data-store">
+    <rect x="1185" y="345" width="300" height="56" fill="#F0FDFA" />
+    <line x1="1185" y1="345" x2="1485" y2="345" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="401" x2="1485" y2="401" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="345" x2="1185" y2="401" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="1185" y="345" width="46" height="56" fill="#0F766E" />
+    <text x="1208" y="378" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D8</text>
+    <text x="1358" y="378" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">سجل التدقيق والرقابة</text>
+  </g><g class="data-store">
+    <rect x="1185" y="505" width="300" height="56" fill="#F0FDFA" />
+    <line x1="1185" y1="505" x2="1485" y2="505" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="561" x2="1485" y2="561" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="505" x2="1185" y2="561" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="1185" y="505" width="46" height="56" fill="#0F766E" />
+    <text x="1208" y="538" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D2</text>
+    <text x="1358" y="538" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">سجل الأوقاف والممتلكات الجغرافية</text>
+  </g><g class="data-store">
+    <rect x="1185" y="675" width="300" height="56" fill="#F0FDFA" />
+    <line x1="1185" y1="675" x2="1485" y2="675" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="731" x2="1485" y2="731" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="675" x2="1185" y2="731" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="1185" y="675" width="46" height="56" fill="#0F766E" />
+    <text x="1208" y="708" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D3</text>
+    <text x="1358" y="708" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">أرشيف الوثائق والحجج الوقفية</text>
+  </g><g class="data-store">
+    <rect x="1185" y="855" width="300" height="56" fill="#F0FDFA" />
+    <line x1="1185" y1="855" x2="1485" y2="855" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="911" x2="1485" y2="911" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="855" x2="1185" y2="911" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="1185" y="855" width="46" height="56" fill="#0F766E" />
+    <text x="1208" y="888" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D4</text>
+    <text x="1358" y="888" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">سجل الواقفين والشروط والمستفيدين</text>
+  </g><g class="data-store">
+    <rect x="1185" y="1035" width="300" height="56" fill="#F0FDFA" />
+    <line x1="1185" y1="1035" x2="1485" y2="1035" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="1091" x2="1485" y2="1091" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="1035" x2="1185" y2="1091" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="1185" y="1035" width="46" height="56" fill="#0F766E" />
+    <text x="1208" y="1068" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D5</text>
+    <text x="1358" y="1068" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">سجل العقود والإيجارات</text>
+  </g><g class="data-store">
+    <rect x="1185" y="1215" width="300" height="56" fill="#F0FDFA" />
+    <line x1="1185" y1="1215" x2="1485" y2="1215" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="1271" x2="1485" y2="1271" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="1215" x2="1185" y2="1271" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="1185" y="1215" width="46" height="56" fill="#0F766E" />
+    <text x="1208" y="1248" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D6</text>
+    <text x="1358" y="1248" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">السجل المالي والتحصيل والتوزيع</text>
+  </g><g class="data-store">
+    <rect x="1185" y="1395" width="300" height="56" fill="#F0FDFA" />
+    <line x1="1185" y1="1395" x2="1485" y2="1395" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="1451" x2="1485" y2="1451" stroke="#0F766E" stroke-width="2.2" />
+    <line x1="1185" y1="1395" x2="1185" y2="1451" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="1185" y="1395" width="46" height="56" fill="#0F766E" />
+    <text x="1208" y="1428" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D7</text>
+    <text x="1358" y="1428" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">سجل الخدمات الإلكترونية والطلبات</text>
+  </g><g class="dfd-process">
+    <rect x="1810" y="195" width="290" height="108" rx="12" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
+    <path d="M 1810 221 L 2100 221 L 2100 207 Q 2100 195 2088 195 L 1822 195 Q 1810 195 1810 207 Z" fill="#1E3A5F" />
+    <text x="1955" y="213" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">1.0</text>
+    <text x="1955" y="257" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">إدارة الحسابات</text>
+    <text x="1955" y="277" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">والصلاحيات</text>
+  </g><g class="dfd-process">
+    <rect x="1810" y="480" width="290" height="116" rx="12" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
+    <path d="M 1810 506 L 2100 506 L 2100 492 Q 2100 480 2088 480 L 1822 480 Q 1810 480 1810 492 Z" fill="#1E3A5F" />
+    <text x="1955" y="498" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">2.0</text>
+    <text x="1955" y="546" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">إدارة الأوقاف والممتلكات</text>
+    <text x="1955" y="566" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">الوقفية والحصر الجغرافي</text>
+  </g><g class="dfd-process">
+    <rect x="1810" y="670" width="290" height="112" rx="12" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
+    <path d="M 1810 696 L 2100 696 L 2100 682 Q 2100 670 2088 670 L 1822 670 Q 1810 670 1810 682 Z" fill="#1E3A5F" />
+    <text x="1955" y="688" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">3.0</text>
+    <text x="1955" y="734" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">إدارة الوثائق الوقفية</text>
+    <text x="1955" y="754" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">والأرشفة الإلكترونية</text>
+  </g><g class="dfd-process">
+    <rect x="510" y="840" width="290" height="108" rx="12" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
+    <path d="M 510 866 L 800 866 L 800 852 Q 800 840 788 840 L 522 840 Q 510 840 510 852 Z" fill="#1E3A5F" />
+    <text x="655" y="858" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">4.0</text>
+    <text x="655" y="902" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">إدارة شروط الواقفين</text>
+    <text x="655" y="922" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">والمستفيدين</text>
+  </g><g class="dfd-process">
+    <rect x="510" y="1020" width="290" height="104" rx="12" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
+    <path d="M 510 1046 L 800 1046 L 800 1032 Q 800 1020 788 1020 L 522 1020 Q 510 1020 510 1032 Z" fill="#1E3A5F" />
+    <text x="655" y="1038" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">5.0</text>
+    <text x="655" y="1080" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">إدارة العقود</text>
+    <text x="655" y="1100" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">والإيجارات</text>
+  </g><g class="dfd-process">
+    <rect x="510" y="1200" width="290" height="108" rx="12" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
+    <path d="M 510 1226 L 800 1226 L 800 1212 Q 800 1200 788 1200 L 522 1200 Q 510 1200 510 1212 Z" fill="#1E3A5F" />
+    <text x="655" y="1218" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">6.0</text>
+    <text x="655" y="1262" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">إدارة المعاملات</text>
+    <text x="655" y="1282" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">المالية والتحصيل</text>
+  </g><g class="dfd-process">
+    <rect x="510" y="1380" width="290" height="108" rx="12" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
+    <path d="M 510 1406 L 800 1406 L 800 1392 Q 800 1380 788 1380 L 522 1380 Q 510 1380 510 1392 Z" fill="#1E3A5F" />
+    <text x="655" y="1398" text-anchor="middle" font-family="DejaVu Sans, Noto Sans Arabic, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">7.0</text>
+    <text x="655" y="1442" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">إدارة الخدمات</text>
+    <text x="655" y="1462" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">الإلكترونية والطلبات</text>
+  </g><g class="data-flow">
+    <path d="M 2330 232 L 2104 232" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="2217" y="218" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات الحسابات والأدوار ومعايير الأمان</text>
+  </g><g class="data-flow">
+    <path d="M 2100 268 L 2326 268" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="2217" y="290" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">تقارير التدقيق وإحصائيات النظام</text>
+  </g><g class="data-flow">
+    <path d="M 2330 705 L 2205 705 L 2205 515 L 2104 515" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="2215" y="495" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات الحصر والإحداثيات الجغرافية</text>
+  </g><g class="data-flow">
+    <path d="M 2100 560 L 2240 560 L 2240 720 L 2326 720" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="2215" y="582" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">سجلات الحصر والخرائط والتقارير</text>
+  </g><g class="data-flow">
+    <path d="M 2330 738 L 2104 738" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="2217" y="724" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">ملفات الصكوك والحجج الوقفية</text>
+  </g><g class="data-flow">
+    <path d="M 2100 764 L 2326 764" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="2217" y="785" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">نتائج (OCR / SHA-256)</text>
+  </g><g class="data-flow">
+    <path d="M 2455 772 L 2455 1595 L 655 1595 L 655 1492" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="1680" y="1582" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">قرارات المعالجة والقيود المالية وشروط الواقفين</text>
+  </g><g class="data-flow">
+    <path d="M 840 1595 L 840 1280 L 804 1280" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="850" y="1345" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">أذونات الصرف والقيود</text>
+  </g><g class="data-flow">
+    <path d="M 880 1595 L 880 1095 L 804 1095" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="885" y="1145" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">مسودات العقود</text>
+  </g><g class="data-flow">
+    <path d="M 920 1595 L 920 915 L 804 915" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="920" y="965" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">شروط الواقفين والمستفيدون</text>
+  </g><g class="data-flow">
+    <path d="M 2330 1200 L 1630 1200 L 1630 1152 L 965 1152 L 965 1055 L 804 1055" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="1860" y="1188" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">اعتمادات العقود وشروط التوزيع</text>
+  </g><g class="data-flow">
+    <path d="M 800 1255 L 1060 1255 L 1060 1342 L 2180 1342 L 2180 1228 L 2326 1228" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="1860" y="1328" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">تقارير الغلة والوضع المالي</text>
+  </g><g class="data-flow">
+    <path d="M 800 1470 L 2235 1470 L 2235 1248 L 2326 1248" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="1860" y="1456" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">إشعارات الطلبات والمصادقات المعلقة</text>
+  </g><g class="data-flow">
+    <path d="M 185 580 L 185 228 L 1806 228" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="760" y="215" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات التسجيل والتحقق (المستأجر)</text>
+  </g><g class="data-flow">
+    <path d="M 310 620 L 425 620 L 425 1055 L 506 1055" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="415" y="815" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">طلبات الاستئجار والتجديد</text>
+  </g><g class="data-flow">
+    <path d="M 510 1095 L 395 1095 L 395 642 L 314 642" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="395" y="975" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">نسخ العقود وجدول الدفعات</text>
+  </g><g class="data-flow">
+    <path d="M 270 656 L 270 1230 L 506 1230" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="380" y="1218" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات سداد الإيجارات</text>
+  </g><g class="data-flow">
+    <path d="M 510 1272 L 240 1272 L 240 660" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="370" y="1292" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">فواتير الإيجار وإيصالات السداد</text>
+  </g><g class="data-flow">
+    <path d="M 125 1140 L 125 188 L 1806 188" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="760" y="174" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات الدخول والتحقق (المستفيد)</text>
+  </g><g class="data-flow">
+    <path d="M 310 1180 L 375 1180 L 375 1435 L 506 1435" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="415" y="1422" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">طلبات الاستحقاق والخدمات الإلكترونية</text>
+  </g><g class="data-flow">
+    <path d="M 510 1468 L 345 1468 L 345 1202 L 314 1202" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="410" y="1488" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">حالة الطلبات والإشعارات</text>
+  </g><g class="data-flow">
+    <path d="M 510 890 L 335 890 L 335 1156 L 314 1156" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="410" y="875" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات الاستحقاق وحوالات العوائد</text>
+  </g><g class="data-flow">
+    <path d="M 1810 224 L 1489 224" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="1650" y="210" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات المستخدمين والأدوار</text>
+  </g><g class="data-flow">
+    <path d="M 1485 248 L 1806 248" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="1650" y="266" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">صلاحيات التحقق (RBAC)</text>
+  </g><g class="data-flow">
+    <path d="M 1810 286 L 1645 286 L 1645 368 L 1489 368" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="1650" y="355" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">سجل أحداث الأمان</text>
+  </g><g class="data-flow">
+    <path d="M 1485 388 L 1675 388 L 1675 296 L 1806 296" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="1650" y="405" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات التدقيق</text>
+  </g><g class="data-flow">
+    <path d="M 1810 522 L 1489 522" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="1650" y="508" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات الأصول والمضلعات (PostGIS)</text>
+  </g><g class="data-flow">
+    <path d="M 1485 548 L 1806 548" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="1650" y="566" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات الحصر والخرائط</text>
+  </g><g class="data-flow">
+    <path d="M 1810 495 L 1710 495 L 1710 356 L 1489 356" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="1700" y="445" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">تحديث سجل التدقيق</text>
+  </g><g class="data-flow">
+    <path d="M 1810 695 L 1489 695" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="1650" y="681" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">الصكوك والنص (OCR) وبصمة SHA-256</text>
+  </g><g class="data-flow">
+    <path d="M 1485 720 L 1806 720" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="1650" y="738" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">الوثائق المفهرسة</text>
+  </g><g class="data-flow">
+    <path d="M 1485 535 L 1565 535 L 1565 682 L 1806 682" fill="none" stroke="#0F766E" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arrow-teal)" />
+    <text x="1645" y="622" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">مرجع العقار والوقف</text>
+  </g><g class="data-flow">
+    <path d="M 800 875 L 1181 875" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="1075" y="862" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">الشروط والمستفيدون ونسب التوزيع</text>
+  </g><g class="data-flow">
+    <path d="M 1185 898 L 804 898" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="1075" y="916" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">سجل الحصص المعتمدة</text>
+  </g><g class="data-flow">
+    <path d="M 1185 705 L 1025 705 L 1025 855 L 804 855" fill="none" stroke="#0F766E" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arrow-teal)" />
+    <text x="1015" y="785" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">نصوص الحجج الوقفية</text>
+  </g><g class="data-flow">
+    <path d="M 800 1052 L 1181 1052" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="1075" y="1039" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات العقود وجداول السداد</text>
+  </g><g class="data-flow">
+    <path d="M 1185 1078 L 804 1078" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="1075" y="1096" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">حالة العقود السارية</text>
+  </g><g class="data-flow">
+    <path d="M 1185 545 L 990 545 L 990 1034 L 804 1034" fill="none" stroke="#0F766E" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arrow-teal)" />
+    <text x="990" y="745" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">العقارات المتاحة للتأجير</text>
+  </g><g class="data-flow">
+    <path d="M 800 1230 L 1181 1230" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="1075" y="1216" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">الفواتير والتحصيل وصرف الغلة</text>
+  </g><g class="data-flow">
+    <path d="M 1185 1255 L 804 1255" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="1075" y="1272" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">الأرصدة والمطالبات المالية</text>
+  </g><g class="data-flow">
+    <path d="M 1185 1090 L 955 1090 L 955 1214 L 804 1214" fill="none" stroke="#0F766E" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arrow-teal)" />
+    <text x="955" y="1170" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">جدول الدفعات المستحقة</text>
+  </g><g class="data-flow">
+    <path d="M 1185 908 L 935 908 L 935 1204 L 804 1204" fill="none" stroke="#0F766E" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arrow-teal)" />
+    <text x="935" y="1015" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">جدول استحقاق المستفيدين</text>
+  </g><g class="data-flow">
+    <path d="M 800 1412 L 1181 1412" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
+    <text x="1075" y="1399" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بيانات الطلبات وحالات التنفيذ</text>
+  </g><g class="data-flow">
+    <path d="M 1185 1438 L 804 1438" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
+    <text x="1075" y="1456" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">تفاصيل الطلبات والردود</text>
+  </g><g class="legend">
+    <rect x="40" y="1682" width="2560" height="62" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" />
+    <text x="2267.2" y="1718" text-anchor="middle" direction="rtl" font-family="Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F">دليل الرموز (Gane &amp; Sarson)</text>
+
+    <!-- External Entity icon -->
+    <rect x="1806.8000000000002" y="1698" width="44" height="30" rx="3" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.8" />
+    <line x1="1813.8000000000002" y1="1698" x2="1813.8000000000002" y2="1728" stroke="#0F172A" stroke-width="1.3" />
+    <text x="1756.8000000000002" y="1718" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">كيان خارجي</text>
+
+    <!-- Process icon -->
+    <rect x="1344" y="1697" width="48" height="32" rx="7" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.8" />
+    <line x1="1344" y1="1707" x2="1392" y2="1707" stroke="#1E3A5F" stroke-width="1.8" />
+    <text x="1294" y="1718" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">عملية نظام</text>
+
+    <!-- Data Store icon -->
+    <rect x="881.2" y="1699" width="52" height="28" fill="#F0FDFA" />
+    <path d="M 933.2 1699 L 881.2 1699 L 881.2 1727 L 933.2 1727" fill="none" stroke="#0F766E" stroke-width="1.8" />
+    <rect x="881.2" y="1699" width="16" height="28" fill="#0F766E" />
+    <text x="833.2" y="1718" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">مخزن بيانات</text>
+
+    <!-- Data Flow icon -->
+    <line x1="470.40000000000003" y1="1713" x2="418.40000000000003" y2="1713" stroke="#1E3A5F" stroke-width="1.8" marker-end="url(#arrow-navy)" />
+    <text x="374.40000000000003" y="1718" text-anchor="middle" direction="rtl" font-family="Noto Sans Arabic, DejaVu Sans, sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">تدفق بيانات</text>
+  </g></svg>

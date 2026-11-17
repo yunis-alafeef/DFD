@@ -1,0 +1,6 @@
+{
+  "name": "مخططات الفصل الثالث – المنصة الرقمية للأوقاف",
+  "description": "حزمة المخططات الأكاديمية الكاملة للفصل الثالث لمشروع التخرج: المنصة الرقمية لإدارة وحصر الممتلكات الوقفية (Word وPNG وملفات المصدر وقاموس البيانات).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

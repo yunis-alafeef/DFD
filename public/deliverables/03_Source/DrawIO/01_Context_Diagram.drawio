@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Waqf-Chapter3-Generator" version="24.0">
+  <diagram id="context" name="Context Diagram">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sys" value="0
+المنصة الرقمية لإدارة وحصر الممتلكات الوقفية" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1E3A5F;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="640" y="420" width="340" height="160" as="geometry" /></mxCell>
+        <mxCell id="e1" value="مدير النظام" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#F1F5F9;strokeColor=#0F172A;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="680" y="120" width="260" height="70" as="geometry" /></mxCell>
+        <mxCell id="e2" value="موظف إدارة الأوقاف" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#F1F5F9;strokeColor=#0F172A;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1180" y="280" width="260" height="70" as="geometry" /></mxCell>
+        <mxCell id="e3" value="الناظر أو الوكيل" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#F1F5F9;strokeColor=#0F172A;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1180" y="620" width="260" height="70" as="geometry" /></mxCell>
+        <mxCell id="e4" value="المستفيد" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#F1F5F9;strokeColor=#0F172A;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="180" y="620" width="260" height="70" as="geometry" /></mxCell>
+        <mxCell id="e5" value="المستأجر" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#F1F5F9;strokeColor=#0F172A;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="180" y="280" width="260" height="70" as="geometry" /></mxCell>
+        <mxCell id="f1" value="بيانات الحسابات والصلاحيات ومعايير الأمان" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="e1" target="sys"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f2" value="تقارير التدقيق وإحصائيات النظام" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="sys" target="e1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f3" value="بيانات الحصر والوثائق والشروط والعقود" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="e2" target="sys"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f4" value="سجلات الحصر والخرائط ونتائج OCR/SHA-256" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="sys" target="e2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f5" value="اعتمادات العقود والصرف المالي" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="e3" target="sys"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f6" value="تقارير الغلة وإشعارات المصادقة" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="sys" target="e3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f7" value="بيانات الهوية وطلبات الاستحقاق والخدمات" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="e4" target="sys"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f8" value="بيانات الاستحقاق والحوالات وحالة الطلبات" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="sys" target="e4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f9" value="طلبات الاستئجار وسداد الإيجارات" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="e5" target="sys"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f10" value="العقود والفواتير وإيصالات السداد" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="sys" target="e5"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Waqf-Chapter3-Generator" version="24.0">
+  <diagram id="dfd2" name="DFD Level 2">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p221" value="2.2.1 استقبال الإحداثيات" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1E3A5F;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="800" y="100" width="230" height="70" as="geometry" /></mxCell>
+        <mxCell id="p222" value="2.2.2 التحقق الطوبولوجي" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1E3A5F;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="800" y="230" width="230" height="70" as="geometry" /></mxCell>
+        <mxCell id="p223" value="2.2.3 توحيد SRID 4326" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1E3A5F;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="800" y="360" width="230" height="70" as="geometry" /></mxCell>
+        <mxCell id="p224" value="2.2.4 اعتماد المضلع" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1E3A5F;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="800" y="490" width="230" height="70" as="geometry" /></mxCell>
+        <mxCell id="d2" value="D2 سجل الأوقاف والممتلكات الجغرافية" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=1;right=0;top=1;bottom=1;fillColor=#F0FDFA;strokeColor=#0F766E;strokeWidth=2;" vertex="1" parent="1"><mxGeometry x="800" y="620" width="230" height="55" as="geometry" /></mxCell>
+        <mxCell id="p321" value="3.2.1 تحسين الصورة" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1E3A5F;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="240" y="100" width="230" height="70" as="geometry" /></mxCell>
+        <mxCell id="p322" value="3.2.2 استخلاص OCR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1E3A5F;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="240" y="230" width="230" height="70" as="geometry" /></mxCell>
+        <mxCell id="p323" value="3.2.3 بصمة SHA-256" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1E3A5F;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="240" y="360" width="230" height="70" as="geometry" /></mxCell>
+        <mxCell id="p324" value="3.2.4 الفهرسة والأرشفة" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1E3A5F;strokeWidth=2;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="240" y="490" width="230" height="70" as="geometry" /></mxCell>
+        <mxCell id="d3" value="D3 أرشيف الوثائق والحجج الوقفية" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=1;right=0;top=1;bottom=1;fillColor=#F0FDFA;strokeColor=#0F766E;strokeWidth=2;" vertex="1" parent="1"><mxGeometry x="240" y="620" width="230" height="55" as="geometry" /></mxCell>
+        <mxCell id="g1" value="إحداثيات خام" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="p221" target="p222"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g2" value="مضلع سليم" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="p222" target="p223"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g3" value="WGS84 + مساحة" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="p223" target="p224"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g4" value="حفظ gis_parcels" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="p224" target="d2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="o1" value="صورة محسنة" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="p321" target="p322"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="o2" value="نص مستخلص" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="p322" target="p323"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="o3" value="بصمة SHA-256" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="p323" target="p324"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="o4" value="وثيقة مؤرشفة" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1E3A5F;fontFamily=Noto Sans Arabic;" edge="1" parent="1" source="p324" target="d3"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
