@@ -41,6 +41,12 @@ import {
   buildMermaidSources,
   buildAllDrawioFiles,
 } from './diagramBuilders';
+import {
+  ISOLATED_ERD_ENTITIES,
+  ISOLATED_ERD_RELATIONSHIPS,
+  buildIsolatedEntitySvg,
+  buildIsolatedRelationshipSvg,
+} from './chenErdIsolatedBuilders';
 
 const OUT_ROOT = path.resolve(process.cwd(), 'public', 'deliverables');
 const DIR_WORD = path.join(OUT_ROOT, '01_Word');
@@ -49,10 +55,25 @@ const DIR_SRC = path.join(OUT_ROOT, '03_Source');
 const DIR_SRC_SVG = path.join(DIR_SRC, 'SVG');
 const DIR_SRC_MMD = path.join(DIR_SRC, 'Mermaid');
 const DIR_SRC_DRAWIO = path.join(DIR_SRC, 'DrawIO');
+const DIR_ERD_ISO = path.join(DIR_SRC, 'ERD_Isolated');
+const DIR_ERD_ISO_ENT = path.join(DIR_ERD_ISO, 'Entities_SVG');
+const DIR_ERD_ISO_REL = path.join(DIR_ERD_ISO, 'Relationships_SVG');
 const DIR_DOCS = path.join(OUT_ROOT, '04_Documentation');
 
 function ensureDirs() {
-  for (const d of [OUT_ROOT, DIR_WORD, DIR_PNG, DIR_SRC, DIR_SRC_SVG, DIR_SRC_MMD, DIR_SRC_DRAWIO, DIR_DOCS]) {
+  for (const d of [
+    OUT_ROOT,
+    DIR_WORD,
+    DIR_PNG,
+    DIR_SRC,
+    DIR_SRC_SVG,
+    DIR_SRC_MMD,
+    DIR_SRC_DRAWIO,
+    DIR_ERD_ISO,
+    DIR_ERD_ISO_ENT,
+    DIR_ERD_ISO_REL,
+    DIR_DOCS,
+  ]) {
     fs.mkdirSync(d, { recursive: true });
   }
 }
@@ -173,6 +194,61 @@ async function generateAll() {
     fs.writeFileSync(path.join(DIR_SRC_DRAWIO, name), content, 'utf-8');
   }
 
+  console.log('2b. Generating Isolated Chen ERD SVG Bundle (17 relationships + 19 entities)...');
+  const isoRelPngs: { spec: (typeof ISOLATED_ERD_RELATIONSHIPS)[number]; buffer: Buffer; width: number; height: number }[] = [];
+  const isoEntPngs: { spec: (typeof ISOLATED_ERD_ENTITIES)[number]; buffer: Buffer; width: number; height: number }[] = [];
+
+  for (const rel of ISOLATED_ERD_RELATIONSHIPS) {
+    const svg = buildIsolatedRelationshipSvg(rel);
+    fs.writeFileSync(path.join(DIR_ERD_ISO_REL, rel.filename), svg, 'utf-8');
+    const pngBuf = await sharp(Buffer.from(svg), { density: 144 })
+      .flatten({ background: '#FFFFFF' })
+      .png({ compressionLevel: 9 })
+      .toBuffer();
+    const meta = await sharp(pngBuf).metadata();
+    isoRelPngs.push({ spec: rel, buffer: pngBuf, width: meta.width ?? 1400, height: meta.height ?? 460 });
+  }
+
+  for (const ent of ISOLATED_ERD_ENTITIES) {
+    const svg = buildIsolatedEntitySvg(ent);
+    fs.writeFileSync(path.join(DIR_ERD_ISO_ENT, ent.filename), svg, 'utf-8');
+    const pngBuf = await sharp(Buffer.from(svg), { density: 144 })
+      .flatten({ background: '#FFFFFF' })
+      .png({ compressionLevel: 9 })
+      .toBuffer();
+    const meta = await sharp(pngBuf).metadata();
+    isoEntPngs.push({ spec: ent, buffer: pngBuf, width: meta.width ?? 1600, height: meta.height ?? 860 });
+  }
+
+  const isoReadme = [
+    `# حزمة مخططات ERD المنعزلة بصيغة SVG (أسلوب تشين Chen Notation)`,
+    `مشروع: ${PROJECT_INFO.titleAr}`,
+    '',
+    `تحتوي هذه الحزمة على ملفات SVG مستقلة بخطوط عربية مضمنة (Noto Kufi Arabic & Noto Sans Arabic) لضمان الظهور الاحترافي عند التصدير أو الفتح على أي جهاز:`,
+    '',
+    `## 1. مجلد Relationships_SVG (${ISOLATED_ERD_RELATIONSHIPS.length} علاقة ثنائية منعزلة)`,
+    ...ISOLATED_ERD_RELATIONSHIPS.map((r) => `- \`${r.filename}\` — ${r.figureNumber}: ${r.titleAr} (${r.cardinalityLabelEn})`),
+    '',
+    `## 2. مجلد Entities_SVG (${ISOLATED_ERD_ENTITIES.length} كياناً مع صفاتها بأسلوب تشين)`,
+    ...ISOLATED_ERD_ENTITIES.map((e) => `- \`${e.filename}\` — ${e.figureNumber}: كيان ${e.tableNameAr} (\`${e.tableNameEn}\`)`),
+  ].join('\n');
+  fs.writeFileSync(path.join(DIR_ERD_ISO, 'README.md'), isoReadme, 'utf-8');
+
+  // Package dedicated Isolated Chen ERD SVG ZIP bundle
+  const erdZip = new JSZip();
+  erdZip.file('README.md', isoReadme);
+  const erdEntFolder = erdZip.folder('Entities_SVG')!;
+  const erdRelFolder = erdZip.folder('Relationships_SVG')!;
+  for (const ent of ISOLATED_ERD_ENTITIES) {
+    erdEntFolder.file(ent.filename, fs.readFileSync(path.join(DIR_ERD_ISO_ENT, ent.filename)));
+  }
+  for (const rel of ISOLATED_ERD_RELATIONSHIPS) {
+    erdRelFolder.file(rel.filename, fs.readFileSync(path.join(DIR_ERD_ISO_REL, rel.filename)));
+  }
+  const erdZipBuf = await erdZip.generateAsync({ type: 'nodebuffer', compression: 'DEFLATE' });
+  fs.writeFileSync(path.join(DIR_SRC, 'Waqf_ERD_Isolated_SVG_Bundle.zip'), erdZipBuf);
+  console.log(`   -> Waqf_ERD_Isolated_SVG_Bundle.zip (${Math.round(erdZipBuf.length / 1024)} KB)`);
+
   console.log('3. Generating Documentation files (.md and .csv)...');
   const docGuideLines: string[] = [
     `# دليل مخططات الفصل الثالث – ${PROJECT_INFO.titleAr}`,
@@ -202,7 +278,12 @@ async function generateAll() {
       ...d.keyHighlightsAr.map((k) => `- ${k}`),
       '',
     ]),
-    `## 5. مصفوفة التطابق بين مخازن البيانات (DFD) وجداول قاعدة البيانات (ERD)`,
+    `## 5. حزمة مخططات ERD المنعزلة (أسلوب تشين Chen)`,
+    `- **حزمة ZIP المستقلة:** \`03_Source/Waqf_ERD_Isolated_SVG_Bundle.zip\``,
+    `- **العلاقات الثنائية المنعزلة (17 علاقة):** \`03_Source/ERD_Isolated/Relationships_SVG/\``,
+    `- **الكيانات المنعزلة مع صفاتها (19 كياناً):** \`03_Source/ERD_Isolated/Entities_SVG/\``,
+    '',
+    `## 6. مصفوفة التطابق بين مخازن البيانات (DFD) وجداول قاعدة البيانات (ERD)`,
     `| الرمز | اسم مخزن البيانات | الجداول المرتبطة في Logical ERD | الوصف |`,
     `|---|---|---|---|`,
     ...DATA_STORES.map((ds) => `| ${ds.id} | ${ds.nameAr} | \`${ds.tables.join('`, `')}\` | ${ds.descriptionAr} |`),
@@ -607,6 +688,99 @@ async function generateAll() {
           }),
         ],
       },
+      // Section 4: Isolated Chen ERD Relationships & Entities (Portrait A4 matching PDF pages 3–8!)
+      {
+        properties: {
+          page: {
+            size: {
+              width: A4_WIDTH_TWIPS,
+              height: A4_HEIGHT_TWIPS,
+              orientation: PageOrientation.PORTRAIT,
+            },
+            margin: {
+              top: MARGIN_TWIPS,
+              bottom: MARGIN_TWIPS,
+              left: MARGIN_TWIPS,
+              right: MARGIN_TWIPS,
+            },
+          },
+        },
+        headers: { default: commonHeader },
+        footers: { default: commonFooter },
+        children: [
+          rtlPara([rtlRun('4. الحزمة المنعزلة لنموذج الكينونة والعلاقة (Chen ERD)', { bold: true, size: 30, color: '1E3A5F' })], {
+            heading: HeadingLevel.HEADING_1,
+            keepNext: true,
+            spaceAfter: 120,
+          }),
+          rtlPara(
+            [
+              rtlRun(
+                'تستعرض هذه الفقرة تفاصيل العلاقات الثنائية السبعة عشر بين الكيانات، يليها تفصيل كل كيان من كيانات قاعدة البيانات التسعة عشر مع صفاته بأسلوب تشين (Chen Notation)، بحيث يظهر المفتاح الأساسي مسطراً وتُبرز الصفات الفريدة أو المركبة بإهليلج مزدوج.',
+                { size: 21, color: '334155' }
+              ),
+            ],
+            { spaceAfter: 160 }
+          ),
+          rtlPara([rtlRun('4.1 العلاقات الثنائية بين الكيانات (17 علاقة)', { bold: true, size: 25, color: '0F766E' })], {
+            heading: HeadingLevel.HEADING_2,
+            keepNext: true,
+            spaceAfter: 100,
+          }),
+          ...isoRelPngs.flatMap((item) => {
+            const targetW = 580;
+            const targetH = Math.round((targetW * item.height) / item.width);
+            return [
+              new Paragraph({
+                alignment: AlignmentType.CENTER,
+                keepNext: true,
+                spacing: { before: 80, after: 40 },
+                children: [
+                  new ImageRun({
+                    data: item.buffer,
+                    transformation: { width: targetW, height: targetH },
+                    type: 'png',
+                  }),
+                ],
+              }),
+              rtlPara([rtlRun(`${item.spec.figureNumber}: ${item.spec.titleAr} (${item.spec.cardinalityLabelEn})`, { bold: true, size: 19, color: '475569' })], {
+                align: AlignmentType.CENTER,
+                spaceBefore: 0,
+                spaceAfter: 120,
+              }),
+            ];
+          }),
+          rtlPara([new TextRun({ children: [new PageBreak()] })]),
+          rtlPara([rtlRun('4.2 الكيانات المنعزلة مع صفاتها بأسلوب تشين (19 كياناً)', { bold: true, size: 25, color: '0F766E' })], {
+            heading: HeadingLevel.HEADING_2,
+            keepNext: true,
+            spaceAfter: 100,
+          }),
+          ...isoEntPngs.flatMap((item) => {
+            const targetW = 590;
+            const targetH = Math.round((targetW * item.height) / item.width);
+            return [
+              new Paragraph({
+                alignment: AlignmentType.CENTER,
+                keepNext: true,
+                spacing: { before: 100, after: 40 },
+                children: [
+                  new ImageRun({
+                    data: item.buffer,
+                    transformation: { width: targetW, height: targetH },
+                    type: 'png',
+                  }),
+                ],
+              }),
+              rtlPara([rtlRun(`${item.spec.figureNumber}: كيان ${item.spec.tableNameAr} (${item.spec.tableNameEn})`, { bold: true, size: 19, color: '475569' })], {
+                align: AlignmentType.CENTER,
+                spaceBefore: 0,
+                spaceAfter: 140,
+              }),
+            ];
+          }),
+        ],
+      },
     ],
   });
 
@@ -619,6 +793,7 @@ async function generateAll() {
   const zip = new JSZip();
   function addFolderToZip(folderPath: string, zipFolder: JSZip) {
     for (const item of fs.readdirSync(folderPath)) {
+      if (item.endsWith('.zip')) continue;
       const fullPath = path.join(folderPath, item);
       const stat = fs.statSync(fullPath);
       if (stat.isDirectory()) {

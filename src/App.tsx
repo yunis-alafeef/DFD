@@ -21,12 +21,15 @@ import {
   DATA_STORES,
   DIAGRAMS,
   EXTERNAL_ENTITIES,
+  ISOLATED_ERD_ENTITIES_META,
+  ISOLATED_ERD_RELATIONSHIPS_META,
   MAIN_PROCESSES,
   PROJECT_INFO,
 } from './data/projectSpec';
 
-type ActiveSection = 'diagrams' | 'dictionary' | 'balancing' | 'deliverables';
+type ActiveSection = 'diagrams' | 'erd-isolated' | 'dictionary' | 'balancing' | 'deliverables';
 type PreviewMode = 'svg' | 'png';
+type ErdIsoTab = 'entities' | 'relationships';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<ActiveSection>('diagrams');
@@ -34,6 +37,12 @@ export default function App() {
   const [previewMode, setPreviewMode] = useState<PreviewMode>('svg');
   const [zoom, setZoom] = useState<number>(100);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  // Isolated Chen ERD browser state
+  const [erdIsoTab, setErdIsoTab] = useState<ErdIsoTab>('entities');
+  const [selectedIsoEntityId, setSelectedIsoEntityId] = useState<string>(ISOLATED_ERD_ENTITIES_META[3].id); // users default
+  const [selectedIsoRelId, setSelectedIsoRelId] = useState<string>(ISOLATED_ERD_RELATIONSHIPS_META[3].id);
+  const [isoZoom, setIsoZoom] = useState<number>(100);
 
   // Data dictionary filters
   const [ddSearch, setDdSearch] = useState<string>('');
@@ -43,6 +52,16 @@ export default function App() {
   const selectedDiagram = useMemo(
     () => DIAGRAMS.find((d) => d.id === selectedDiagramId) ?? DIAGRAMS[0],
     [selectedDiagramId]
+  );
+
+  const selectedIsoEntity = useMemo(
+    () => ISOLATED_ERD_ENTITIES_META.find((e) => e.id === selectedIsoEntityId) ?? ISOLATED_ERD_ENTITIES_META[0],
+    [selectedIsoEntityId]
+  );
+
+  const selectedIsoRel = useMemo(
+    () => ISOLATED_ERD_RELATIONSHIPS_META.find((r) => r.id === selectedIsoRelId) ?? ISOLATED_ERD_RELATIONSHIPS_META[0],
+    [selectedIsoRelId]
   );
 
   const filteredDictionary = useMemo(() => {
@@ -94,8 +113,8 @@ export default function App() {
             مخططات الفصل الثالث
           </a>
 
-          {/* Zone 2: 4 Clean Single-Line Nav Links */}
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+          {/* Zone 2: 5 Clean Single-Line Nav Links */}
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
             <button
               type="button"
               onClick={() => setActiveSection('diagrams')}
@@ -106,6 +125,17 @@ export default function App() {
               }`}
             >
               المخططات الهندسية
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveSection('erd-isolated')}
+              className={`py-1 border-b-2 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                activeSection === 'erd-isolated'
+                  ? 'border-[#1E3A5F] text-[#1E3A5F] font-semibold'
+                  : 'border-transparent hover:text-slate-900'
+              }`}
+            >
+              حزمة ERD المنعزلة
             </button>
             <button
               type="button"
@@ -160,6 +190,7 @@ export default function App() {
           {(
             [
               ['diagrams', 'المخططات'],
+              ['erd-isolated', 'ERD المنعزلة'],
               ['dictionary', 'قاموس البيانات'],
               ['balancing', 'التوافق'],
               ['deliverables', 'التسليم'],
@@ -437,6 +468,234 @@ export default function App() {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* SECTION 1B: ISOLATED CHEN ERD SVG STUDIO */}
+        {activeSection === 'erd-isolated' && (
+          <div className="space-y-6">
+            {/* Sub-header & Bundle CTA */}
+            <div className="bg-white border border-slate-200 rounded-xl p-5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+              <div>
+                <h2 className="font-display text-lg font-bold text-slate-900">
+                  حزمة SVG المنعزلة لنموذج الكينونة والعلاقة (أسلوب تشين Chen Notation)
+                </h2>
+                <p className="text-xs text-slate-600 mt-1">
+                  ملفات SVG مستقلة بخطوط عربية مضمنة (Noto Kufi / Noto Sans Arabic): تشمل 19 كياناً مع صفاتها (المفتاح الأساسي مسطّر والصفات الفريدة والمركبة بإهليلج مزدوج) و17 علاقة ثنائية معزولة.
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+                <div className="flex items-center gap-1 p-1 bg-slate-100 rounded-lg">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setErdIsoTab('entities');
+                      setIsoZoom(100);
+                    }}
+                    className={`px-3.5 py-1.5 text-xs font-semibold rounded-md transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+                      erdIsoTab === 'entities'
+                        ? 'bg-white text-[#1E3A5F] shadow-xs'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    الكيانات وصفاتها (19)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setErdIsoTab('relationships');
+                      setIsoZoom(100);
+                    }}
+                    className={`px-3.5 py-1.5 text-xs font-semibold rounded-md transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+                      erdIsoTab === 'relationships'
+                        ? 'bg-white text-[#1E3A5F] shadow-xs'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    العلاقات الثنائية (17)
+                  </button>
+                </div>
+
+                <a
+                  href="/deliverables/03_Source/Waqf_ERD_Isolated_SVG_Bundle.zip"
+                  download="Waqf_ERD_Isolated_SVG_Bundle.zip"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-[#0F766E] hover:bg-[#0D655E] rounded-lg transition-colors whitespace-nowrap shrink-0"
+                >
+                  <FileArchive className="w-4 h-4" />
+                  <span>تنزيل حزمة ERD SVG (ZIP)</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Interactive Split Workspace */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              {/* List Selector */}
+              <aside className="lg:col-span-4 bg-white border border-slate-200 rounded-xl overflow-hidden max-h-[680px] flex flex-col">
+                <div className="px-4 py-3 border-b border-slate-200 bg-slate-50 shrink-0">
+                  <h3 className="font-display text-sm font-bold text-slate-900">
+                    {erdIsoTab === 'entities'
+                      ? 'فهرس الكيانات التسعة عشر (Entities)'
+                      : 'فهرس العلاقات الثنائية (Relationships)'}
+                  </h3>
+                </div>
+                <div className="divide-y divide-slate-100 overflow-y-auto">
+                  {erdIsoTab === 'entities'
+                    ? ISOLATED_ERD_ENTITIES_META.map((ent) => {
+                        const active = ent.id === selectedIsoEntity.id;
+                        return (
+                          <button
+                            key={ent.id}
+                            type="button"
+                            onClick={() => {
+                              setSelectedIsoEntityId(ent.id);
+                              setIsoZoom(100);
+                            }}
+                            className={`w-full text-right px-4 py-3 transition-colors cursor-pointer flex items-center justify-between gap-3 ${
+                              active ? 'bg-[#EFF6FF] text-[#1E3A5F]' : 'hover:bg-slate-50 text-slate-700'
+                            }`}
+                          >
+                            <div>
+                              <div className="text-[11px] font-semibold text-[#0F766E]">
+                                {ent.figureNumber} · {ent.dataStoreId}
+                              </div>
+                              <div className="text-sm font-bold leading-snug">
+                                {ent.tableNameAr}
+                              </div>
+                            </div>
+                            <div className="text-left shrink-0">
+                              <div className="font-mono text-xs text-slate-500" dir="ltr">
+                                {ent.tableNameEn}
+                              </div>
+                              <div className="text-[11px] text-slate-400">
+                                {ent.attributeCount} صفات
+                              </div>
+                            </div>
+                          </button>
+                        );
+                      })
+                    : ISOLATED_ERD_RELATIONSHIPS_META.map((rel) => {
+                        const active = rel.id === selectedIsoRel.id;
+                        return (
+                          <button
+                            key={rel.id}
+                            type="button"
+                            onClick={() => {
+                              setSelectedIsoRelId(rel.id);
+                              setIsoZoom(100);
+                            }}
+                            className={`w-full text-right px-4 py-3 transition-colors cursor-pointer flex items-center justify-between gap-3 ${
+                              active ? 'bg-[#EFF6FF] text-[#1E3A5F]' : 'hover:bg-slate-50 text-slate-700'
+                            }`}
+                          >
+                            <div>
+                              <div className="text-[11px] font-semibold text-[#0F766E]">
+                                {rel.figureNumber}
+                              </div>
+                              <div className="text-sm font-bold leading-snug">
+                                {rel.titleAr}
+                              </div>
+                            </div>
+                            <span className="font-mono text-[11px] text-slate-500 shrink-0" dir="ltr">
+                              {rel.cardinalityLabelEn}
+                            </span>
+                          </button>
+                        );
+                      })}
+                </div>
+              </aside>
+
+              {/* Live Preview Canvas */}
+              <div className="lg:col-span-8 bg-white border border-slate-200 rounded-xl overflow-hidden">
+                <div className="px-5 py-3.5 border-b border-slate-200 flex flex-wrap items-center justify-between gap-4 bg-slate-50/70">
+                  <div>
+                    <div className="text-xs text-slate-500 flex items-center gap-2">
+                      <span className="font-semibold text-[#0F766E]">
+                        {erdIsoTab === 'entities'
+                          ? selectedIsoEntity.figureNumber
+                          : selectedIsoRel.figureNumber}
+                      </span>
+                      <span aria-hidden="true">·</span>
+                      <span className="font-mono">
+                        {erdIsoTab === 'entities'
+                          ? selectedIsoEntity.filename
+                          : selectedIsoRel.filename}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-base font-bold text-slate-900 mt-0.5">
+                      {erdIsoTab === 'entities'
+                        ? `كيان ${selectedIsoEntity.tableNameAr} (${selectedIsoEntity.tableNameEn})`
+                        : `${selectedIsoRel.titleAr} (${selectedIsoRel.cardinalityLabelEn})`}
+                    </h3>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1 border border-slate-200 bg-white rounded-lg px-1.5 py-1">
+                      <button
+                        type="button"
+                        title="تصغير"
+                        onClick={() => setIsoZoom((z) => Math.max(50, z - 25))}
+                        className="p-1 text-slate-600 hover:text-slate-900 cursor-pointer"
+                      >
+                        <ZoomOut className="w-4 h-4" />
+                      </button>
+                      <span className="font-mono text-xs text-slate-700 w-11 text-center tabular-nums">
+                        {isoZoom}%
+                      </span>
+                      <button
+                        type="button"
+                        title="تكبير"
+                        onClick={() => setIsoZoom((z) => Math.min(200, z + 25))}
+                        className="p-1 text-slate-600 hover:text-slate-900 cursor-pointer"
+                      >
+                        <ZoomIn className="w-4 h-4" />
+                      </button>
+                      <button
+                        type="button"
+                        title="إعادة ضبط"
+                        onClick={() => setIsoZoom(100)}
+                        className="p-1 text-slate-600 hover:text-slate-900 cursor-pointer"
+                      >
+                        <RotateCcw className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+
+                    <a
+                      href={
+                        erdIsoTab === 'entities'
+                          ? `/deliverables/03_Source/ERD_Isolated/Entities_SVG/${selectedIsoEntity.filename}`
+                          : `/deliverables/03_Source/ERD_Isolated/Relationships_SVG/${selectedIsoRel.filename}`
+                      }
+                      download={
+                        erdIsoTab === 'entities'
+                          ? selectedIsoEntity.filename
+                          : selectedIsoRel.filename
+                      }
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#1E3A5F] hover:bg-[#162C49] rounded-lg transition-colors whitespace-nowrap shrink-0"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      <span>تنزيل SVG</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 overflow-auto max-h-[600px] flex justify-center">
+                  <img
+                    src={
+                      erdIsoTab === 'entities'
+                        ? `/deliverables/03_Source/ERD_Isolated/Entities_SVG/${selectedIsoEntity.filename}`
+                        : `/deliverables/03_Source/ERD_Isolated/Relationships_SVG/${selectedIsoRel.filename}`
+                    }
+                    alt={
+                      erdIsoTab === 'entities'
+                        ? selectedIsoEntity.tableNameAr
+                        : selectedIsoRel.titleAr
+                    }
+                    style={{ width: `${isoZoom}%`, maxWidth: isoZoom === 100 ? '100%' : 'none' }}
+                    className="h-auto object-contain"
+                  />
                 </div>
               </div>
             </div>
@@ -884,6 +1143,40 @@ export default function App() {
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+
+            {/* Dedicated Isolated Chen ERD SVG Bundle Card */}
+            <div className="bg-white border border-slate-200 rounded-xl p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <h3 className="font-display text-base font-bold text-[#1E3A5F]">
+                    حزمة ERD المنعزلة بأسلوب تشين (36 ملف SVG بخطوط مضمنة)
+                  </h3>
+                  <span className="font-mono text-xs text-slate-400">
+                    03_Source/ERD_Isolated/
+                  </span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  تحتوي على 19 ملف SVG لكل كيان مع صفاته (المفتاح الأساسي مسطّر، والصفات الفريدة والمركبة بإهليلج مزدوج)، إضافة إلى 17 ملف SVG للعلاقات الثنائية (1:1 و 1:N و M:N) مع تضمين الخطوط العربية داخل كل ملف.
+                </p>
+              </div>
+              <div className="flex items-center gap-2.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setActiveSection('erd-isolated')}
+                  className="px-4 py-2 text-xs font-semibold text-[#1E3A5F] bg-[#EFF6FF] hover:bg-blue-100 border border-blue-200 rounded-lg transition-colors cursor-pointer whitespace-nowrap shrink-0"
+                >
+                  استعراض الملفات الـ 36
+                </button>
+                <a
+                  href="/deliverables/03_Source/Waqf_ERD_Isolated_SVG_Bundle.zip"
+                  download="Waqf_ERD_Isolated_SVG_Bundle.zip"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-[#0F766E] hover:bg-[#0D655E] rounded-lg transition-colors whitespace-nowrap shrink-0"
+                >
+                  <FileArchive className="w-4 h-4" />
+                  <span>تنزيل حزمة ERD (ZIP)</span>
+                </a>
               </div>
             </div>
           </div>

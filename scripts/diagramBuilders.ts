@@ -1,4 +1,5 @@
 import { DIAGRAMS } from '../src/data/projectSpec';
+import { getMainSvgFontsCss } from './svgFontEmbed';
 
 // Unified Academic Color System (High-contrast, print & B/W friendly)
 export const PALETTE = {
@@ -19,10 +20,10 @@ export const PALETTE = {
   gridLine: '#E2E8F0',
 };
 
-const FONT_AR = 'Noto Kufi Arabic, Noto Sans Arabic, DejaVu Sans, sans-serif';
-const FONT_AR_BODY = 'Noto Sans Arabic, DejaVu Sans, sans-serif';
-const FONT_MONO = 'DejaVu Sans Mono, monospace';
-const FONT_EN = 'DejaVu Sans, Noto Sans Arabic, sans-serif';
+const FONT_AR = "'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif";
+const FONT_AR_BODY = "'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif";
+const FONT_MONO = "'Liberation Mono', 'DejaVu Sans Mono', monospace";
+const FONT_EN = "'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif";
 
 export function escXml(str: string): string {
   return str
@@ -35,7 +36,7 @@ export function escXml(str: string): string {
 
 function svgHeader(width: number, height: number, titleAr: string, subtitleAr: string): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" text-rendering="geometricPrecision" shape-rendering="geometricPrecision">
   <defs>
     <marker id="arrow-navy" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 1 L 11 5 L 0 9 z" fill="${PALETTE.navy}" />
@@ -63,10 +64,11 @@ function svgHeader(width: number, height: number, titleAr: string, subtitleAr: s
       <circle cx="5" cy="7" r="3.2" fill="#FFFFFF" stroke="${PALETTE.navy}" stroke-width="1.6" />
       <path d="M 18 2 L 9 7 L 18 12" fill="none" stroke="${PALETTE.navy}" stroke-width="1.8" />
     </marker>
-    <style>
+    <style type="text/css"><![CDATA[
+${getMainSvgFontsCss()}
       .halo { paint-order: stroke; stroke: #FFFFFF; stroke-width: 7px; stroke-linejoin: round; stroke-linecap: round; }
       .halo-sm { paint-order: stroke; stroke: #FFFFFF; stroke-width: 5px; stroke-linejoin: round; stroke-linecap: round; }
-    </style>
+    ]]></style>
   </defs>
   <rect width="${width}" height="${height}" fill="#FFFFFF" />
   <rect x="18" y="18" width="${width - 36}" height="${height - 36}" rx="10" fill="none" stroke="${PALETTE.borderSubtle}" stroke-width="1.5" />

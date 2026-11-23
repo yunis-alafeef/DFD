@@ -671,3 +671,69 @@ export const DIAGRAMS: DiagramMetadata[] = [
     ],
   },
 ];
+
+export interface IsolatedErdRelationshipMeta {
+  id: string;
+  order: number;
+  figureNumber: string;
+  titleAr: string;
+  cardinalityLabelEn: 'One-to-One' | 'One-to-Many' | 'Many-to-Many';
+  rightEntityAr: string;
+  leftEntityAr: string;
+  verbAr: string;
+  filename: string;
+}
+
+export interface IsolatedErdEntityMeta {
+  id: string;
+  order: number;
+  figureNumber: string;
+  tableNameEn: string;
+  tableNameAr: string;
+  dataStoreId: string;
+  attributeCount: number;
+  filename: string;
+}
+
+export const ISOLATED_ERD_RELATIONSHIPS_META: IsolatedErdRelationshipMeta[] = [
+  { id: 'rel-01', order: 1, figureNumber: 'الشكل (3-7)', titleAr: 'علاقة الأدوار الوظيفية بالصلاحيات', cardinalityLabelEn: 'Many-to-Many', rightEntityAr: 'الأدوار الوظيفية', leftEntityAr: 'الصلاحيات', verbAr: 'تمتلك', filename: 'R01_roles_permissions.svg' },
+  { id: 'rel-02', order: 2, figureNumber: 'الشكل (3-8)', titleAr: 'علاقة الدور الوظيفي بالمستخدمين', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'الأدوار الوظيفية', leftEntityAr: 'المستخدمون', verbAr: 'يُسنَد إلى', filename: 'R02_roles_users.svg' },
+  { id: 'rel-03', order: 3, figureNumber: 'الشكل (3-9)', titleAr: 'علاقة المستخدم بسجلات التدقيق', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'المستخدمون', leftEntityAr: 'سجلات التدقيق', verbAr: 'يُولّد', filename: 'R03_users_audit_logs.svg' },
+  { id: 'rel-04', order: 4, figureNumber: 'الشكل (3-10)', titleAr: 'علاقة الواقف بالأوقاف', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'الواقفون', leftEntityAr: 'الأوقاف', verbAr: 'ينشئ', filename: 'R04_waqifs_waqfs.svg' },
+  { id: 'rel-05', order: 5, figureNumber: 'الشكل (3-11)', titleAr: 'علاقة الناظر (المستخدم) بالأوقاف', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'الناظر (المستخدم)', leftEntityAr: 'الأوقاف', verbAr: 'يشرف على', filename: 'R05_nazir_waqfs.svg' },
+  { id: 'rel-06', order: 6, figureNumber: 'الشكل (3-12)', titleAr: 'علاقة الوقف بالممتلكات الوقفية', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'الأوقاف', leftEntityAr: 'الممتلكات الوقفية', verbAr: 'يضم', filename: 'R06_waqfs_properties.svg' },
+  { id: 'rel-07', order: 7, figureNumber: 'الشكل (3-13)', titleAr: 'علاقة العقار الوقفي بالقطعة الجغرافية', cardinalityLabelEn: 'One-to-One', rightEntityAr: 'الممتلكات الوقفية', leftEntityAr: 'القطع الجغرافية', verbAr: 'يُحدَّد مكانياً بـ', filename: 'R07_properties_gis_parcels.svg' },
+  { id: 'rel-08', order: 8, figureNumber: 'الشكل (3-14)', titleAr: 'علاقة الوقف بالوثائق المؤرشفة', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'الأوقاف', leftEntityAr: 'الوثائق الوقفية', verbAr: 'يوثَّق بـ', filename: 'R08_waqfs_documents.svg' },
+  { id: 'rel-09', order: 9, figureNumber: 'الشكل (3-15)', titleAr: 'علاقة الوقف بشروط الواقفين', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'الأوقاف', leftEntityAr: 'شروط الواقفين', verbAr: 'يخضع لـ', filename: 'R09_waqfs_conditions.svg' },
+  { id: 'rel-10', order: 10, figureNumber: 'الشكل (3-16)', titleAr: 'علاقة الأوقاف بالمستفيدين', cardinalityLabelEn: 'Many-to-Many', rightEntityAr: 'الأوقاف', leftEntityAr: 'المستفيدون', verbAr: 'يستحق عوائده', filename: 'R10_waqfs_beneficiaries.svg' },
+  { id: 'rel-11', order: 11, figureNumber: 'الشكل (3-17)', titleAr: 'علاقة الاستحقاق بصرفيات العوائد', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'استحقاقات المستفيدين', leftEntityAr: 'صرفيات العوائد', verbAr: 'يُصرَف له', filename: 'R11_entitlements_disbursements.svg' },
+  { id: 'rel-12', order: 12, figureNumber: 'الشكل (3-18)', titleAr: 'علاقة المستخدم بالمستأجر', cardinalityLabelEn: 'One-to-One', rightEntityAr: 'المستخدمون', leftEntityAr: 'المستأجرون', verbAr: 'يمتلك ملف', filename: 'R12_users_tenants.svg' },
+  { id: 'rel-13', order: 13, figureNumber: 'الشكل (3-19)', titleAr: 'علاقة العقار الوقفي بعقود الإيجار', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'الممتلكات الوقفية', leftEntityAr: 'عقود الإيجار', verbAr: 'يُؤجَّر عبر', filename: 'R13_properties_contracts.svg' },
+  { id: 'rel-14', order: 14, figureNumber: 'الشكل (3-20)', titleAr: 'علاقة المستأجر بعقود الإيجار', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'المستأجرون', leftEntityAr: 'عقود الإيجار', verbAr: 'يُبرم', filename: 'R14_tenants_contracts.svg' },
+  { id: 'rel-15', order: 15, figureNumber: 'الشكل (3-21)', titleAr: 'علاقة عقد الإيجار بالفواتير المالية', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'عقود الإيجار', leftEntityAr: 'الفواتير المالية', verbAr: 'يُولّد', filename: 'R15_contracts_invoices.svg' },
+  { id: 'rel-16', order: 16, figureNumber: 'الشكل (3-22)', titleAr: 'علاقة الفاتورة بعمليات التحصيل والسداد', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'الفواتير المالية', leftEntityAr: 'عمليات السداد', verbAr: 'تُسدَّد عبر', filename: 'R16_invoices_payments.svg' },
+  { id: 'rel-17', order: 17, figureNumber: 'الشكل (3-23)', titleAr: 'علاقة المستخدم بالطلبات الإلكترونية', cardinalityLabelEn: 'One-to-Many', rightEntityAr: 'المستخدمون', leftEntityAr: 'الطلبات الإلكترونية', verbAr: 'يقدم', filename: 'R17_users_service_requests.svg' },
+];
+
+export const ISOLATED_ERD_ENTITIES_META: IsolatedErdEntityMeta[] = [
+  { id: 'ent-01', order: 1, figureNumber: 'الشكل (3-24)', tableNameEn: 'roles', tableNameAr: 'الأدوار الوظيفية', dataStoreId: 'D1', attributeCount: 3, filename: 'E01_roles.svg' },
+  { id: 'ent-02', order: 2, figureNumber: 'الشكل (3-25)', tableNameEn: 'permissions', tableNameAr: 'الصلاحيات', dataStoreId: 'D1', attributeCount: 3, filename: 'E02_permissions.svg' },
+  { id: 'ent-03', order: 3, figureNumber: 'الشكل (3-26)', tableNameEn: 'role_permissions', tableNameAr: 'صلاحيات الأدوار', dataStoreId: 'D1', attributeCount: 2, filename: 'E03_role_permissions.svg' },
+  { id: 'ent-04', order: 4, figureNumber: 'الشكل (3-27)', tableNameEn: 'users', tableNameAr: 'المستخدمون', dataStoreId: 'D1', attributeCount: 9, filename: 'E04_users.svg' },
+  { id: 'ent-05', order: 5, figureNumber: 'الشكل (3-28)', tableNameEn: 'audit_logs', tableNameAr: 'سجلات التدقيق', dataStoreId: 'D8', attributeCount: 6, filename: 'E05_audit_logs.svg' },
+  { id: 'ent-06', order: 6, figureNumber: 'الشكل (3-29)', tableNameEn: 'waqifs', tableNameAr: 'الواقفون', dataStoreId: 'D4', attributeCount: 4, filename: 'E06_waqifs.svg' },
+  { id: 'ent-07', order: 7, figureNumber: 'الشكل (3-30)', tableNameEn: 'waqfs', tableNameAr: 'الأوقاف', dataStoreId: 'D2', attributeCount: 7, filename: 'E07_waqfs.svg' },
+  { id: 'ent-08', order: 8, figureNumber: 'الشكل (3-31)', tableNameEn: 'properties', tableNameAr: 'الممتلكات الوقفية', dataStoreId: 'D2', attributeCount: 8, filename: 'E08_properties.svg' },
+  { id: 'ent-09', order: 9, figureNumber: 'الشكل (3-32)', tableNameEn: 'gis_parcels', tableNameAr: 'القطع الجغرافية', dataStoreId: 'D2', attributeCount: 5, filename: 'E09_gis_parcels.svg' },
+  { id: 'ent-10', order: 10, figureNumber: 'الشكل (3-33)', tableNameEn: 'documents', tableNameAr: 'الوثائق الوقفية', dataStoreId: 'D3', attributeCount: 9, filename: 'E10_documents.svg' },
+  { id: 'ent-11', order: 11, figureNumber: 'الشكل (3-34)', tableNameEn: 'waqif_conditions', tableNameAr: 'شروط الواقفين', dataStoreId: 'D4', attributeCount: 5, filename: 'E11_waqif_conditions.svg' },
+  { id: 'ent-12', order: 12, figureNumber: 'الشكل (3-35)', tableNameEn: 'beneficiaries', tableNameAr: 'المستفيدون', dataStoreId: 'D4', attributeCount: 6, filename: 'E12_beneficiaries.svg' },
+  { id: 'ent-13', order: 13, figureNumber: 'الشكل (3-36)', tableNameEn: 'waqf_beneficiaries', tableNameAr: 'استحقاقات المستفيدين', dataStoreId: 'D4', attributeCount: 5, filename: 'E13_waqf_beneficiaries.svg' },
+  { id: 'ent-14', order: 14, figureNumber: 'الشكل (3-37)', tableNameEn: 'tenants', tableNameAr: 'المستأجرون', dataStoreId: 'D5', attributeCount: 4, filename: 'E14_tenants.svg' },
+  { id: 'ent-15', order: 15, figureNumber: 'الشكل (3-38)', tableNameEn: 'lease_contracts', tableNameAr: 'عقود الإيجار', dataStoreId: 'D5', attributeCount: 9, filename: 'E15_lease_contracts.svg' },
+  { id: 'ent-16', order: 16, figureNumber: 'الشكل (3-39)', tableNameEn: 'invoices', tableNameAr: 'الفواتير المالية', dataStoreId: 'D6', attributeCount: 5, filename: 'E16_invoices.svg' },
+  { id: 'ent-17', order: 17, figureNumber: 'الشكل (3-40)', tableNameEn: 'payments', tableNameAr: 'عمليات السداد', dataStoreId: 'D6', attributeCount: 6, filename: 'E17_payments.svg' },
+  { id: 'ent-18', order: 18, figureNumber: 'الشكل (3-41)', tableNameEn: 'disbursements', tableNameAr: 'صرفيات العوائد', dataStoreId: 'D6', attributeCount: 5, filename: 'E18_disbursements.svg' },
+  { id: 'ent-19', order: 19, figureNumber: 'الشكل (3-42)', tableNameEn: 'service_requests', tableNameAr: 'الطلبات الإلكترونية', dataStoreId: 'D7', attributeCount: 7, filename: 'E19_service_requests.svg' },
+];
+
