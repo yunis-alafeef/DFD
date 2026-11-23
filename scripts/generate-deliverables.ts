@@ -47,6 +47,7 @@ import {
   buildIsolatedEntitySvg,
   buildIsolatedRelationshipSvg,
 } from './chenErdIsolatedBuilders';
+import { buildNativeWordShapesDocx, NativeWordShapeSlot } from './wordShapesDocxBuilder';
 
 const OUT_ROOT = path.resolve(process.cwd(), 'public', 'deliverables');
 const DIR_WORD = path.join(OUT_ROOT, '01_Word');
@@ -157,14 +158,17 @@ async function generateAll() {
   };
 
   const pngMetaMap: Record<string, { path: string; buffer: Buffer; width: number; height: number }> = {};
+  const svgMap: Record<string, string> = {};
+  const nativeWordSlots: NativeWordShapeSlot[] = [];
 
   for (const diag of DIAGRAMS) {
     const svg = svgGenerators[diag.id]();
+    svgMap[diag.id] = svg;
     const svgPath = path.join(DIR_SRC_SVG, diag.svgFilename);
     fs.writeFileSync(svgPath, svg, 'utf-8');
 
     // Render crisp high-resolution PNG with 300 DPI metadata
-    const renderDensity = diag.id === 'context' ? 180 : 150;
+    const renderDensity = diag.id === 'context' ? 180 : diag.id === 'cerd' ? 170 : 150;
     const pngPath = path.join(DIR_PNG, diag.pngFilename);
     const pngBuf = await sharp(Buffer.from(svg), { density: renderDensity })
       .flatten({ background: '#FFFFFF' })
@@ -180,6 +184,13 @@ async function generateAll() {
       width: meta.width ?? 3600,
       height: meta.height ?? 2400,
     };
+    nativeWordSlots.push({
+      id: diag.id,
+      svg,
+      orientation: diag.orientation,
+      heading: `${diag.figureNumber}: ${diag.titleAr}`,
+      caption: `الشرح الأكاديمي: ${diag.academicSummaryAr}`,
+    });
     console.log(`   -> ${diag.pngFilename}: ${meta.width}x${meta.height}px (${Math.round(pngBuf.length / 1024)} KB)`);
   }
 
@@ -207,6 +218,12 @@ async function generateAll() {
       .toBuffer();
     const meta = await sharp(pngBuf).metadata();
     isoRelPngs.push({ spec: rel, buffer: pngBuf, width: meta.width ?? 1400, height: meta.height ?? 460 });
+    nativeWordSlots.push({
+      id: rel.id,
+      svg,
+      orientation: 'portrait',
+      heading: `${rel.figureNumber}: ${rel.titleAr} (${rel.cardinalityLabelEn})`,
+    });
   }
 
   for (const ent of ISOLATED_ERD_ENTITIES) {
@@ -218,6 +235,12 @@ async function generateAll() {
       .toBuffer();
     const meta = await sharp(pngBuf).metadata();
     isoEntPngs.push({ spec: ent, buffer: pngBuf, width: meta.width ?? 1600, height: meta.height ?? 860 });
+    nativeWordSlots.push({
+      id: ent.id,
+      svg,
+      orientation: 'portrait',
+      heading: `${ent.figureNumber}: كيان ${ent.tableNameAr} (${ent.tableNameEn})`,
+    });
   }
 
   const isoReadme = [
@@ -389,7 +412,7 @@ async function generateAll() {
           children: [
             makeCell([rtlRun(d.figureNumber, { bold: true, size: 20, color: '1E3A5F' })], { fill: idx % 2 ? 'F8FAFC' : 'FFFFFF', align: AlignmentType.CENTER }),
             makeCell([rtlRun(d.titleAr, { size: 20 })], { fill: idx % 2 ? 'F8FAFC' : 'FFFFFF' }),
-            makeCell([rtlRun('أفقي (Landscape A4)', { size: 20, color: '475569' })], { fill: idx % 2 ? 'F8FAFC' : 'FFFFFF', align: AlignmentType.CENTER }),
+            makeCell([rtlRun(d.orientation === 'portrait' ? 'عمودي كاملة الصفحة (Portrait A4)' : 'أفقي (Landscape A4)', { size: 20, color: '475569' })], { fill: idx % 2 ? 'F8FAFC' : 'FFFFFF', align: AlignmentType.CENTER }),
           ],
         })
     ),
@@ -471,18 +494,27 @@ async function generateAll() {
   // A4 Landscape width = 16838 twips (~11.69 in), height = 11906 twips (~8.27 in)
   // Margin = 850 twips (~1.5 cm) -> Usable width = 15138 twips (~1009 px at 96dpi), Usable height for image = 7200 twips (~480 px at 96dpi) leaving generous space for title + academic explanation!
   const LANDSCAPE_MARGIN = 850;
-  const MAX_IMG_W_PX = 930; // ~9.68 inches inside 10.5 in usable width
-  const MAX_IMG_H_PX = 485; // ~5.05 inches leaving room for heading & explanation on same page!
+  const PORTRAIT_FULL_MARGIN = 794; // ~1.4cm for full-page Portrait Chen ERD
+  const MAX_LANDSCAPE_IMG_W_PX = 930;
+  const MAX_LANDSCAPE_IMG_H_PX = 485;
+  const MAX_PORTRAIT_IMG_W_PX = 635;
+  const MAX_PORTRAIT_IMG_H_PX = 835;
 
   const diagramSections = DIAGRAMS.map((d) => {
     const info = pngMetaMap[d.id];
     const ratio = info.width / info.height;
-    let targetW = MAX_IMG_W_PX;
+    const isPortrait = d.orientation === 'portrait';
+    const maxW = isPortrait ? MAX_PORTRAIT_IMG_W_PX : MAX_LANDSCAPE_IMG_W_PX;
+    const maxH = isPortrait ? MAX_PORTRAIT_IMG_H_PX : MAX_LANDSCAPE_IMG_H_PX;
+
+    let targetW = maxW;
     let targetH = Math.round(targetW / ratio);
-    if (targetH > MAX_IMG_H_PX) {
-      targetH = MAX_IMG_H_PX;
+    if (targetH > maxH) {
+      targetH = maxH;
       targetW = Math.round(targetH * ratio);
     }
+
+    const pageMargin = isPortrait ? PORTRAIT_FULL_MARGIN : LANDSCAPE_MARGIN;
 
     return {
       properties: {
@@ -490,13 +522,13 @@ async function generateAll() {
           size: {
             width: A4_WIDTH_TWIPS,
             height: A4_HEIGHT_TWIPS,
-            orientation: PageOrientation.LANDSCAPE,
+            orientation: isPortrait ? PageOrientation.PORTRAIT : PageOrientation.LANDSCAPE,
           },
           margin: {
-            top: LANDSCAPE_MARGIN,
-            bottom: LANDSCAPE_MARGIN,
-            left: LANDSCAPE_MARGIN,
-            right: LANDSCAPE_MARGIN,
+            top: pageMargin,
+            bottom: pageMargin,
+            left: pageMargin,
+            right: pageMargin,
           },
         },
       },
@@ -508,11 +540,11 @@ async function generateAll() {
           align: AlignmentType.CENTER,
           keepNext: true,
           spaceBefore: 0,
-          spaceAfter: 80,
+          spaceAfter: 60,
         }),
         new Paragraph({
           alignment: AlignmentType.CENTER,
-          spacing: { before: 40, after: 100 },
+          spacing: { before: 20, after: 80 },
           children: [
             new ImageRun({
               data: info.buffer,
@@ -525,12 +557,12 @@ async function generateAll() {
           ],
         }),
         rtlPara([rtlRun(`الشرح الأكاديمي (${d.figureNumber}): `, { bold: true, size: 21, color: '0F766E' }), rtlRun(d.academicSummaryAr, { size: 20, color: '1E293B' })], {
-          spaceBefore: 40,
-          spaceAfter: 60,
+          spaceBefore: 30,
+          spaceAfter: 50,
         }),
         rtlPara([rtlRun(`المرتكزات التصميمية: ${d.keyHighlightsAr.join(' · ')}`, { bold: true, size: 19, color: '475569' })], {
-          spaceBefore: 20,
-          spaceAfter: 40,
+          spaceBefore: 10,
+          spaceAfter: 30,
         }),
       ],
     };
@@ -788,6 +820,12 @@ async function generateAll() {
   const docxBuf = await Packer.toBuffer(doc);
   fs.writeFileSync(docxPath, docxBuf);
   console.log(`   -> مخططات_الفصل_الثالث.docx (${Math.round(docxBuf.length / 1024)} KB)`);
+
+  console.log('4b. Building Native Editable Word Shapes Document (.docx DrawingML)...');
+  const shapesDocxPath = path.join(DIR_WORD, 'مخططات_كأشكال_Word_قابلة_للتعديل.docx');
+  const shapesDocxBuf = await buildNativeWordShapesDocx(nativeWordSlots);
+  fs.writeFileSync(shapesDocxPath, shapesDocxBuf);
+  console.log(`   -> مخططات_كأشكال_Word_قابلة_للتعديل.docx (${Math.round(shapesDocxBuf.length / 1024)} KB)`);
 
   console.log('5. Packaging complete ZIP archive...');
   const zip = new JSZip();

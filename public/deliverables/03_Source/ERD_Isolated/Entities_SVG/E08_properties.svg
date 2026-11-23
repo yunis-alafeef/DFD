@@ -53,59 +53,59 @@
 
   <!-- Central Entity Rectangle at Bottom -->
   <rect x="490" y="500" width="240" height="64" rx="4" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.4" />
-  <text x="610" y="528" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="16" font-weight="bold" fill="#0F172A">الممتلكات الوقفية</text>
-  <text x="610" y="549" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#0F766E">properties</text>
+  <text x="610" y="528" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0F172A">الممتلكات الوقفية</text>
+  <text x="610" y="549" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="12" font-weight="bold" fill="#0F766E">properties</text>
 
   <!-- Attribute Ellipses -->
   <g class="chen-attr">
     
     <ellipse cx="1024.5" cy="439.0" rx="105" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="1024.5" y="444.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم العقار الوقفي</text>
+    <text x="1024.5" y="444.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم العقار الوقفي</text>
     <line x1="949.5" y1="451.0" x2="1099.5" y2="451.0" stroke="#0F172A" stroke-width="1.5" />
   </g>
   <g class="chen-attr">
     
     <ellipse cx="1039.2" cy="334.3" rx="76" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="1039.2" y="339.3" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الوقف</text>
+    <text x="1039.2" y="339.3" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الوقف</text>
     
   </g>
   <g class="chen-attr">
     <ellipse cx="852.9" cy="262.3" rx="111" ry="32" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
     <ellipse cx="852.9" cy="262.3" rx="105" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="852.9" y="267.3" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رمز الحصر العقاري</text>
+    <text x="852.9" y="267.3" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رمز الحصر العقاري</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="712.6" cy="153.6" rx="84" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="712.6" y="158.6" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تصنيف العقار</text>
+    <text x="712.6" y="158.6" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تصنيف العقار</text>
     
   </g>
   <g class="chen-attr">
     <ellipse cx="524.2" cy="225.6" rx="99" ry="32" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
     <ellipse cx="524.2" cy="225.6" rx="93" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="524.2" y="230.6" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">العنوان الوطني</text>
+    <text x="524.2" y="230.6" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">العنوان الوطني</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="319.6" cy="220.2" rx="84" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="319.6" y="225.2" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">المساحة (م²)</text>
+    <text x="319.6" y="225.2" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">‫المساحة (م²)‬</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="251.0" cy="358.7" rx="101" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="251.0" y="363.7" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">القيمة التقديرية</text>
+    <text x="251.0" y="363.7" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">القيمة التقديرية</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="133.0" cy="439.0" rx="101" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="133.0" y="444.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">الحالة التشغيلية</text>
+    <text x="133.0" y="444.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">الحالة التشغيلية</text>
     
   </g>
 
   <!-- Bottom Academic Figure Caption -->
-  <text x="610" y="604" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="15" font-weight="bold" fill="#334155">الشكل (3-31): كيان الممتلكات الوقفية (properties)</text>
+  <text x="610" y="604" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="15" font-weight="bold" fill="#334155">‫الشكل (3-31): كيان الممتلكات الوقفية (properties)‬</text>
 </svg>

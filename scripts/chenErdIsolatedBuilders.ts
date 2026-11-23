@@ -1,9 +1,9 @@
-import { escXml, PALETTE } from './diagramBuilders';
+import { escXml, PALETTE, wrapBidi } from './diagramBuilders';
 import { getErdSvgFontsCss } from './svgFontEmbed';
 
-const FONT_AR = "'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif";
-const FONT_AR_BODY = "'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif";
-const FONT_EN = "'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif";
+const FONT_AR = 'Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif';
+const FONT_AR_BODY = 'Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif';
+const FONT_EN = 'Liberation Sans, Arial, Tahoma, sans-serif';
 
 export interface IsolatedAttrSpec {
   fieldName: string;
@@ -652,10 +652,11 @@ export function buildIsolatedRelationshipSvg(rel: IsolatedRelationshipSpec): str
         <text x="${tx}" y="${cy - 20}" text-anchor="middle" font-family="${FONT_EN}" font-size="12" font-weight="bold" fill="${PALETTE.teal}">1</text>
       `;
     }
-    // Crow's foot opening toward right entity box
+    // Crow's foot opening toward right entity box (explicit <line> elements for clean Word shape conversion)
     const forkTipX = rightLineEnd - 24;
     return `
-      <path d="M ${rightLineEnd} ${cy - 13} L ${forkTipX} ${cy} L ${rightLineEnd} ${cy + 13}" fill="none" stroke="${PALETTE.navy}" stroke-width="2" />
+      <line x1="${rightLineEnd}" y1="${cy - 13}" x2="${forkTipX}" y2="${cy}" stroke="${PALETTE.navy}" stroke-width="2" />
+      <line x1="${forkTipX}" y1="${cy}" x2="${rightLineEnd}" y2="${cy + 13}" stroke="${PALETTE.navy}" stroke-width="2" />
       <text x="${forkTipX - 2}" y="${cy - 18}" text-anchor="middle" font-family="${FONT_EN}" font-size="12" font-weight="bold" fill="${PALETTE.teal}">${rel.rightCard}</text>
     `;
   };
@@ -668,10 +669,11 @@ export function buildIsolatedRelationshipSvg(rel: IsolatedRelationshipSpec): str
         <text x="${tx}" y="${cy - 20}" text-anchor="middle" font-family="${FONT_EN}" font-size="12" font-weight="bold" fill="${PALETTE.teal}">1</text>
       `;
     }
-    // Crow's foot opening toward left entity box
+    // Crow's foot opening toward left entity box (explicit <line> elements for clean Word shape conversion)
     const forkTipX = leftLineEnd + 24;
     return `
-      <path d="M ${leftLineEnd} ${cy - 13} L ${forkTipX} ${cy} L ${leftLineEnd} ${cy + 13}" fill="none" stroke="${PALETTE.navy}" stroke-width="2" />
+      <line x1="${leftLineEnd}" y1="${cy - 13}" x2="${forkTipX}" y2="${cy}" stroke="${PALETTE.navy}" stroke-width="2" />
+      <line x1="${forkTipX}" y1="${cy}" x2="${leftLineEnd}" y2="${cy + 13}" stroke="${PALETTE.navy}" stroke-width="2" />
       <text x="${forkTipX + 2}" y="${cy - 18}" text-anchor="middle" font-family="${FONT_EN}" font-size="12" font-weight="bold" fill="${PALETTE.teal}">${rel.leftCard}</text>
     `;
   };
@@ -687,7 +689,7 @@ ${getErdSvgFontsCss()}
   <rect x="14" y="14" width="${W - 28}" height="${H - 28}" rx="8" fill="none" stroke="${PALETTE.borderSubtle}" stroke-width="1.2" />
 
   <!-- Top Academic Heading (PDF Page 3–5 style) -->
-  <text x="${W / 2}" y="54" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="17" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(`${rel.order}- ${rel.titleAr} (${rel.cardinalityLabelEn})`)}</text>
+  <text x="${W / 2}" y="54" text-anchor="middle" font-family="${FONT_AR}" font-size="17" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(wrapBidi(`${rel.order}- ${rel.titleAr} (${rel.cardinalityLabelEn})`))}</text>
 
   <!-- Connector Lines -->
   <line x1="${rightLineStart}" y1="${cy}" x2="${rightLineEnd}" y2="${cy}" stroke="${PALETTE.navy}" stroke-width="2" />
@@ -699,20 +701,20 @@ ${getErdSvgFontsCss()}
 
   <!-- Right Entity Rectangle -->
   <rect x="${rightBoxX}" y="${boxY}" width="${boxW}" height="${boxH}" rx="4" fill="#FFFFFF" stroke="${PALETTE.navy}" stroke-width="2.2" />
-  <text x="${rightBoxX + boxW / 2}" y="${cy - 2}" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="16" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(rel.rightEntityAr)}</text>
+  <text x="${rightBoxX + boxW / 2}" y="${cy - 2}" text-anchor="middle" font-family="${FONT_AR}" font-size="16" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(wrapBidi(rel.rightEntityAr))}</text>
   <text x="${rightBoxX + boxW / 2}" y="${cy + 20}" text-anchor="middle" font-family="${FONT_EN}" font-size="11.5" fill="${PALETTE.slateMuted}">${escXml(rel.rightEntityEn)}</text>
 
   <!-- Center Chen Diamond -->
   <polygon points="${diaCx},${cy - diaRy} ${diaCx + diaRx},${cy} ${diaCx},${cy + diaRy} ${diaCx - diaRx},${cy}" fill="${PALETTE.surfaceLight}" stroke="${PALETTE.navy}" stroke-width="2.2" />
-  <text x="${diaCx}" y="${cy + 6}" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="15.5" font-weight="bold" fill="${PALETTE.navy}">${escXml(rel.verbAr)}</text>
+  <text x="${diaCx}" y="${cy + 6}" text-anchor="middle" font-family="${FONT_AR}" font-size="15.5" font-weight="bold" fill="${PALETTE.navy}">${escXml(wrapBidi(rel.verbAr))}</text>
 
   <!-- Left Entity Rectangle -->
   <rect x="${leftBoxX}" y="${boxY}" width="${boxW}" height="${boxH}" rx="4" fill="#FFFFFF" stroke="${PALETTE.navy}" stroke-width="2.2" />
-  <text x="${leftBoxX + boxW / 2}" y="${cy - 2}" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="16" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(rel.leftEntityAr)}</text>
+  <text x="${leftBoxX + boxW / 2}" y="${cy - 2}" text-anchor="middle" font-family="${FONT_AR}" font-size="16" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(wrapBidi(rel.leftEntityAr))}</text>
   <text x="${leftBoxX + boxW / 2}" y="${cy + 20}" text-anchor="middle" font-family="${FONT_EN}" font-size="11.5" fill="${PALETTE.slateMuted}">${escXml(rel.leftEntityEn)}</text>
 
   <!-- Bottom Academic Caption -->
-  <text x="${W / 2}" y="${H - 36}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="14.5" font-weight="600" fill="${PALETTE.slateMid}">${escXml(`${rel.figureNumber}: ${rel.titleAr}`)}</text>
+  <text x="${W / 2}" y="${H - 36}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="14.5" font-weight="600" fill="${PALETTE.slateMid}">${escXml(wrapBidi(`${rel.figureNumber}: ${rel.titleAr}`))}</text>
 </svg>
 `;
 }
@@ -847,11 +849,11 @@ export function buildIsolatedEntitySvg(entity: IsolatedEntitySpec): string {
 
       let textSvg = '';
       if (p.lines.length === 1) {
-        textSvg = `<text x="${cx}" y="${(p.y + 5).toFixed(1)}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="13.5" font-weight="${p.attr.isPk ? 'bold' : '600'}" fill="${PALETTE.slateDark}">${escXml(p.lines[0])}</text>`;
+        textSvg = `<text x="${cx}" y="${(p.y + 5).toFixed(1)}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="13.5" font-weight="${p.attr.isPk ? 'bold' : '600'}" fill="${PALETTE.slateDark}">${escXml(wrapBidi(p.lines[0]))}</text>`;
       } else {
         textSvg = `
-          <text x="${cx}" y="${(p.y - 4).toFixed(1)}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="13" font-weight="600" fill="${PALETTE.slateDark}">${escXml(p.lines[0])}</text>
-          <text x="${cx}" y="${(p.y + 15).toFixed(1)}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="13" font-weight="600" fill="${PALETTE.slateDark}">${escXml(p.lines[1])}</text>
+          <text x="${cx}" y="${(p.y - 4).toFixed(1)}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="13" font-weight="600" fill="${PALETTE.slateDark}">${escXml(wrapBidi(p.lines[0]))}</text>
+          <text x="${cx}" y="${(p.y + 15).toFixed(1)}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="13" font-weight="600" fill="${PALETTE.slateDark}">${escXml(wrapBidi(p.lines[1]))}</text>
         `;
       }
 
@@ -887,14 +889,14 @@ ${getErdSvgFontsCss()}
 
   <!-- Central Entity Rectangle at Bottom -->
   <rect x="${entCx - entW / 2}" y="${entY}" width="${entW}" height="${entH}" rx="4" fill="#FFFFFF" stroke="${PALETTE.navy}" stroke-width="2.4" />
-  <text x="${entCx}" y="${entY + 28}" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="16" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(entity.tableNameAr)}</text>
+  <text x="${entCx}" y="${entY + 28}" text-anchor="middle" font-family="${FONT_AR}" font-size="16" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(wrapBidi(entity.tableNameAr))}</text>
   <text x="${entCx}" y="${entY + 49}" text-anchor="middle" font-family="${FONT_EN}" font-size="12" font-weight="bold" fill="${PALETTE.teal}">${escXml(entity.tableNameEn)}</text>
 
   <!-- Attribute Ellipses -->
   ${ellipsesSvg}
 
   <!-- Bottom Academic Figure Caption -->
-  <text x="${entCx}" y="${H - 36}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="15" font-weight="bold" fill="${PALETTE.slateMid}">${escXml(`${entity.figureNumber}: كيان ${entity.tableNameAr} (${entity.tableNameEn})`)}</text>
+  <text x="${entCx}" y="${H - 36}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="15" font-weight="bold" fill="${PALETTE.slateMid}">${escXml(wrapBidi(`${entity.figureNumber}: كيان ${entity.tableNameAr} (${entity.tableNameEn})`))}</text>
 </svg>
 `;
 }

@@ -50,28 +50,28 @@
 
   <!-- Central Entity Rectangle at Bottom -->
   <rect x="420" y="420" width="240" height="64" rx="4" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.4" />
-  <text x="540" y="448" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="16" font-weight="bold" fill="#0F172A">القطع الجغرافية</text>
-  <text x="540" y="469" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#0F766E">gis_parcels</text>
+  <text x="540" y="448" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0F172A">القطع الجغرافية</text>
+  <text x="540" y="469" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="12" font-weight="bold" fill="#0F766E">gis_parcels</text>
 
   <!-- Attribute Ellipses -->
   <g class="chen-attr">
     
     <ellipse cx="930.0" cy="359.0" rx="118" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="930.0" y="364.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم القطعة الجغرافية</text>
+    <text x="930.0" y="364.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم القطعة الجغرافية</text>
     <line x1="844.0" y1="371.0" x2="1016.0" y2="371.0" stroke="#0F172A" stroke-width="1.5" />
   </g>
   <g class="chen-attr">
     <ellipse cx="792.4" cy="203.5" rx="111" ry="32" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
     <ellipse cx="792.4" cy="203.5" rx="105" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="792.4" y="208.5" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم العقار الوقفي</text>
+    <text x="792.4" y="208.5" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم العقار الوقفي</text>
     
   </g>
   <g class="chen-attr">
     <ellipse cx="540.0" cy="142.0" rx="103" ry="39" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
     <ellipse cx="540.0" cy="142.0" rx="97" ry="34" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
     
-          <text x="540.0" y="138.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="600" fill="#0F172A">المضلع الجغرافي</text>
-          <text x="540.0" y="157.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="600" fill="#0F172A">PostGIS</text>
+          <text x="540.0" y="138.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="600" fill="#0F172A">المضلع الجغرافي</text>
+          <text x="540.0" y="157.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="600" fill="#0F172A">PostGIS</text>
         
     
   </g>
@@ -79,8 +79,8 @@
     <ellipse cx="287.6" cy="203.5" rx="86" ry="39" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
     <ellipse cx="287.6" cy="203.5" rx="80" ry="34" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
     
-          <text x="287.6" y="199.5" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="600" fill="#0F172A">نقطة المركز</text>
-          <text x="287.6" y="218.5" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="600" fill="#0F172A">الهندسي</text>
+          <text x="287.6" y="199.5" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="600" fill="#0F172A">نقطة المركز</text>
+          <text x="287.6" y="218.5" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="600" fill="#0F172A">الهندسي</text>
         
     
   </g>
@@ -88,12 +88,12 @@
     
     <ellipse cx="142.2" cy="352.0" rx="80" ry="34" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
     
-          <text x="142.2" y="348.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="600" fill="#0F172A">تاريخ المسح</text>
-          <text x="142.2" y="367.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="600" fill="#0F172A">الميداني</text>
+          <text x="142.2" y="348.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="600" fill="#0F172A">تاريخ المسح</text>
+          <text x="142.2" y="367.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="600" fill="#0F172A">الميداني</text>
         
     
   </g>
 
   <!-- Bottom Academic Figure Caption -->
-  <text x="540" y="524" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="15" font-weight="bold" fill="#334155">الشكل (3-32): كيان القطع الجغرافية (gis_parcels)</text>
+  <text x="540" y="524" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="15" font-weight="bold" fill="#334155">‫الشكل (3-32): كيان القطع الجغرافية (gis_parcels)‬</text>
 </svg>

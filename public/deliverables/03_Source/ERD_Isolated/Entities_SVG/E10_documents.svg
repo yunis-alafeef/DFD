@@ -54,65 +54,65 @@
 
   <!-- Central Entity Rectangle at Bottom -->
   <rect x="490" y="500" width="240" height="64" rx="4" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.4" />
-  <text x="610" y="528" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="16" font-weight="bold" fill="#0F172A">الوثائق الوقفية</text>
-  <text x="610" y="549" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#0F766E">documents</text>
+  <text x="610" y="528" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0F172A">الوثائق الوقفية</text>
+  <text x="610" y="549" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="12" font-weight="bold" fill="#0F766E">documents</text>
 
   <!-- Attribute Ellipses -->
   <g class="chen-attr">
     
     <ellipse cx="1024.5" cy="439.0" rx="80" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="1024.5" y="444.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم الوثيقة</text>
+    <text x="1024.5" y="444.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم الوثيقة</text>
     <line x1="972.5" y1="451.0" x2="1076.5" y2="451.0" stroke="#0F172A" stroke-width="1.5" />
   </g>
   <g class="chen-attr">
     
     <ellipse cx="1054.2" cy="344.9" rx="76" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="1054.2" y="349.9" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الوقف</text>
+    <text x="1054.2" y="349.9" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الوقف</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="884.2" cy="287.2" rx="76" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="884.2" y="292.2" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم العقار</text>
+    <text x="884.2" y="292.2" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم العقار</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="802.3" cy="176.5" rx="89" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="802.3" y="181.5" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">الموظف الرافع</text>
+    <text x="802.3" y="181.5" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">الموظف الرافع</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="615.3" cy="211.9" rx="80" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="615.3" y="216.9" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">نوع الوثيقة</text>
+    <text x="615.3" y="216.9" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">نوع الوثيقة</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="412.3" cy="176.5" rx="105" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="412.3" y="181.5" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">مسار الملف الرقمي</text>
+    <text x="412.3" y="181.5" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">مسار الملف الرقمي</text>
     
   </g>
   <g class="chen-attr">
     <ellipse cx="333.3" cy="280.1" rx="99" ry="32" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
     <ellipse cx="333.3" cy="280.1" rx="93" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="333.3" y="285.1" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">البصمة SHA-256</text>
+    <text x="333.3" y="285.1" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">‫البصمة SHA-256‬</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="168.2" cy="352.1" rx="105" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="168.2" y="357.1" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">النص المستخلص OCR</text>
+    <text x="168.2" y="357.1" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">‫النص المستخلص OCR‬</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="195.5" cy="439.0" rx="89" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="195.5" y="444.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تاريخ الأرشفة</text>
+    <text x="195.5" y="444.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تاريخ الأرشفة</text>
     
   </g>
 
   <!-- Bottom Academic Figure Caption -->
-  <text x="610" y="604" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="15" font-weight="bold" fill="#334155">الشكل (3-33): كيان الوثائق الوقفية (documents)</text>
+  <text x="610" y="604" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="15" font-weight="bold" fill="#334155">‫الشكل (3-33): كيان الوثائق الوقفية (documents)‬</text>
 </svg>

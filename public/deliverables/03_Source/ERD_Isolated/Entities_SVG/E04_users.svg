@@ -54,68 +54,68 @@
 
   <!-- Central Entity Rectangle at Bottom -->
   <rect x="490" y="500" width="240" height="64" rx="4" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.4" />
-  <text x="610" y="528" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="16" font-weight="bold" fill="#0F172A">المستخدمون</text>
-  <text x="610" y="549" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#0F766E">users</text>
+  <text x="610" y="528" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0F172A">المستخدمون</text>
+  <text x="610" y="549" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="12" font-weight="bold" fill="#0F766E">users</text>
 
   <!-- Attribute Ellipses -->
   <g class="chen-attr">
     
     <ellipse cx="1024.5" cy="439.0" rx="84" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="1024.5" y="444.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم المستخدم</text>
+    <text x="1024.5" y="444.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم المستخدم</text>
     <line x1="968.5" y1="451.0" x2="1080.5" y2="451.0" stroke="#0F172A" stroke-width="1.5" />
   </g>
   <g class="chen-attr">
     
     <ellipse cx="1058.2" cy="344.9" rx="76" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="1058.2" y="349.9" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الدور</text>
+    <text x="1058.2" y="349.9" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الدور</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="880.2" cy="287.2" rx="84" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="880.2" y="292.2" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">الاسم الكامل</text>
+    <text x="880.2" y="292.2" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">الاسم الكامل</text>
     
   </g>
   <g class="chen-attr">
     <ellipse cx="786.9" cy="162.7" rx="116" ry="32" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
     <ellipse cx="786.9" cy="162.7" rx="110" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="786.9" y="167.7" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الهوية الوطنية</text>
+    <text x="786.9" y="167.7" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الهوية الوطنية</text>
     
   </g>
   <g class="chen-attr">
     <ellipse cx="610.0" cy="237.0" rx="111" ry="32" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
     <ellipse cx="610.0" cy="237.0" rx="105" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="610.0" y="242.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">البريد الإلكتروني</text>
+    <text x="610.0" y="242.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">البريد الإلكتروني</text>
     
   </g>
   <g class="chen-attr">
     <ellipse cx="433.1" cy="165.0" rx="82" ry="32" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
     <ellipse cx="433.1" cy="165.0" rx="76" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="433.1" y="170.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الهاتف</text>
+    <text x="433.1" y="170.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الهاتف</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="341.8" cy="287.2" rx="80" ry="34" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
     
-          <text x="341.8" y="283.2" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="600" fill="#0F172A">كلمة المرور</text>
-          <text x="341.8" y="302.2" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="600" fill="#0F172A">المشفرة</text>
+          <text x="341.8" y="283.2" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="600" fill="#0F172A">كلمة المرور</text>
+          <text x="341.8" y="302.2" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="600" fill="#0F172A">المشفرة</text>
         
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="159.8" cy="344.9" rx="84" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="159.8" y="349.9" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">حالة التفعيل</text>
+    <text x="159.8" y="349.9" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">حالة التفعيل</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="195.5" cy="439.0" rx="89" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="195.5" y="444.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تاريخ الإنشاء</text>
+    <text x="195.5" y="444.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تاريخ الإنشاء</text>
     
   </g>
 
   <!-- Bottom Academic Figure Caption -->
-  <text x="610" y="604" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="15" font-weight="bold" fill="#334155">الشكل (3-27): كيان المستخدمون (users)</text>
+  <text x="610" y="604" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="15" font-weight="bold" fill="#334155">‫الشكل (3-27): كيان المستخدمون (users)‬</text>
 </svg>

@@ -235,7 +235,15 @@ export default function App() {
               className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-[#1E3A5F] bg-[#EFF6FF] hover:bg-blue-100 border border-blue-200 rounded-lg transition-colors whitespace-nowrap shrink-0"
             >
               <FileText className="w-4 h-4" />
-              <span>تحميل ملف Word القابل للتحرير (.docx)</span>
+              <span>تقرير الفصل الثالث (Word)</span>
+            </a>
+            <a
+              href="/deliverables/01_Word/مخططات_كأشكال_Word_قابلة_للتعديل.docx"
+              download="مخططات_كأشكال_Word_قابلة_للتعديل.docx"
+              className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-[#0F766E] bg-[#F0FDFA] hover:bg-teal-100 border border-teal-200 rounded-lg transition-colors whitespace-nowrap shrink-0"
+            >
+              <Layers className="w-4 h-4" />
+              <span>أشكال Word قابلة للتعديل (.docx)</span>
             </a>
           </div>
         </div>
@@ -1024,16 +1032,26 @@ export default function App() {
                   <span className="font-mono text-xs text-slate-400">01_Word/</span>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  مستند Word عربي منسق من اليمين إلى اليسار (A4)، يتضمن صفحة العنوان، وفهرس الأشكال، والصور عالية الدقة في صفحات أفقية مستقلة، والشروحات الأكاديمية، وجدول قاموس البيانات الكامل كنصوص وجداول قابلة للتعديل.
+                  يضم هذا المجلد ملفين: التقرير الأكاديمي الكامل بالصور عالية الدقة والجداول، وملف <strong>الأشكال الأصلية القابلة للتعديل في Word</strong> الذي يحول جميع المخططات الـ 42 إلى أشكال وخطوط ونصوص أصلية يمكن تفكيكها وتحريرها مباشرة داخل Microsoft Word.
                 </p>
-                <a
-                  href="/deliverables/01_Word/مخططات_الفصل_الثالث.docx"
-                  download="مخططات_الفصل_الثالث.docx"
-                  className="inline-flex items-center justify-between w-full px-4 py-2.5 text-sm font-semibold text-[#1E3A5F] bg-[#EFF6FF] hover:bg-blue-100 border border-blue-200 rounded-lg transition-colors"
-                >
-                  <span>مخططات_الفصل_الثالث.docx</span>
-                  <Download className="w-4 h-4" />
-                </a>
+                <div className="space-y-2">
+                  <a
+                    href="/deliverables/01_Word/مخططات_الفصل_الثالث.docx"
+                    download="مخططات_الفصل_الثالث.docx"
+                    className="inline-flex items-center justify-between w-full px-4 py-2.5 text-sm font-semibold text-[#1E3A5F] bg-[#EFF6FF] hover:bg-blue-100 border border-blue-200 rounded-lg transition-colors"
+                  >
+                    <span>مخططات_الفصل_الثالث.docx (التقرير الكامل)</span>
+                    <Download className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="/deliverables/01_Word/مخططات_كأشكال_Word_قابلة_للتعديل.docx"
+                    download="مخططات_كأشكال_Word_قابلة_للتعديل.docx"
+                    className="inline-flex items-center justify-between w-full px-4 py-2.5 text-sm font-semibold text-[#0F766E] bg-[#F0FDFA] hover:bg-teal-100 border border-teal-200 rounded-lg transition-colors"
+                  >
+                    <span>مخططات_كأشكال_Word_قابلة_للتعديل.docx (أشكال DrawingML)</span>
+                    <Download className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
 
               {/* Folder 4: Documentation */}

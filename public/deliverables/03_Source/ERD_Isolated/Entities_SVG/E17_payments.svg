@@ -51,47 +51,47 @@
 
   <!-- Central Entity Rectangle at Bottom -->
   <rect x="420" y="420" width="240" height="64" rx="4" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.4" />
-  <text x="540" y="448" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="16" font-weight="bold" fill="#0F172A">عمليات السداد</text>
-  <text x="540" y="469" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#0F766E">payments</text>
+  <text x="540" y="448" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0F172A">عمليات السداد</text>
+  <text x="540" y="469" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="12" font-weight="bold" fill="#0F766E">payments</text>
 
   <!-- Attribute Ellipses -->
   <g class="chen-attr">
     
     <ellipse cx="886.1" cy="359.0" rx="76" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="886.1" y="364.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم السداد</text>
+    <text x="886.1" y="364.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم السداد</text>
     <line x1="838.1" y1="371.0" x2="934.1" y2="371.0" stroke="#0F172A" stroke-width="1.5" />
   </g>
   <g class="chen-attr">
     
     <ellipse cx="844.7" cy="221.0" rx="84" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="844.7" y="226.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الفاتورة</text>
+    <text x="844.7" y="226.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم الفاتورة</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="633.5" cy="188.5" rx="76" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="633.5" y="193.5" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم المحصل</text>
+    <text x="633.5" y="193.5" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم المحصل</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="428.2" cy="141.0" rx="93" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="428.2" y="146.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">المبلغ المدفوع</text>
+    <text x="428.2" y="146.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">المبلغ المدفوع</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="285.1" cy="255.5" rx="84" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="285.1" y="260.5" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تاريخ السداد</text>
+    <text x="285.1" y="260.5" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تاريخ السداد</text>
     
   </g>
   <g class="chen-attr">
     <ellipse cx="129.0" cy="359.0" rx="95" ry="32" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
     <ellipse cx="129.0" cy="359.0" rx="89" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="129.0" y="364.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم سند القبض</text>
+    <text x="129.0" y="364.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم سند القبض</text>
     
   </g>
 
   <!-- Bottom Academic Figure Caption -->
-  <text x="540" y="524" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="15" font-weight="bold" fill="#334155">الشكل (3-40): كيان عمليات السداد (payments)</text>
+  <text x="540" y="524" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="15" font-weight="bold" fill="#334155">‫الشكل (3-40): كيان عمليات السداد (payments)‬</text>
 </svg>

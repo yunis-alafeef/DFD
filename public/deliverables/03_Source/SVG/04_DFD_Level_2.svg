@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="2150" height="1380" viewBox="0 0 2150 1380" text-rendering="geometricPrecision" shape-rendering="geometricPrecision">
   <defs>
-    <marker id="arrow-navy" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1 L 11 5 L 0 9 z" fill="#1E3A5F" />
-    </marker>
-    <marker id="arrow-teal" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1 L 11 5 L 0 9 z" fill="#0F766E" />
-    </marker>
-    <marker id="arrow-slate" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1 L 11 5 L 0 9 z" fill="#334155" />
-    </marker>
-    <!-- Crow's Foot Markers -->
-    <marker id="cf-one" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <line x1="6" y1="2" x2="6" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
-      <line x1="10" y1="2" x2="10" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
-    </marker>
-    <marker id="cf-many" viewBox="0 0 16 14" refX="14" refY="7" markerWidth="14" markerHeight="12" orient="auto-start-reverse">
-      <path d="M 14 2 L 4 7 L 14 12" fill="none" stroke="#1E3A5F" stroke-width="1.8" />
-      <line x1="4" y1="2" x2="4" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
-    </marker>
-    <marker id="cf-zero-one" viewBox="0 0 18 14" refX="16" refY="7" markerWidth="16" markerHeight="12" orient="auto-start-reverse">
-      <circle cx="5" cy="7" r="3.2" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
-      <line x1="12" y1="2" x2="12" y2="12" stroke="#1E3A5F" stroke-width="1.8" />
-    </marker>
-    <marker id="cf-zero-many" viewBox="0 0 20 14" refX="18" refY="7" markerWidth="18" markerHeight="12" orient="auto-start-reverse">
-      <circle cx="5" cy="7" r="3.2" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
-      <path d="M 18 2 L 9 7 L 18 12" fill="none" stroke="#1E3A5F" stroke-width="1.8" />
-    </marker>
     <style type="text/css"><![CDATA[
 
       @font-face {
@@ -86,8 +60,6 @@
       svg { text-rendering: geometricPrecision; shape-rendering: geometricPrecision; }
       text { font-kerning: normal; }
   
-      .halo { paint-order: stroke; stroke: #FFFFFF; stroke-width: 7px; stroke-linejoin: round; stroke-linecap: round; }
-      .halo-sm { paint-order: stroke; stroke: #FFFFFF; stroke-width: 5px; stroke-linejoin: round; stroke-linecap: round; }
     ]]></style>
   </defs>
   <rect width="2150" height="1380" fill="#FFFFFF" />
@@ -95,147 +67,212 @@
   <!-- Academic Title Header -->
   <rect x="18" y="18" width="2114" height="82" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" />
   <line x1="18" y1="100" x2="2132" y2="100" stroke="#1E3A5F" stroke-width="2" />
-  <text x="1075" y="53" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="22" font-weight="bold" fill="#1E3A5F">الشكل (3-4): مخطط تدفق البيانات من المستوى الثاني للعمليات المعقدة (DFD Level 2)</text>
-  <text x="1075" y="82" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="14" fill="#334155">تفكيك العمليتين التخصصيتين: (2.2) المسح الجغرافي وحساب المضلعات عبر PostGIS، و(3.2 / 3.3) المعالجة الضوئية OCR والتوثيق الرقمي SHA-256</text>
-<rect x="1100" y="128" width="1000" height="1060" rx="12" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2" /><rect x="1100" y="128" width="1000" height="48" rx="12" fill="#1E3A5F" /><rect x="1100" y="156" width="1000" height="20" fill="#1E3A5F" /><text x="1600" y="159" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">أولاً: تفكيك العملية (2.2) — الرسم والمسح الجغرافي للحدود (PostGIS)</text><g class="external-entity">
+  <text x="1075" y="53" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="22" font-weight="bold" fill="#1E3A5F">‫الشكل (3-4): مخطط تدفق البيانات من المستوى الثاني للعمليات المعقدة (DFD Level 2)‬</text>
+  <text x="1075" y="82" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="14" fill="#334155">‫تفكيك العمليتين التخصصيتين: (2.2) المسح الجغرافي وحساب المضلعات عبر PostGIS، و(3.2 / 3.3) المعالجة الضوئية OCR والتوثيق الرقمي SHA-256‬</text>
+<rect x="1100" y="128" width="1000" height="1060" rx="12" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2" /><rect x="1100" y="128" width="1000" height="48" rx="12" fill="#1E3A5F" /><rect x="1100" y="156" width="1000" height="20" fill="#1E3A5F" /><text x="1600" y="159" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">‫أولاً: تفكيك العملية (2.2) — الرسم والمسح الجغرافي للحدود (PostGIS)‬</text><g class="external-entity">
     <rect x="1790" y="210" width="275" height="72" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="2.2" />
     <line x1="1800" y1="210" x2="1800" y2="282" stroke="#0F172A" stroke-width="1.6" />
     <line x1="1790" y1="218" x2="2065" y2="218" stroke="#0F172A" stroke-width="1.2" opacity="0.25" />
-    <text x="1931.5" y="242" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="15" font-weight="bold" fill="#0F172A">موظف إدارة الأوقاف</text>
-    <text x="1931.5" y="263" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="11.5" fill="#64748B">مخرجات العملية (2.1)</text>
+    <text x="1931.5" y="242" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">موظف إدارة الأوقاف</text>
+    <text x="1931.5" y="263" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="11.5" fill="#64748B">‫مخرجات العملية (2.1)‬</text>
   </g><g class="dfd-process">
-    <rect x="1355" y="210" width="280" height="96" rx="12" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
-    <path d="M 1355 236 L 1635 236 L 1635 222 Q 1635 210 1623 210 L 1367 210 Q 1355 210 1355 222 Z" fill="#1E3A5F" />
-    <text x="1495" y="228" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">2.2.1</text>
-    <text x="1495" y="266" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">استقبال الإحداثيات</text>
-    <text x="1495" y="286" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">وملفات المساحة الميدانية</text>
+    <rect x="1355" y="210" width="280" height="96" rx="10" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
+    <rect x="1355" y="210" width="280" height="26" rx="8" fill="#1E3A5F" />
+    <rect x="1355" y="228" width="280" height="8" fill="#1E3A5F" />
+    <text x="1495" y="228" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">2.2.1</text>
+    <text x="1495" y="266" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">استقبال الإحداثيات</text>
+    <text x="1495" y="286" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">وملفات المساحة الميدانية</text>
   </g><g class="dfd-process">
-    <rect x="1355" y="410" width="280" height="96" rx="12" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
-    <path d="M 1355 436 L 1635 436 L 1635 422 Q 1635 410 1623 410 L 1367 410 Q 1355 410 1355 422 Z" fill="#1E3A5F" />
-    <text x="1495" y="428" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">2.2.2</text>
-    <text x="1495" y="466" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">التحقق الطوبولوجي</text>
-    <text x="1495" y="486" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">ومنع تداخل الحدود الوقفية</text>
+    <rect x="1355" y="410" width="280" height="96" rx="10" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
+    <rect x="1355" y="410" width="280" height="26" rx="8" fill="#1E3A5F" />
+    <rect x="1355" y="428" width="280" height="8" fill="#1E3A5F" />
+    <text x="1495" y="428" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">2.2.2</text>
+    <text x="1495" y="466" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">التحقق الطوبولوجي</text>
+    <text x="1495" y="486" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">ومنع تداخل الحدود الوقفية</text>
   </g><g class="dfd-process">
-    <rect x="1355" y="610" width="280" height="96" rx="12" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
-    <path d="M 1355 636 L 1635 636 L 1635 622 Q 1635 610 1623 610 L 1367 610 Q 1355 610 1355 622 Z" fill="#1E3A5F" />
-    <text x="1495" y="628" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">2.2.3</text>
-    <text x="1495" y="666" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">توحيد الإسقاط (SRID 4326)</text>
-    <text x="1495" y="686" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">وحساب المساحة والمركز</text>
+    <rect x="1355" y="610" width="280" height="96" rx="10" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
+    <rect x="1355" y="610" width="280" height="26" rx="8" fill="#1E3A5F" />
+    <rect x="1355" y="628" width="280" height="8" fill="#1E3A5F" />
+    <text x="1495" y="628" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">2.2.3</text>
+    <text x="1495" y="666" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">‫توحيد الإسقاط (SRID 4326)‬</text>
+    <text x="1495" y="686" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">وحساب المساحة والمركز</text>
   </g><g class="dfd-process">
-    <rect x="1355" y="810" width="280" height="96" rx="12" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
-    <path d="M 1355 836 L 1635 836 L 1635 822 Q 1635 810 1623 810 L 1367 810 Q 1355 810 1355 822 Z" fill="#1E3A5F" />
-    <text x="1495" y="828" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">2.2.4</text>
-    <text x="1495" y="866" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">اعتماد المضلع المكاني</text>
-    <text x="1495" y="886" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">وتحديث طبقة الخرائط</text>
+    <rect x="1355" y="810" width="280" height="96" rx="10" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="2.2" />
+    <rect x="1355" y="810" width="280" height="26" rx="8" fill="#1E3A5F" />
+    <rect x="1355" y="828" width="280" height="8" fill="#1E3A5F" />
+    <text x="1495" y="828" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">2.2.4</text>
+    <text x="1495" y="866" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">اعتماد المضلع المكاني</text>
+    <text x="1495" y="886" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">وتحديث طبقة الخرائط</text>
   </g><g class="data-store">
     <rect x="1330" y="1020" width="330" height="58" fill="#F0FDFA" />
     <line x1="1330" y1="1020" x2="1660" y2="1020" stroke="#0F766E" stroke-width="2.2" />
     <line x1="1330" y1="1078" x2="1660" y2="1078" stroke="#0F766E" stroke-width="2.2" />
     <line x1="1330" y1="1020" x2="1330" y2="1078" stroke="#0F766E" stroke-width="2.2" />
     <rect x="1330" y="1020" width="46" height="58" fill="#0F766E" />
-    <text x="1353" y="1054" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D2</text>
-    <text x="1518" y="1054" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="bold" fill="#0F172A">سجل الأوقاف والممتلكات الجغرافية</text>
+    <text x="1353" y="1054" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D2</text>
+    <text x="1518" y="1054" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">سجل الأوقاف والممتلكات الجغرافية</text>
   </g><g class="data-flow">
-    <path d="M 1790 248 L 1639 248" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
-    <text x="1714" y="232" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">ملف الحدود أو النقاط</text>
+    <path d="M 1790.0 248.0 L 1647.0 248.0" fill="none" stroke="#1E3A5F" stroke-width="1.8"  />
+    <polygon points="1639.0,248.0 1650.0,243.4 1650.0,252.6" fill="#1E3A5F" />
+    
+      <rect x="1640.5" y="219.5" width="147" height="21" rx="4" fill="#FFFFFF" />
+      <text x="1714" y="232" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">ملف الحدود أو النقاط</text>
+    
   </g><g class="data-flow">
-    <path d="M 1495 306 L 1495 406" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
-    <text x="1590" y="362" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">إحداثيات خام مهيكلة</text>
+    <path d="M 1495.0 306.0 L 1495.0 398.0" fill="none" stroke="#1E3A5F" stroke-width="1.8"  />
+    <polygon points="1495.0,406.0 1490.4,395.0 1499.6,395.0" fill="#1E3A5F" />
+    
+      <rect x="1520.0" y="349.5" width="140" height="21" rx="4" fill="#FFFFFF" />
+      <text x="1590" y="362" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">إحداثيات خام مهيكلة</text>
+    
   </g><g class="data-flow">
-    <path d="M 1495 506 L 1495 606" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
-    <text x="1590" y="562" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">مضلع سليم طوبولوجياً</text>
+    <path d="M 1495.0 506.0 L 1495.0 598.0" fill="none" stroke="#1E3A5F" stroke-width="1.8"  />
+    <polygon points="1495.0,606.0 1490.4,595.0 1499.6,595.0" fill="#1E3A5F" />
+    
+      <rect x="1516.5" y="549.5" width="147" height="21" rx="4" fill="#FFFFFF" />
+      <text x="1590" y="562" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">مضلع سليم طوبولوجياً</text>
+    
   </g><g class="data-flow">
-    <path d="M 1495 706 L 1495 806" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
-    <text x="1620" y="762" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">GEOMETRY(Polygon,4326) + المساحة</text>
+    <path d="M 1495.0 706.0 L 1495.0 798.0" fill="none" stroke="#1E3A5F" stroke-width="1.8"  />
+    <polygon points="1495.0,806.0 1490.4,795.0 1499.6,795.0" fill="#1E3A5F" />
+    
+      <rect x="1508.0" y="749.5" width="224" height="21" rx="4" fill="#FFFFFF" />
+      <text x="1620" y="762" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">‫GEOMETRY(Polygon,4326) + المساحة‬</text>
+    
   </g><g class="data-flow">
-    <path d="M 1495 906 L 1495 1016" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
-    <text x="1615" y="965" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">سجل gis_parcels وخصائص العقار</text>
+    <path d="M 1495.0 906.0 L 1495.0 1008.0" fill="none" stroke="#0F766E" stroke-width="1.8"  />
+    <polygon points="1495.0,1016.0 1490.4,1005.0 1499.6,1005.0" fill="#0F766E" />
+    
+      <rect x="1512.5" y="952.5" width="205" height="21" rx="4" fill="#FFFFFF" />
+      <text x="1615" y="965" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">‫سجل gis_parcels وخصائص العقار‬</text>
+    
   </g><g class="data-flow">
-    <path d="M 1330 1049 L 1180 1049 L 1180 458 L 1351 458" fill="none" stroke="#0F766E" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arrow-teal)" />
-    <text x="1255" y="725" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">استعلام الحدود المجاورة (ST_Intersects)</text>
+    <path d="M 1330.0 1049.0 L 1180.0 1049.0 L 1180.0 458.0 L 1343.0 458.0" fill="none" stroke="#0F766E" stroke-width="1.8" stroke-dasharray="6,4" />
+    <polygon points="1351.0,458.0 1340.0,462.6 1340.0,453.4" fill="#0F766E" />
+    
+      <rect x="1120.5" y="712.5" width="269" height="21" rx="4" fill="#FFFFFF" />
+      <text x="1255" y="725" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">‫استعلام الحدود المجاورة (ST_Intersects)‬</text>
+    
   </g><g class="data-flow">
-    <path d="M 1635 858 L 1925 858 L 1925 286" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
-    <text x="1915" y="580" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">خريطة رقمية معتمدة وتقرير المساحة</text>
-  </g><rect x="50" y="128" width="1000" height="1060" rx="12" fill="#FFFFFF" stroke="#0F766E" stroke-width="2" /><rect x="50" y="128" width="1000" height="48" rx="12" fill="#0F766E" /><rect x="50" y="156" width="1000" height="20" fill="#0F766E" /><text x="550" y="159" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">ثانياً: تفكيك العمليات (3.2 / 3.3) — المعالجة الضوئية (OCR) والتوثيق (SHA-256)</text><g class="external-entity">
+    <path d="M 1635.0 858.0 L 1925.0 858.0 L 1925.0 294.0" fill="none" stroke="#0F766E" stroke-width="1.8"  />
+    <polygon points="1925.0,286.0 1929.6,297.0 1920.4,297.0" fill="#0F766E" />
+    
+      <rect x="1799.5" y="567.5" width="231" height="21" rx="4" fill="#FFFFFF" />
+      <text x="1915" y="580" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">خريطة رقمية معتمدة وتقرير المساحة</text>
+    
+  </g><rect x="50" y="128" width="1000" height="1060" rx="12" fill="#FFFFFF" stroke="#0F766E" stroke-width="2" /><rect x="50" y="128" width="1000" height="48" rx="12" fill="#0F766E" /><rect x="50" y="156" width="1000" height="20" fill="#0F766E" /><text x="550" y="159" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">‫ثانياً: تفكيك العمليات (3.2 / 3.3) — المعالجة الضوئية (OCR) والتوثيق (SHA-256)‬</text><g class="external-entity">
     <rect x="740" y="210" width="275" height="72" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="2.2" />
     <line x1="750" y1="210" x2="750" y2="282" stroke="#0F172A" stroke-width="1.6" />
     <line x1="740" y1="218" x2="1015" y2="218" stroke="#0F172A" stroke-width="1.2" opacity="0.25" />
-    <text x="881.5" y="242" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="15" font-weight="bold" fill="#0F172A">موظف إدارة الأوقاف</text>
-    <text x="881.5" y="263" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="11.5" fill="#64748B">مخرجات العملية (3.1)</text>
+    <text x="881.5" y="242" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">موظف إدارة الأوقاف</text>
+    <text x="881.5" y="263" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="11.5" fill="#64748B">‫مخرجات العملية (3.1)‬</text>
   </g><g class="dfd-process">
-    <rect x="315" y="210" width="280" height="96" rx="12" fill="#F0FDFA" stroke="#0F766E" stroke-width="2.2" />
-    <path d="M 315 236 L 595 236 L 595 222 Q 595 210 583 210 L 327 210 Q 315 210 315 222 Z" fill="#0F766E" />
-    <text x="455" y="228" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">3.2.1</text>
-    <text x="455" y="266" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">معالجة الصورة الرقمية</text>
-    <text x="455" y="286" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">وتحسين التباين والدقة</text>
+    <rect x="315" y="210" width="280" height="96" rx="10" fill="#F0FDFA" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="315" y="210" width="280" height="26" rx="8" fill="#0F766E" />
+    <rect x="315" y="228" width="280" height="8" fill="#0F766E" />
+    <text x="455" y="228" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">3.2.1</text>
+    <text x="455" y="266" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">معالجة الصورة الرقمية</text>
+    <text x="455" y="286" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">وتحسين التباين والدقة</text>
   </g><g class="dfd-process">
-    <rect x="315" y="410" width="280" height="96" rx="12" fill="#F0FDFA" stroke="#0F766E" stroke-width="2.2" />
-    <path d="M 315 436 L 595 436 L 595 422 Q 595 410 583 410 L 327 410 Q 315 410 315 422 Z" fill="#0F766E" />
-    <text x="455" y="428" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">3.2.2</text>
-    <text x="455" y="466" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">التعرف الضوئي على النص</text>
-    <text x="455" y="486" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">العربي واستخلاص الحقول (OCR)</text>
+    <rect x="315" y="410" width="280" height="96" rx="10" fill="#F0FDFA" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="315" y="410" width="280" height="26" rx="8" fill="#0F766E" />
+    <rect x="315" y="428" width="280" height="8" fill="#0F766E" />
+    <text x="455" y="428" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">3.2.2</text>
+    <text x="455" y="466" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">التعرف الضوئي على النص</text>
+    <text x="455" y="486" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">‫العربي واستخلاص الحقول (OCR)‬</text>
   </g><g class="dfd-process">
-    <rect x="315" y="610" width="280" height="96" rx="12" fill="#F0FDFA" stroke="#0F766E" stroke-width="2.2" />
-    <path d="M 315 636 L 595 636 L 595 622 Q 595 610 583 610 L 327 610 Q 315 610 315 622 Z" fill="#0F766E" />
-    <text x="455" y="628" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">3.2.3</text>
-    <text x="455" y="666" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">توليد البصمة الرقمية</text>
-    <text x="455" y="686" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">SHA-256 والتحقق من التكرار</text>
+    <rect x="315" y="610" width="280" height="96" rx="10" fill="#F0FDFA" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="315" y="610" width="280" height="26" rx="8" fill="#0F766E" />
+    <rect x="315" y="628" width="280" height="8" fill="#0F766E" />
+    <text x="455" y="628" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">3.2.3</text>
+    <text x="455" y="666" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">توليد البصمة الرقمية</text>
+    <text x="455" y="686" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">‫SHA-256 والتحقق من التكرار‬</text>
   </g><g class="dfd-process">
-    <rect x="315" y="810" width="280" height="96" rx="12" fill="#F0FDFA" stroke="#0F766E" stroke-width="2.2" />
-    <path d="M 315 836 L 595 836 L 595 822 Q 595 810 583 810 L 327 810 Q 315 810 315 822 Z" fill="#0F766E" />
-    <text x="455" y="828" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">3.2.4</text>
-    <text x="455" y="866" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">فهرسة النص والأرشفة</text>
-    <text x="455" y="886" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">الآمنة وتسجيل الأثر</text>
+    <rect x="315" y="810" width="280" height="96" rx="10" fill="#F0FDFA" stroke="#0F766E" stroke-width="2.2" />
+    <rect x="315" y="810" width="280" height="26" rx="8" fill="#0F766E" />
+    <rect x="315" y="828" width="280" height="8" fill="#0F766E" />
+    <text x="455" y="828" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">3.2.4</text>
+    <text x="455" y="866" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">فهرسة النص والأرشفة</text>
+    <text x="455" y="886" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">الآمنة وتسجيل الأثر</text>
   </g><g class="data-store">
     <rect x="290" y="1020" width="330" height="58" fill="#F0FDFA" />
     <line x1="290" y1="1020" x2="620" y2="1020" stroke="#0F766E" stroke-width="2.2" />
     <line x1="290" y1="1078" x2="620" y2="1078" stroke="#0F766E" stroke-width="2.2" />
     <line x1="290" y1="1020" x2="290" y2="1078" stroke="#0F766E" stroke-width="2.2" />
     <rect x="290" y="1020" width="46" height="58" fill="#0F766E" />
-    <text x="313" y="1054" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D3</text>
-    <text x="478" y="1054" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="bold" fill="#0F172A">أرشيف الوثائق والحجج الوقفية</text>
+    <text x="313" y="1054" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="13.5" font-weight="bold" fill="#FFFFFF">D3</text>
+    <text x="478" y="1054" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">أرشيف الوثائق والحجج الوقفية</text>
   </g><g class="data-flow">
-    <path d="M 740 248 L 599 248" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
-    <text x="670" y="232" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">صورة الصك الممسوحة</text>
+    <path d="M 740.0 248.0 L 607.0 248.0" fill="none" stroke="#0F766E" stroke-width="1.8"  />
+    <polygon points="599.0,248.0 610.0,243.4 610.0,252.6" fill="#0F766E" />
+    
+      <rect x="603.0" y="219.5" width="134" height="21" rx="4" fill="#FFFFFF" />
+      <text x="670" y="232" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">صورة الصك الممسوحة</text>
+    
   </g><g class="data-flow">
-    <path d="M 455 306 L 455 406" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
-    <text x="555" y="362" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">صورة محسنة جاهزة للتحليل</text>
+    <path d="M 455.0 306.0 L 455.0 398.0" fill="none" stroke="#0F766E" stroke-width="1.8"  />
+    <polygon points="455.0,406.0 450.4,395.0 459.6,395.0" fill="#0F766E" />
+    
+      <rect x="468.5" y="349.5" width="173" height="21" rx="4" fill="#FFFFFF" />
+      <text x="555" y="362" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">صورة محسنة جاهزة للتحليل</text>
+    
   </g><g class="data-flow">
-    <path d="M 455 506 L 455 606" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
-    <text x="565" y="562" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">النص العربي المستخلص (ocr_text)</text>
+    <path d="M 455.0 506.0 L 455.0 598.0" fill="none" stroke="#0F766E" stroke-width="1.8"  />
+    <polygon points="455.0,606.0 450.4,595.0 459.6,595.0" fill="#0F766E" />
+    
+      <rect x="456.0" y="549.5" width="218" height="21" rx="4" fill="#FFFFFF" />
+      <text x="565" y="562" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">‫النص العربي المستخلص (ocr_text)‬</text>
+    
   </g><g class="data-flow">
-    <path d="M 455 706 L 455 806" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
-    <text x="570" y="762" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">بصمة (64-char SHA-256) غير مكررة</text>
+    <path d="M 455.0 706.0 L 455.0 798.0" fill="none" stroke="#0F766E" stroke-width="1.8"  />
+    <polygon points="455.0,806.0 450.4,795.0 459.6,795.0" fill="#0F766E" />
+    
+      <rect x="458.0" y="749.5" width="224" height="21" rx="4" fill="#FFFFFF" />
+      <text x="570" y="762" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">‫بصمة (64-char SHA-256) غير مكررة‬</text>
+    
   </g><g class="data-flow">
-    <path d="M 455 906 L 455 1016" fill="none" stroke="#0F766E" stroke-width="1.8"  marker-end="url(#arrow-teal)" />
-    <text x="565" y="965" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">ملف الوثيقة + النص + البصمة الرقمية</text>
+    <path d="M 455.0 906.0 L 455.0 1008.0" fill="none" stroke="#0F766E" stroke-width="1.8"  />
+    <polygon points="455.0,1016.0 450.4,1005.0 459.6,1005.0" fill="#0F766E" />
+    
+      <rect x="443.5" y="952.5" width="243" height="21" rx="4" fill="#FFFFFF" />
+      <text x="565" y="965" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">ملف الوثيقة + النص + البصمة الرقمية</text>
+    
   </g><g class="data-flow">
-    <path d="M 290 1049 L 140 1049 L 140 658 L 311 658" fill="none" stroke="#1E3A5F" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arrow-navy)" />
-    <text x="220" y="855" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">مطابقة البصمة لمنع التكرار والتزوير</text>
+    <path d="M 290.0 1049.0 L 140.0 1049.0 L 140.0 658.0 L 303.0 658.0" fill="none" stroke="#1E3A5F" stroke-width="1.8" stroke-dasharray="6,4" />
+    <polygon points="311.0,658.0 300.0,662.6 300.0,653.4" fill="#1E3A5F" />
+    
+      <rect x="98.5" y="842.5" width="243" height="21" rx="4" fill="#FFFFFF" />
+      <text x="220" y="855" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">مطابقة البصمة لمنع التكرار والتزوير</text>
+    
   </g><g class="data-flow">
-    <path d="M 595 858 L 875 858 L 875 286" fill="none" stroke="#1E3A5F" stroke-width="1.8"  marker-end="url(#arrow-navy)" />
-    <text x="865" y="580" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="11.5" font-weight="600" fill="#0F172A" class="halo">شهادة توثيق SHA-256 ونتائج الفهرسة</text>
-  </g><rect x="50" y="1210" width="2050" height="52" rx="8" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.2" /><text x="1075" y="1241" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="bold" fill="#92400E">المبرر العلمي للمستوى الثاني: تم قصر التفكيك على العمليتين (2.2) و(3.2/3.3) لتضمنهما تحويلات تخصصية معقدة (طوبولوجيا PostGIS ومعالجة OCR وبصمة SHA-256)، بينما تكتفي بقية العمليات بالمستوى الأول.</text><g class="legend">
+    <path d="M 595.0 858.0 L 875.0 858.0 L 875.0 294.0" fill="none" stroke="#1E3A5F" stroke-width="1.8"  />
+    <polygon points="875.0,286.0 879.6,297.0 870.4,297.0" fill="#1E3A5F" />
+    
+      <rect x="746.5" y="567.5" width="237" height="21" rx="4" fill="#FFFFFF" />
+      <text x="865" y="580" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F172A">‫شهادة توثيق SHA-256 ونتائج الفهرسة‬</text>
+    
+  </g><rect x="50" y="1210" width="2050" height="52" rx="8" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.2" /><text x="1075" y="1241" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="bold" fill="#92400E">‫المبرر العلمي للمستوى الثاني: تم قصر التفكيك على العمليتين (2.2) و(3.2/3.3) لتضمنهما تحويلات تخصصية معقدة (طوبولوجيا PostGIS ومعالجة OCR وبصمة SHA-256)، بينما تكتفي بقية العمليات بالمستوى الأول.‬</text><g class="legend">
     <rect x="50" y="1285" width="2050" height="62" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" />
-    <text x="1833.5" y="1321" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F">دليل الرموز (Gane &amp; Sarson)</text>
+    <text x="1833.5" y="1321" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1E3A5F">‫دليل الرموز (Gane &amp; Sarson)‬</text>
 
     <!-- External Entity icon -->
     <rect x="1470" y="1301" width="44" height="30" rx="3" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.8" />
     <line x1="1477" y1="1301" x2="1477" y2="1331" stroke="#0F172A" stroke-width="1.3" />
-    <text x="1420" y="1321" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">كيان خارجي</text>
+    <text x="1420" y="1321" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">كيان خارجي</text>
 
     <!-- Process icon -->
     <rect x="1099" y="1300" width="48" height="32" rx="7" fill="#EFF6FF" stroke="#1E3A5F" stroke-width="1.8" />
     <line x1="1099" y1="1310" x2="1147" y2="1310" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="1049" y="1321" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">عملية نظام</text>
+    <text x="1049" y="1321" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">عملية نظام</text>
 
     <!-- Data Store icon -->
     <rect x="728" y="1302" width="52" height="28" fill="#F0FDFA" />
     <path d="M 780 1302 L 728 1302 L 728 1330 L 780 1330" fill="none" stroke="#0F766E" stroke-width="1.8" />
     <rect x="728" y="1302" width="16" height="28" fill="#0F766E" />
-    <text x="680" y="1321" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">مخزن بيانات</text>
+    <text x="680" y="1321" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">مخزن بيانات</text>
 
     <!-- Data Flow icon -->
-    <line x1="409" y1="1316" x2="357" y2="1316" stroke="#1E3A5F" stroke-width="1.8" marker-end="url(#arrow-navy)" />
-    <text x="313" y="1321" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">تدفق بيانات</text>
+    <line x1="409" y1="1316" x2="365" y2="1316" stroke="#1E3A5F" stroke-width="1.8" />
+    <polygon points="357.0,1316.0 367.0,1311.8 367.0,1320.2" fill="#1E3A5F" />
+    <text x="313" y="1321" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#0F172A">تدفق بيانات</text>
   </g></svg>

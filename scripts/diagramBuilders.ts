@@ -20,10 +20,10 @@ export const PALETTE = {
   gridLine: '#E2E8F0',
 };
 
-const FONT_AR = "'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif";
-const FONT_AR_BODY = "'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif";
-const FONT_MONO = "'Liberation Mono', 'DejaVu Sans Mono', monospace";
-const FONT_EN = "'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif";
+const FONT_AR = 'Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif';
+const FONT_AR_BODY = 'Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif';
+const FONT_MONO = 'Liberation Mono, Consolas, Courier New, monospace';
+const FONT_EN = 'Liberation Sans, Arial, Tahoma, sans-serif';
 
 export function escXml(str: string): string {
   return str
@@ -34,40 +34,51 @@ export function escXml(str: string): string {
     .replace(/'/g, '&apos;');
 }
 
+// Wraps mixed Arabic + Latin/digits/parentheses in Unicode RLE/PDF without using SVG direction="rtl"
+// (Microsoft Word's SVG importer & Convert-to-Shape mis-anchors <text direction="rtl" text-anchor="middle">)
+export function wrapBidi(str: string): string {
+  if (/[\u0600-\u06FF]/.test(str) && /[A-Za-z0-9()[\]{}:/.\-]/.test(str)) {
+    return `\u202B${str}\u202C`;
+  }
+  return str;
+}
+
+function resolveArrowColor(markerOrColor: string): string {
+  if (markerOrColor === 'arrow-teal') return PALETTE.teal;
+  if (markerOrColor === 'arrow-slate') return PALETTE.slateMid;
+  if (markerOrColor.startsWith('#')) return markerOrColor;
+  return PALETTE.navy;
+}
+
+function arrowheadPolygon(
+  x1: number,
+  y1: number,
+  x2: number,
+  y2: number,
+  color: string,
+  len = 11,
+  halfW = 4.6
+): string {
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  const dist = Math.hypot(dx, dy) || 1;
+  const ux = dx / dist;
+  const uy = dy / dist;
+  const bx = x2 - ux * len;
+  const by = y2 - uy * len;
+  const px1 = bx - uy * halfW;
+  const py1 = by + ux * halfW;
+  const px2 = bx + uy * halfW;
+  const py2 = by - ux * halfW;
+  return `<polygon points="${x2.toFixed(1)},${y2.toFixed(1)} ${px1.toFixed(1)},${py1.toFixed(1)} ${px2.toFixed(1)},${py2.toFixed(1)}" fill="${color}" />`;
+}
+
 function svgHeader(width: number, height: number, titleAr: string, subtitleAr: string): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" text-rendering="geometricPrecision" shape-rendering="geometricPrecision">
   <defs>
-    <marker id="arrow-navy" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1 L 11 5 L 0 9 z" fill="${PALETTE.navy}" />
-    </marker>
-    <marker id="arrow-teal" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1 L 11 5 L 0 9 z" fill="${PALETTE.teal}" />
-    </marker>
-    <marker id="arrow-slate" viewBox="0 0 12 10" refX="10" refY="5" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1 L 11 5 L 0 9 z" fill="${PALETTE.slateMid}" />
-    </marker>
-    <!-- Crow's Foot Markers -->
-    <marker id="cf-one" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <line x1="6" y1="2" x2="6" y2="12" stroke="${PALETTE.navy}" stroke-width="1.8" />
-      <line x1="10" y1="2" x2="10" y2="12" stroke="${PALETTE.navy}" stroke-width="1.8" />
-    </marker>
-    <marker id="cf-many" viewBox="0 0 16 14" refX="14" refY="7" markerWidth="14" markerHeight="12" orient="auto-start-reverse">
-      <path d="M 14 2 L 4 7 L 14 12" fill="none" stroke="${PALETTE.navy}" stroke-width="1.8" />
-      <line x1="4" y1="2" x2="4" y2="12" stroke="${PALETTE.navy}" stroke-width="1.8" />
-    </marker>
-    <marker id="cf-zero-one" viewBox="0 0 18 14" refX="16" refY="7" markerWidth="16" markerHeight="12" orient="auto-start-reverse">
-      <circle cx="5" cy="7" r="3.2" fill="#FFFFFF" stroke="${PALETTE.navy}" stroke-width="1.6" />
-      <line x1="12" y1="2" x2="12" y2="12" stroke="${PALETTE.navy}" stroke-width="1.8" />
-    </marker>
-    <marker id="cf-zero-many" viewBox="0 0 20 14" refX="18" refY="7" markerWidth="18" markerHeight="12" orient="auto-start-reverse">
-      <circle cx="5" cy="7" r="3.2" fill="#FFFFFF" stroke="${PALETTE.navy}" stroke-width="1.6" />
-      <path d="M 18 2 L 9 7 L 18 12" fill="none" stroke="${PALETTE.navy}" stroke-width="1.8" />
-    </marker>
     <style type="text/css"><![CDATA[
 ${getMainSvgFontsCss()}
-      .halo { paint-order: stroke; stroke: #FFFFFF; stroke-width: 7px; stroke-linejoin: round; stroke-linecap: round; }
-      .halo-sm { paint-order: stroke; stroke: #FFFFFF; stroke-width: 5px; stroke-linejoin: round; stroke-linecap: round; }
     ]]></style>
   </defs>
   <rect width="${width}" height="${height}" fill="#FFFFFF" />
@@ -75,8 +86,8 @@ ${getMainSvgFontsCss()}
   <!-- Academic Title Header -->
   <rect x="18" y="18" width="${width - 36}" height="82" rx="10" fill="${PALETTE.surfaceLight}" stroke="${PALETTE.borderSubtle}" stroke-width="1.5" />
   <line x1="18" y1="100" x2="${width - 18}" y2="100" stroke="${PALETTE.navy}" stroke-width="2" />
-  <text x="${width / 2}" y="53" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="22" font-weight="bold" fill="${PALETTE.navy}">${escXml(titleAr)}</text>
-  <text x="${width / 2}" y="82" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="14" fill="${PALETTE.slateMid}">${escXml(subtitleAr)}</text>
+  <text x="${width / 2}" y="53" text-anchor="middle" font-family="${FONT_AR}" font-size="22" font-weight="bold" fill="${PALETTE.navy}">${escXml(wrapBidi(titleAr))}</text>
+  <text x="${width / 2}" y="82" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="14" fill="${PALETTE.slateMid}">${escXml(wrapBidi(subtitleAr))}</text>
 `;
 }
 
@@ -84,31 +95,32 @@ function svgFooter(): string {
   return `</svg>\n`;
 }
 
-// Gane & Sarson External Entity (double side bar)
+// Gane & Sarson External Entity (double side bar, Word-shape friendly)
 function drawExternalEntity(x: number, y: number, w: number, h: number, titleAr: string, subEn?: string): string {
   return `<g class="external-entity">
     <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="#F1F5F9" stroke="${PALETTE.slateDark}" stroke-width="2.2" />
     <line x1="${x + 10}" y1="${y}" x2="${x + 10}" y2="${y + h}" stroke="${PALETTE.slateDark}" stroke-width="1.6" />
     <line x1="${x}" y1="${y + 8}" x2="${x + w}" y2="${y + 8}" stroke="${PALETTE.slateDark}" stroke-width="1.2" opacity="0.25" />
-    <text x="${x + w / 2 + 4}" y="${subEn ? y + h / 2 - 4 : y + h / 2 + 6}" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="15" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(titleAr)}</text>
-    ${subEn ? `<text x="${x + w / 2 + 4}" y="${y + h / 2 + 17}" text-anchor="middle" font-family="${FONT_EN}" font-size="11.5" fill="${PALETTE.slateMuted}">${escXml(subEn)}</text>` : ''}
+    <text x="${x + w / 2 + 4}" y="${subEn ? y + h / 2 - 4 : y + h / 2 + 6}" text-anchor="middle" font-family="${FONT_AR}" font-size="15" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(wrapBidi(titleAr))}</text>
+    ${subEn ? `<text x="${x + w / 2 + 4}" y="${y + h / 2 + 17}" text-anchor="middle" font-family="${FONT_EN}" font-size="11.5" fill="${PALETTE.slateMuted}">${escXml(wrapBidi(subEn))}</text>` : ''}
   </g>`;
 }
 
-// Gane & Sarson Process (rounded rectangle with top number band)
+// Gane & Sarson Process (rounded rectangle with clean top number band, Word-shape friendly)
 function drawProcess(x: number, y: number, w: number, h: number, num: string, linesAr: string[], accent = PALETTE.navy, fill = PALETTE.navyLight): string {
   const headerH = 26;
   const bodyCenterY = y + headerH + (h - headerH) / 2;
   const lineH = 20;
   const startY = bodyCenterY - ((linesAr.length - 1) * lineH) / 2 + 5;
   return `<g class="dfd-process">
-    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" fill="${fill}" stroke="${accent}" stroke-width="2.2" />
-    <path d="M ${x} ${y + headerH} L ${x + w} ${y + headerH} L ${x + w} ${y + 12} Q ${x + w} ${y} ${x + w - 12} ${y} L ${x + 12} ${y} Q ${x} ${y} ${x} ${y + 12} Z" fill="${accent}" />
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" fill="${fill}" stroke="${accent}" stroke-width="2.2" />
+    <rect x="${x}" y="${y}" width="${w}" height="${headerH}" rx="8" fill="${accent}" />
+    <rect x="${x}" y="${y + headerH - 8}" width="${w}" height="8" fill="${accent}" />
     <text x="${x + w / 2}" y="${y + 18}" text-anchor="middle" font-family="${FONT_EN}" font-size="13.5" font-weight="bold" fill="#FFFFFF">${escXml(num)}</text>
     ${linesAr
       .map(
         (line, i) =>
-          `<text x="${x + w / 2}" y="${startY + i * lineH}" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="13.5" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(line)}</text>`
+          `<text x="${x + w / 2}" y="${startY + i * lineH}" text-anchor="middle" font-family="${FONT_AR}" font-size="13.5" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(wrapBidi(line))}</text>`
       )
       .join('\n    ')}
   </g>`;
@@ -124,11 +136,11 @@ function drawDataStore(x: number, y: number, w: number, h: number, id: string, t
     <line x1="${x}" y1="${y}" x2="${x}" y2="${y + h}" stroke="${PALETTE.teal}" stroke-width="2.2" />
     <rect x="${x}" y="${y}" width="${idW}" height="${h}" fill="${PALETTE.teal}" />
     <text x="${x + idW / 2}" y="${y + h / 2 + 5}" text-anchor="middle" font-family="${FONT_EN}" font-size="13.5" font-weight="bold" fill="#FFFFFF">${escXml(id)}</text>
-    <text x="${x + idW + (w - idW) / 2}" y="${y + h / 2 + 5}" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="13" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(titleAr)}</text>
+    <text x="${x + idW + (w - idW) / 2}" y="${y + h / 2 + 5}" text-anchor="middle" font-family="${FONT_AR}" font-size="13" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(wrapBidi(titleAr))}</text>
   </g>`;
 }
 
-// Clean Flow Arrow with Halo Label
+// Clean Flow Arrow with Explicit Vector Arrowhead & White Rect Label Backdrop (Word-shape safe)
 function drawFlow(
   points: [number, number][],
   label: string,
@@ -138,14 +150,38 @@ function drawFlow(
   dashed = false,
   fontSize = 11.5
 ): string {
-  const d = points.map(([px, py], i) => `${i === 0 ? 'M' : 'L'} ${px} ${py}`).join(' ');
-  return `<g class="data-flow">
-    <path d="${d}" fill="none" stroke="${color}" stroke-width="1.8" ${dashed ? 'stroke-dasharray="6,4"' : ''} marker-end="url(#${marker})" />
-    ${
-      label
-        ? `<text x="${labelPos[0]}" y="${labelPos[1]}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="${fontSize}" font-weight="600" fill="${PALETTE.slateDark}" class="halo">${escXml(label)}</text>`
-        : ''
+  const arrowColor = resolveArrowColor(marker || color);
+  const pts = points.map(([x, y]) => [x, y] as [number, number]);
+  let arrowSvg = '';
+  if (pts.length >= 2) {
+    const [x1, y1] = pts[pts.length - 2];
+    const [x2, y2] = pts[pts.length - 1];
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const dist = Math.hypot(dx, dy) || 1;
+    arrowSvg = arrowheadPolygon(x1, y1, x2, y2, arrowColor, 11, 4.6);
+    if (dist > 12) {
+      pts[pts.length - 1] = [x2 - (dx / dist) * 8, y2 - (dy / dist) * 8];
     }
+  }
+  const d = pts.map(([px, py], i) => `${i === 0 ? 'M' : 'L'} ${px.toFixed(1)} ${py.toFixed(1)}`).join(' ');
+
+  let labelSvg = '';
+  if (label) {
+    const estW = Math.max(54, Math.round(label.length * (fontSize * 0.56) + 18));
+    const estH = Math.round(fontSize + 9);
+    const rx = (labelPos[0] - estW / 2).toFixed(1);
+    const ry = (labelPos[1] - fontSize - 1).toFixed(1);
+    labelSvg = `
+      <rect x="${rx}" y="${ry}" width="${estW}" height="${estH}" rx="4" fill="#FFFFFF" />
+      <text x="${labelPos[0]}" y="${labelPos[1]}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="${fontSize}" font-weight="600" fill="${PALETTE.slateDark}">${escXml(wrapBidi(label))}</text>
+    `;
+  }
+
+  return `<g class="data-flow">
+    <path d="${d}" fill="none" stroke="${color}" stroke-width="1.8" ${dashed ? 'stroke-dasharray="6,4"' : ''} />
+    ${arrowSvg}
+    ${labelSvg}
   </g>`;
 }
 
@@ -157,27 +193,28 @@ function drawDfdLegend(x: number, y: number, w: number): string {
   const cFlow = x + w * 0.14;
   return `<g class="legend">
     <rect x="${x}" y="${y}" width="${w}" height="62" rx="8" fill="${PALETTE.surfaceLight}" stroke="${PALETTE.borderSubtle}" stroke-width="1.2" />
-    <text x="${cTitle}" y="${y + 36}" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="13" font-weight="bold" fill="${PALETTE.navy}">دليل الرموز (Gane &amp; Sarson)</text>
+    <text x="${cTitle}" y="${y + 36}" text-anchor="middle" font-family="${FONT_AR}" font-size="13" font-weight="bold" fill="${PALETTE.navy}">${escXml(wrapBidi('دليل الرموز (Gane & Sarson)'))}</text>
 
     <!-- External Entity icon -->
     <rect x="${cEnt + 26}" y="${y + 16}" width="44" height="30" rx="3" fill="#F1F5F9" stroke="${PALETTE.slateDark}" stroke-width="1.8" />
     <line x1="${cEnt + 33}" y1="${y + 16}" x2="${cEnt + 33}" y2="${y + 46}" stroke="${PALETTE.slateDark}" stroke-width="1.3" />
-    <text x="${cEnt - 24}" y="${y + 36}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="12.5" font-weight="600" fill="${PALETTE.slateDark}">كيان خارجي</text>
+    <text x="${cEnt - 24}" y="${y + 36}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="12.5" font-weight="600" fill="${PALETTE.slateDark}">كيان خارجي</text>
 
     <!-- Process icon -->
     <rect x="${cProc + 24}" y="${y + 15}" width="48" height="32" rx="7" fill="${PALETTE.navyLight}" stroke="${PALETTE.navy}" stroke-width="1.8" />
     <line x1="${cProc + 24}" y1="${y + 25}" x2="${cProc + 72}" y2="${y + 25}" stroke="${PALETTE.navy}" stroke-width="1.8" />
-    <text x="${cProc - 26}" y="${y + 36}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="12.5" font-weight="600" fill="${PALETTE.slateDark}">عملية نظام</text>
+    <text x="${cProc - 26}" y="${y + 36}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="12.5" font-weight="600" fill="${PALETTE.slateDark}">عملية نظام</text>
 
     <!-- Data Store icon -->
     <rect x="${cStore + 22}" y="${y + 17}" width="52" height="28" fill="${PALETTE.tealLight}" />
     <path d="M ${cStore + 74} ${y + 17} L ${cStore + 22} ${y + 17} L ${cStore + 22} ${y + 45} L ${cStore + 74} ${y + 45}" fill="none" stroke="${PALETTE.teal}" stroke-width="1.8" />
     <rect x="${cStore + 22}" y="${y + 17}" width="16" height="28" fill="${PALETTE.teal}" />
-    <text x="${cStore - 26}" y="${y + 36}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="12.5" font-weight="600" fill="${PALETTE.slateDark}">مخزن بيانات</text>
+    <text x="${cStore - 26}" y="${y + 36}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="12.5" font-weight="600" fill="${PALETTE.slateDark}">مخزن بيانات</text>
 
     <!-- Data Flow icon -->
-    <line x1="${cFlow + 72}" y1="${y + 31}" x2="${cFlow + 20}" y2="${y + 31}" stroke="${PALETTE.navy}" stroke-width="1.8" marker-end="url(#arrow-navy)" />
-    <text x="${cFlow - 24}" y="${y + 36}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="12.5" font-weight="600" fill="${PALETTE.slateDark}">تدفق بيانات</text>
+    <line x1="${cFlow + 72}" y1="${y + 31}" x2="${cFlow + 28}" y2="${y + 31}" stroke="${PALETTE.navy}" stroke-width="1.8" />
+    ${arrowheadPolygon(cFlow + 72, y + 31, cFlow + 20, y + 31, PALETTE.navy, 10, 4.2)}
+    <text x="${cFlow - 24}" y="${y + 36}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="12.5" font-weight="600" fill="${PALETTE.slateDark}">تدفق بيانات</text>
   </g>`;
 }
 
@@ -367,13 +404,13 @@ export function buildDfdLevel0Svg(): string {
 
   // Architectural Zones (generous spacing, zero overlapping channels)
   out += `<rect x="40" y="122" width="290" height="1535" rx="8" fill="#FAFBFD" stroke="${PALETTE.gridLine}" stroke-width="1" />`;
-  out += `<text x="185" y="150" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="13" font-weight="bold" fill="${PALETTE.slateMuted}">كيانات خارجية (المتعاملون)</text>`;
+  out += `<text x="185" y="150" text-anchor="middle" font-family="${FONT_AR}" font-size="13" font-weight="bold" fill="${PALETTE.slateMuted}">${escXml(wrapBidi('كيانات خارجية (المتعاملون)'))}</text>`;
 
   out += `<rect x="2310" y="122" width="290" height="1535" rx="8" fill="#FAFBFD" stroke="${PALETTE.gridLine}" stroke-width="1" />`;
-  out += `<text x="2455" y="150" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="13" font-weight="bold" fill="${PALETTE.slateMuted}">كيانات خارجية (الإدارة والنظارة)</text>`;
+  out += `<text x="2455" y="150" text-anchor="middle" font-family="${FONT_AR}" font-size="13" font-weight="bold" fill="${PALETTE.slateMuted}">${escXml(wrapBidi('كيانات خارجية (الإدارة والنظارة)'))}</text>`;
 
   out += `<rect x="1160" y="122" width="350" height="1535" rx="8" fill="#F6FEFC" stroke="#CCFBF1" stroke-width="1.2" />`;
-  out += `<text x="1335" y="150" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="13" font-weight="bold" fill="${PALETTE.teal}">مخازن البيانات المركزية (D1 – D8)</text>`;
+  out += `<text x="1335" y="150" text-anchor="middle" font-family="${FONT_AR}" font-size="13" font-weight="bold" fill="${PALETTE.teal}">${escXml(wrapBidi('مخازن البيانات المركزية (D1 – D8)'))}</text>`;
 
   // External Entities (Left: Tenant & Beneficiary)
   out += drawExternalEntity(60, 580, 250, 76, 'المستأجر', 'Tenant');
@@ -676,8 +713,8 @@ export function buildDfdLevel1Svg(): string {
       <rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" rx="10" fill="#FFFFFF" stroke="${PALETTE.navy}" stroke-width="1.8" />
       <rect x="${p.x}" y="${p.y}" width="${p.w}" height="38" rx="10" fill="${PALETTE.navy}" />
       <rect x="${p.x}" y="${p.y + 24}" width="${p.w}" height="14" fill="${PALETTE.navy}" />
-      <text x="${p.x + p.w * 0.68}" y="${p.y + 25}" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="14.5" font-weight="bold" fill="#FFFFFF">${escXml(p.title)}</text>
-      <text x="${p.x + p.w * 0.21}" y="${p.y + 24}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="12" fill="#CBD5E1">الجهات: ${escXml(p.extLabels.join(' · '))}</text>
+      <text x="${p.x + p.w * 0.68}" y="${p.y + 25}" text-anchor="middle" font-family="${FONT_AR}" font-size="14.5" font-weight="bold" fill="#FFFFFF">${escXml(wrapBidi(p.title))}</text>
+      <text x="${p.x + p.w * 0.21}" y="${p.y + 24}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="12" fill="#CBD5E1">${escXml(wrapBidi(`الجهات: ${p.extLabels.join(' · ')}`))}</text>
     `;
 
     // 3 Sub-processes laid out right-to-left (x.1 on right, x.2 middle, x.3 left) for natural Arabic reading
@@ -788,7 +825,7 @@ export function buildDfdLevel1Svg(): string {
 
   // Inter-module horizontal balancing bridge callouts
   out += `<rect x="40" y="1655" width="${W - 80}" height="52" rx="8" fill="${PALETTE.navyLight}" stroke="${PALETTE.navy}" stroke-width="1.2" />`;
-  out += `<text x="${W / 2}" y="1686" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="13" font-weight="bold" fill="${PALETTE.navy}">الترابط المتوازن بين العمليات: (D2 العقارات المتاحة ← 5.1 إعداد العقود) · (D3 الصكوك ← 4.1 شروط الواقفين) · (D5 جدول الدفعات ← 6.1 إصدار الفواتير) · (D4 حصص الاستحقاق ← 6.3 توزيع الغلة)</text>`;
+  out += `<text x="${W / 2}" y="1686" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="13" font-weight="bold" fill="${PALETTE.navy}">${escXml(wrapBidi('الترابط المتوازن بين العمليات: (D2 العقارات المتاحة ← 5.1 إعداد العقود) · (D3 الصكوك ← 4.1 شروط الواقفين) · (D5 جدول الدفعات ← 6.1 إصدار الفواتير) · (D4 حصص الاستحقاق ← 6.3 توزيع الغلة)'))}</text>`;
 
   out += drawDfdLegend(40, 1730, W - 80);
   out += svgFooter();
@@ -812,7 +849,7 @@ export function buildDfdLevel2Svg(): string {
   out += `<rect x="1100" y="128" width="1000" height="1060" rx="12" fill="#FFFFFF" stroke="${PALETTE.navy}" stroke-width="2" />`;
   out += `<rect x="1100" y="128" width="1000" height="48" rx="12" fill="${PALETTE.navy}" />`;
   out += `<rect x="1100" y="156" width="1000" height="20" fill="${PALETTE.navy}" />`;
-  out += `<text x="1600" y="159" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="16" font-weight="bold" fill="#FFFFFF">أولاً: تفكيك العملية (2.2) — الرسم والمسح الجغرافي للحدود (PostGIS)</text>`;
+  out += `<text x="1600" y="159" text-anchor="middle" font-family="${FONT_AR}" font-size="16" font-weight="bold" fill="#FFFFFF">${escXml(wrapBidi('أولاً: تفكيك العملية (2.2) — الرسم والمسح الجغرافي للحدود (PostGIS)'))}</text>`;
 
   // External / Parent Inputs for Panel A
   out += drawExternalEntity(1790, 210, 275, 72, 'موظف إدارة الأوقاف', 'مخرجات العملية (2.1)');
@@ -850,7 +887,7 @@ export function buildDfdLevel2Svg(): string {
   out += `<rect x="50" y="128" width="1000" height="1060" rx="12" fill="#FFFFFF" stroke="${PALETTE.teal}" stroke-width="2" />`;
   out += `<rect x="50" y="128" width="1000" height="48" rx="12" fill="${PALETTE.teal}" />`;
   out += `<rect x="50" y="156" width="1000" height="20" fill="${PALETTE.teal}" />`;
-  out += `<text x="550" y="159" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="16" font-weight="bold" fill="#FFFFFF">ثانياً: تفكيك العمليات (3.2 / 3.3) — المعالجة الضوئية (OCR) والتوثيق (SHA-256)</text>`;
+  out += `<text x="550" y="159" text-anchor="middle" font-family="${FONT_AR}" font-size="16" font-weight="bold" fill="#FFFFFF">${escXml(wrapBidi('ثانياً: تفكيك العمليات (3.2 / 3.3) — المعالجة الضوئية (OCR) والتوثيق (SHA-256)'))}</text>`;
 
   out += drawExternalEntity(740, 210, 275, 72, 'موظف إدارة الأوقاف', 'مخرجات العملية (3.1)');
   out += drawProcess(315, 210, 280, 96, '3.2.1', ['معالجة الصورة الرقمية', 'وتحسين التباين والدقة'], PALETTE.teal, PALETTE.tealLight);
@@ -885,7 +922,7 @@ export function buildDfdLevel2Svg(): string {
 
   // Academic Rationale Banner
   out += `<rect x="50" y="1210" width="${W - 100}" height="52" rx="8" fill="${PALETTE.amberLight}" stroke="#F59E0B" stroke-width="1.2" />`;
-  out += `<text x="${W / 2}" y="1241" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="13" font-weight="bold" fill="${PALETTE.amberDark}">المبرر العلمي للمستوى الثاني: تم قصر التفكيك على العمليتين (2.2) و(3.2/3.3) لتضمنهما تحويلات تخصصية معقدة (طوبولوجيا PostGIS ومعالجة OCR وبصمة SHA-256)، بينما تكتفي بقية العمليات بالمستوى الأول.</text>`;
+  out += `<text x="${W / 2}" y="1241" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="13" font-weight="bold" fill="${PALETTE.amberDark}">${escXml(wrapBidi('المبرر العلمي للمستوى الثاني: تم قصر التفكيك على العمليتين (2.2) و(3.2/3.3) لتضمنهما تحويلات تخصصية معقدة (طوبولوجيا PostGIS ومعالجة OCR وبصمة SHA-256)، بينما تكتفي بقية العمليات بالمستوى الأول.'))}</text>`;
 
   out += drawDfdLegend(50, 1285, W - 100);
   out += svgFooter();
@@ -893,146 +930,197 @@ export function buildDfdLevel2Svg(): string {
 }
 
 // ============================================================================
-// 5. CONCEPTUAL ERD (05_Conceptual_ERD) — Entities, Relationships, 1:1, 1:N, M:N
+// 5. FULL-PAGE CHEN ERD (05_Conceptual_ERD) — Matching PDF Page 9 (شكل 3-25) Full A4 Page
 // ============================================================================
 export function buildConceptualErdSvg(): string {
-  const W = 2460;
-  const H = 1620;
-  let out = svgHeader(
-    W,
-    H,
-    'الشكل (3-5): مخطط الكيانات والعلاقات المفاهيمي (Conceptual ERD)',
-    'التمثيل التصوري للكيانات الأساسية والخصائص الدلالية وعلاقاتها (1:1، 1:N، M:N) قبل التطبيع التنفيذي'
-  );
+  // Full-page Portrait A4 proportions (1480 x 1980) matching Page 9 of reference PDF
+  const W = 1480;
+  const H = 1980;
+  let out = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" text-rendering="geometricPrecision" shape-rendering="geometricPrecision">
+  <defs>
+    <style type="text/css"><![CDATA[
+${getMainSvgFontsCss()}
+    ]]></style>
+  </defs>
+  <rect width="${W}" height="${H}" fill="#FFFFFF" />
+  <rect x="20" y="20" width="${W - 40}" height="${H - 40}" rx="8" fill="none" stroke="${PALETTE.borderSubtle}" stroke-width="1.4" />
+`;
 
-  function drawConceptEntity(x: number, y: number, w: number, h: number, ar: string, en: string, attrs: string[], fill = '#EFF6FF', stroke = PALETTE.navy): string {
-    const hdrH = 44;
-    return `<g class="concept-entity">
-      <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" fill="#FFFFFF" stroke="${stroke}" stroke-width="2.2" />
-      <rect x="${x}" y="${y}" width="${w}" height="${hdrH}" rx="6" fill="${fill}" stroke="${stroke}" stroke-width="1.5" />
-      <text x="${x + w / 2}" y="${y + 20}" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="14" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(ar)}</text>
-      <text x="${x + w / 2}" y="${y + 37}" text-anchor="middle" font-family="${FONT_EN}" font-size="11" font-weight="bold" fill="${stroke}">${escXml(en)}</text>
-      ${attrs
-        .map(
-          (a, i) =>
-            `<text x="${x + w / 2}" y="${y + hdrH + 20 + i * 19}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="12" fill="${PALETTE.slateMid}">${escXml(a)}</text>`
-        )
-        .join('\n      ')}
-    </g>`;
+  interface ChenEnt {
+    id: string;
+    ar: string;
+    cx: number;
+    cy: number;
+    w: number;
+    h: number;
   }
 
-  function drawDiamondRel(cx: number, cy: number, rx: number, ry: number, verbAr: string, cardA: string, posA: [number, number], cardB: string, posB: [number, number]): string {
-    return `<g class="concept-rel">
-      <polygon points="${cx},${cy - ry} ${cx + rx},${cy} ${cx},${cy + ry} ${cx - rx},${cy}" fill="${PALETTE.amberLight}" stroke="${PALETTE.amberDark}" stroke-width="1.8" />
-      <text x="${cx}" y="${cy + 4}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="11.5" font-weight="bold" fill="${PALETTE.amberDark}">${escXml(verbAr)}</text>
-      <text x="${posA[0]}" y="${posA[1]}" text-anchor="middle" font-family="${FONT_EN}" font-size="13" font-weight="bold" fill="${PALETTE.navy}" class="halo-sm">${escXml(cardA)}</text>
-      <text x="${posB[0]}" y="${posB[1]}" text-anchor="middle" font-family="${FONT_EN}" font-size="13" font-weight="bold" fill="${PALETTE.navy}" class="halo-sm">${escXml(cardB)}</text>
-    </g>`;
+  const entities: ChenEnt[] = [
+    // Row 1 (y = 145)
+    { id: 'perms', ar: 'الصلاحيات', cx: 230, cy: 145, w: 205, h: 64 },
+    { id: 'roles', ar: 'الأدوار الوظيفية', cx: 830, cy: 145, w: 215, h: 64 },
+    { id: 'audit', ar: 'سجلات التدقيق', cx: 1245, cy: 145, w: 210, h: 64 },
+
+    // Row 2 (y = 400)
+    { id: 'waqifs', ar: 'الواقفون', cx: 430, cy: 400, w: 200, h: 64 },
+    { id: 'users', ar: 'المستخدمون', cx: 830, cy: 400, w: 210, h: 64 },
+    { id: 'requests', ar: 'الطلبات الإلكترونية', cx: 1245, cy: 400, w: 225, h: 64 },
+
+    // Row 3 (y = 695)
+    { id: 'docs', ar: 'الوثائق الوقفية', cx: 215, cy: 695, w: 210, h: 64 },
+    { id: 'waqfs', ar: 'الأوقاف', cx: 830, cy: 695, w: 210, h: 64 },
+    { id: 'conds', ar: 'شروط الواقفين', cx: 1245, cy: 695, w: 215, h: 64 },
+
+    // Row 4 (y = 1005)
+    { id: 'gis', ar: 'القطع الجغرافية', cx: 215, cy: 1005, w: 215, h: 64 },
+    { id: 'props', ar: 'الممتلكات الوقفية', cx: 830, cy: 1005, w: 225, h: 64 },
+    { id: 'bens', ar: 'المستفيدون', cx: 1245, cy: 1005, w: 210, h: 64 },
+
+    // Row 5 (y = 1320)
+    { id: 'tenants', ar: 'المستأجرون', cx: 215, cy: 1320, w: 210, h: 64 },
+    { id: 'leases', ar: 'عقود الإيجار', cx: 830, cy: 1320, w: 215, h: 64 },
+    { id: 'disb', ar: 'صرفيات العوائد', cx: 1245, cy: 1320, w: 215, h: 64 },
+
+    // Row 6 (y = 1635)
+    { id: 'payments', ar: 'عمليات السداد', cx: 215, cy: 1635, w: 210, h: 64 },
+    { id: 'invoices', ar: 'الفواتير المالية', cx: 830, cy: 1635, w: 215, h: 64 },
+  ];
+
+  const entMap = Object.fromEntries(entities.map((e) => [e.id, e]));
+
+  interface ChenLink {
+    from: string;
+    to: string;
+    verb: string;
+    cardFrom: string;
+    cardTo: string;
+    doubleFrom?: boolean;
+    doubleTo?: boolean;
+    fromAnchor?: 'top' | 'bottom' | 'left' | 'right';
+    toAnchor?: 'top' | 'bottom' | 'left' | 'right';
+    fromPos?: [number, number];
+    toPos?: [number, number];
+    diamondPos?: [number, number];
+    cardFromPos?: [number, number];
+    cardToPos?: [number, number];
   }
 
-  function connectLine(pts: [number, number][], color = PALETTE.slateMid): string {
-    const d = pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'} ${x} ${y}`).join(' ');
-    return `<path d="${d}" fill="none" stroke="${color}" stroke-width="1.8" />`;
+  function getAnchor(e: ChenEnt, side: 'top' | 'bottom' | 'left' | 'right'): [number, number] {
+    if (side === 'top') return [e.cx, e.cy - e.h / 2];
+    if (side === 'bottom') return [e.cx, e.cy + e.h / 2];
+    if (side === 'left') return [e.cx - e.w / 2, e.cy];
+    return [e.cx + e.w / 2, e.cy];
   }
 
-  // Row 1: RBAC & Users & Audit (Top)
-  out += drawConceptEntity(1840, 150, 260, 128, 'الأدوار الوظيفية', 'Roles', ['معرف الدور (PK)', 'اسم الدور', 'الوصف']);
-  out += drawConceptEntity(1260, 150, 260, 128, 'الصلاحيات', 'Permissions', ['معرف الصلاحية (PK)', 'رمز الصلاحية', 'الوحدة الوظيفية']);
-  out += drawConceptEntity(1840, 420, 260, 165, 'المستخدمون', 'Users', ['معرف المستخدم (PK)', 'الاسم والهوية', 'البريد والهاتف', 'حالة الحساب']);
-  out += drawConceptEntity(2140, 420, 175, 145, 'سجل التدقيق', 'Audit_Logs', ['معرف السجل (PK)', 'نوع العملية', 'الكيان المستهدف', 'التاريخ']);
+  function drawLineSeg(x1: number, y1: number, x2: number, y2: number, doubleLine: boolean): string {
+    if (!doubleLine) {
+      return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${PALETTE.slateDark}" stroke-width="1.9" />`;
+    }
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const len = Math.hypot(dx, dy) || 1;
+    const nx = (-dy / len) * 3.8;
+    const ny = (dx / len) * 3.8;
+    return `
+      <line x1="${(x1 + nx).toFixed(1)}" y1="${(y1 + ny).toFixed(1)}" x2="${(x2 + nx).toFixed(1)}" y2="${(y2 + ny).toFixed(1)}" stroke="${PALETTE.slateDark}" stroke-width="1.7" />
+      <line x1="${(x1 - nx).toFixed(1)}" y1="${(y1 - ny).toFixed(1)}" x2="${(x2 - nx).toFixed(1)}" y2="${(y2 - ny).toFixed(1)}" stroke="${PALETTE.slateDark}" stroke-width="1.7" />
+    `;
+  }
 
-  // Row 2/3: Core Waqf, Waqif, Properties, GIS, Documents
-  out += drawConceptEntity(1330, 420, 260, 145, 'الواقفون', 'Waqifs', ['معرف الواقف (PK)', 'اسم الواقف', 'الهوية / المرجع', 'تاريخ الوقف']);
-  out += drawConceptEntity(1330, 700, 270, 165, 'الأوقاف', 'Waqfs', ['معرف الوقف (PK)', 'اسم الوقف ونوعه', 'رقم الصك الوقفي', 'الحالة التنظيمية']);
-  out += drawConceptEntity(830, 700, 270, 165, 'الممتلكات الوقفية', 'Properties', ['معرف العقار (PK)', 'الرمز والتصنيف', 'المساحة والعنوان', 'القيمة والحالة']);
-  out += drawConceptEntity(320, 700, 275, 150, 'القطع الجغرافية', 'GIS_Parcels', ['معرف القطعة (PK)', 'مضلع الحدود (Polygon)', 'المركز الهندسي (Point)', 'تاريخ المسح'], PALETTE.tealLight, PALETTE.teal);
-  out += drawConceptEntity(830, 420, 270, 165, 'الوثائق المؤرشفة', 'Documents', ['معرف الوثيقة (PK)', 'نوع الوثيقة', 'النص المستخلص (OCR)', 'بصمة SHA-256'], PALETTE.tealLight, PALETTE.teal);
+  const links: ChenLink[] = [
+    // Roles M:N Permissions
+    { from: 'roles', to: 'perms', verb: 'تمتلك', cardFrom: 'M', cardTo: 'N', doubleFrom: true, doubleTo: true, fromAnchor: 'left', toAnchor: 'right' },
+    // Roles 1:N Users
+    { from: 'roles', to: 'users', verb: 'يُسنَد إلى', cardFrom: '1', cardTo: 'N', doubleTo: true, fromAnchor: 'bottom', toAnchor: 'top' },
+    // Users 1:N Audit_Logs (clean diagonal from Users upper-right to Audit bottom)
+    { from: 'users', to: 'audit', verb: 'يُولّد', cardFrom: '1', cardTo: 'N', doubleTo: true, fromPos: [935, 384], toAnchor: 'bottom', diamondPos: [1085, 275], cardFromPos: [956, 348], cardToPos: [1218, 212] },
+    // Users 1:N Service_Requests
+    { from: 'users', to: 'requests', verb: 'يقدم', cardFrom: '1', cardTo: 'N', doubleTo: true, fromPos: [935, 410], toPos: [1132.5, 410], cardFromPos: [968, 434], cardToPos: [1106, 434] },
+    // Users (Nazir) 1:N Waqfs
+    { from: 'users', to: 'waqfs', verb: 'يشرف على', cardFrom: '1', cardTo: 'N', doubleTo: true, fromAnchor: 'bottom', toAnchor: 'top' },
+    // Waqifs 1:N Waqfs (diagonal from Waqifs bottom to Waqfs left-top)
+    { from: 'waqifs', to: 'waqfs', verb: 'ينشئ', cardFrom: '1', cardTo: 'N', doubleFrom: true, doubleTo: true, fromAnchor: 'bottom', toPos: [725, 678], diamondPos: [580, 560], cardFromPos: [472, 464], cardToPos: [690, 636] },
+    // Waqfs 1:N Documents
+    { from: 'waqfs', to: 'docs', verb: 'يوثّق بـ', cardFrom: '1', cardTo: 'N', doubleTo: true, fromPos: [725, 706], toPos: [320, 706], cardFromPos: [690, 730], cardToPos: [350, 730] },
+    // Waqfs 1:N Waqif_Conditions
+    { from: 'waqfs', to: 'conds', verb: 'يخضع لـ', cardFrom: '1', cardTo: 'N', doubleTo: true, fromPos: [935, 686], toPos: [1137.5, 686], cardFromPos: [965, 668], cardToPos: [1110, 668] },
+    // Waqfs 1:N Properties
+    { from: 'waqfs', to: 'props', verb: 'يضم', cardFrom: '1', cardTo: 'N', doubleFrom: true, doubleTo: true, fromAnchor: 'bottom', toAnchor: 'top' },
+    // Waqfs M:N Beneficiaries (clean diagonal from Waqfs lower-right to Beneficiaries top)
+    { from: 'waqfs', to: 'bens', verb: 'يستحق منه', cardFrom: 'M', cardTo: 'N', doubleFrom: false, doubleTo: true, fromPos: [935, 714], toAnchor: 'top', diamondPos: [1095, 845], cardFromPos: [958, 756], cardToPos: [1218, 938] },
+    // Beneficiaries 1:N Disbursements
+    { from: 'bens', to: 'disb', verb: 'يُصرف له', cardFrom: '1', cardTo: 'N', doubleTo: true, fromAnchor: 'bottom', toAnchor: 'top' },
+    // Properties 1:1 GIS_Parcels
+    { from: 'props', to: 'gis', verb: 'يُحدّد بـ', cardFrom: '1', cardTo: '1', doubleFrom: true, doubleTo: true, fromAnchor: 'left', toAnchor: 'right' },
+    // Properties 1:N Lease_Contracts
+    { from: 'props', to: 'leases', verb: 'يُؤجّر عبر', cardFrom: '1', cardTo: 'N', fromAnchor: 'bottom', toAnchor: 'top' },
+    // Tenants 1:N Lease_Contracts
+    { from: 'tenants', to: 'leases', verb: 'يُبرم', cardFrom: '1', cardTo: 'N', doubleFrom: true, doubleTo: true, fromAnchor: 'right', toAnchor: 'left' },
+    // Lease_Contracts 1:N Invoices
+    { from: 'leases', to: 'invoices', verb: 'يُولّد', cardFrom: '1', cardTo: 'N', doubleFrom: true, doubleTo: true, fromAnchor: 'bottom', toAnchor: 'top' },
+    // Invoices 1:N Payments
+    { from: 'invoices', to: 'payments', verb: 'تُسدّد بـ', cardFrom: '1', cardTo: 'N', doubleTo: true, fromAnchor: 'left', toAnchor: 'right' },
+  ];
 
-  // Row 4: Conditions, Beneficiaries, Tenants, Contracts
-  out += drawConceptEntity(1840, 700, 260, 145, 'شروط الواقفين', 'Waqif_Conditions', ['معرف الشرط (PK)', 'عنوان المصرف', 'النص الشرعي', 'أولوية التنفيذ']);
-  out += drawConceptEntity(1840, 1000, 260, 150, 'المستفيدون', 'Beneficiaries', ['معرف المستفيد (PK)', 'الاسم والهوية', 'فئة الاستحقاق', 'الحساب البنكي (IBAN)']);
-  out += drawConceptEntity(1330, 1020, 270, 145, 'صرفيات العوائد', 'Disbursements', ['معرف الصرف (PK)', 'المبلغ المصروف', 'تاريخ التحويل', 'رقم المرجع']);
-  out += drawConceptEntity(830, 1010, 270, 165, 'عقود الإيجار', 'Lease_Contracts', ['معرف العقد (PK)', 'رقم العقد', 'تاريخ البداية والنهاية', 'الأجرة السنوية']);
-  out += drawConceptEntity(320, 1010, 275, 145, 'المستأجرون', 'Tenants', ['معرف المستأجر (PK)', 'الاسم الكامل', 'الهوية / السجل', 'بيانات التواصل']);
+  // 1. Draw all connector lines & cardinality labels FIRST
+  const diamondsSvg: string[] = [];
+  for (const lk of links) {
+    const e1 = entMap[lk.from];
+    const e2 = entMap[lk.to];
+    const p1 = lk.fromPos ?? getAnchor(e1, lk.fromAnchor ?? 'right');
+    const p2 = lk.toPos ?? getAnchor(e2, lk.toAnchor ?? 'left');
+    const [dx, dy] = lk.diamondPos ?? [(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2];
 
-  // Row 5: Invoices, Payments, Service Requests
-  out += drawConceptEntity(830, 1300, 270, 145, 'الفواتير والمطالبات', 'Invoices', ['معرف الفاتورة (PK)', 'تاريخ الاستحقاق', 'المبلغ المطلوب', 'حالة الفاتورة']);
-  out += drawConceptEntity(320, 1300, 275, 145, 'التحصيل والسداد', 'Payments', ['معرف السداد (PK)', 'المبلغ المدفوع', 'تاريخ التحصيل', 'رقم الإيصال']);
-  out += drawConceptEntity(1840, 1300, 260, 145, 'الخدمات والطلبات', 'Service_Requests', ['معرف الطلب (PK)', 'نوع الطلب', 'الوصف والتاريخ', 'حالة الطلب']);
+    out += drawLineSeg(p1[0], p1[1], dx, dy, !!lk.doubleFrom);
+    out += drawLineSeg(dx, dy, p2[0], p2[1], !!lk.doubleTo);
 
-  // Relationships with Diamonds & Cardinalities
-  // Roles M:N Permissions
-  out += connectLine([[1840, 214], [1520, 214]]);
-  out += drawDiamondRel(1680, 214, 58, 28, 'يمتلك', 'M', [1815, 204], 'N', [1545, 204]);
+    // Cardinality labels positioned cleanly ~32px from each entity edge, or explicit coordinates on diagonal links
+    const d1x = dx - p1[0];
+    const d1y = dy - p1[1];
+    const l1 = Math.hypot(d1x, d1y) || 1;
+    const c1x = lk.cardFromPos ? lk.cardFromPos[0] : p1[0] + (d1x / l1) * 32 + (Math.abs(d1y) > Math.abs(d1x) ? 20 : 0);
+    const c1y = lk.cardFromPos ? lk.cardFromPos[1] : p1[1] + (d1y / l1) * 32 + (Math.abs(d1x) >= Math.abs(d1y) ? -14 : 5);
 
-  // Roles 1:N Users
-  out += connectLine([[1970, 278], [1970, 420]]);
-  out += drawDiamondRel(1970, 349, 54, 26, 'يُسند لـ', '1', [1988, 298], 'N', [1988, 405]);
+    const d2x = dx - p2[0];
+    const d2y = dy - p2[1];
+    const l2 = Math.hypot(d2x, d2y) || 1;
+    const c2x = lk.cardToPos ? lk.cardToPos[0] : p2[0] + (d2x / l2) * 32 + (Math.abs(d2y) > Math.abs(d2x) ? 20 : 0);
+    const c2y = lk.cardToPos ? lk.cardToPos[1] : p2[1] + (d2y / l2) * 32 + (Math.abs(d2x) >= Math.abs(d2y) ? -14 : 5);
 
-  // Users 1:N Audit_Logs
-  out += connectLine([[2100, 495], [2140, 495]]);
-  out += `<text x="2108" y="485" font-family="${FONT_EN}" font-size="12" font-weight="bold" fill="${PALETTE.navy}">1</text>`;
-  out += `<text x="2128" y="485" font-family="${FONT_EN}" font-size="12" font-weight="bold" fill="${PALETTE.navy}">N</text>`;
+    out += `<rect x="${(c1x - 12).toFixed(1)}" y="${(c1y - 13).toFixed(1)}" width="24" height="18" rx="3" fill="#FFFFFF" />`;
+    out += `<text x="${c1x.toFixed(1)}" y="${c1y.toFixed(1)}" text-anchor="middle" font-family="${FONT_EN}" font-size="14.5" font-weight="bold" fill="${PALETTE.navy}">${escXml(lk.cardFrom)}</text>`;
 
-  // Users 1:N Waqfs (Nazir)
-  out += connectLine([[1840, 520], [1710, 520], [1710, 740], [1600, 740]]);
-  out += drawDiamondRel(1710, 620, 54, 26, 'يدير', '1', [1818, 510], 'N', [1622, 730]);
+    out += `<rect x="${(c2x - 12).toFixed(1)}" y="${(c2y - 13).toFixed(1)}" width="24" height="18" rx="3" fill="#FFFFFF" />`;
+    out += `<text x="${c2x.toFixed(1)}" y="${c2y.toFixed(1)}" text-anchor="middle" font-family="${FONT_EN}" font-size="14.5" font-weight="bold" fill="${PALETTE.navy}">${escXml(lk.cardTo)}</text>`;
 
-  // Waqifs 1:N Waqfs
-  out += connectLine([[1465, 565], [1465, 700]]);
-  out += drawDiamondRel(1465, 632, 54, 26, 'ينشئ', '1', [1484, 585], 'N', [1484, 686]);
+    // Queue diamond on top of lines
+    const rx = 68;
+    const ry = 36;
+    diamondsSvg.push(`<g class="chen-diamond">
+      <polygon points="${dx},${dy - ry} ${dx + rx},${dy} ${dx},${dy + ry} ${dx - rx},${dy}" fill="#FFFFFF" stroke="${PALETTE.slateDark}" stroke-width="2" />
+      <text x="${dx}" y="${dy + 5}" text-anchor="middle" font-family="${FONT_AR}" font-size="14" font-weight="bold" fill="${PALETTE.navy}">${escXml(wrapBidi(lk.verb))}</text>
+    </g>`);
+  }
 
-  // Waqfs 1:N Properties
-  out += connectLine([[1330, 782], [1100, 782]]);
-  out += drawDiamondRel(1215, 782, 54, 26, 'يحتوي', '1', [1308, 770], 'N', [1122, 770]);
+  // 2. Draw diamonds
+  out += diamondsSvg.join('\n  ');
 
-  // Properties 1:1 GIS_Parcels
-  out += connectLine([[830, 782], [595, 782]]);
-  out += drawDiamondRel(712, 782, 62, 26, 'يمتلك موقعاً', '1', [808, 770], '1', [618, 770]);
+  // 3. Draw entity rectangles on top
+  for (const e of entities) {
+    const x = e.cx - e.w / 2;
+    const y = e.cy - e.h / 2;
+    out += `<g class="chen-entity">
+      <rect x="${x}" y="${y}" width="${e.w}" height="${e.h}" rx="3" fill="#FFFFFF" stroke="${PALETTE.slateDark}" stroke-width="2.2" />
+      <text x="${e.cx}" y="${e.cy + 6}" text-anchor="middle" font-family="${FONT_AR}" font-size="16" font-weight="bold" fill="${PALETTE.slateDark}">${escXml(wrapBidi(e.ar))}</text>
+    </g>\n`;
+  }
 
-  // Properties 1:N Documents
-  out += connectLine([[965, 700], [965, 585]]);
-  out += drawDiamondRel(965, 642, 54, 26, 'يوثق بـ', '1', [985, 686], 'N', [985, 603]);
+  // 4. Bottom Academic Caption (Matching Page 9 of reference PDF)
+  out += `<text x="${W / 2}" y="1825" text-anchor="middle" font-family="${FONT_AR}" font-size="20" font-weight="bold" fill="${PALETTE.navy}">${escXml(wrapBidi('الشكل (3-5): مخطط الكينونة والعلاقة الكامل (ERD)'))}</text>`;
+  out += `<rect x="80" y="1862" width="${W - 160}" height="64" rx="8" fill="${PALETTE.surfaceLight}" stroke="${PALETTE.borderSubtle}" stroke-width="1.2" />`;
+  out += `<text x="${W / 2}" y="1899" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="14" font-weight="600" fill="${PALETTE.slateMid}">${escXml(wrapBidi('المستطيل: كيان النظام · المعين: العلاقة الدلالية · الخط المزدوج: اشتراك كلي إلزامي · الرموز (1، N، M): درجة العلاقة بين الكيانات'))}</text>`;
 
-  // Waqfs 1:N Waqif_Conditions
-  out += connectLine([[1600, 772], [1840, 772]]);
-  out += drawDiamondRel(1720, 772, 54, 26, 'يخضع لـ', '1', [1622, 760], 'N', [1818, 760]);
-
-  // Waqfs M:N Beneficiaries (Conceptual M:N!)
-  out += connectLine([[1520, 865], [1520, 935], [1930, 935], [1930, 1000]]);
-  out += drawDiamondRel(1720, 935, 62, 28, 'يستحق منه', 'M', [1540, 888], 'N', [1912, 985]);
-
-  // Beneficiaries 1:N Disbursements
-  out += connectLine([[1840, 1090], [1600, 1090]]);
-  out += drawDiamondRel(1720, 1090, 56, 26, 'يستلم', '1', [1818, 1078], 'N', [1622, 1078]);
-
-  // Properties 1:N Lease_Contracts
-  out += connectLine([[965, 865], [965, 1010]]);
-  out += drawDiamondRel(965, 937, 54, 26, 'يُؤجر بـ', '1', [985, 885], 'N', [985, 995]);
-
-  // Tenants 1:N Lease_Contracts
-  out += connectLine([[595, 1090], [830, 1090]]);
-  out += drawDiamondRel(712, 1090, 54, 26, 'يُبرم', '1', [618, 1078], 'N', [808, 1078]);
-
-  // Lease_Contracts 1:N Invoices
-  out += connectLine([[965, 1175], [965, 1300]]);
-  out += drawDiamondRel(965, 1237, 54, 26, 'يُصدر', '1', [985, 1195], 'N', [985, 1285]);
-
-  // Invoices 1:N Payments
-  out += connectLine([[830, 1372], [595, 1372]]);
-  out += drawDiamondRel(712, 1372, 54, 26, 'يُسدد بـ', '1', [808, 1360], 'N', [618, 1360]);
-
-  // Users 1:0..1 Tenants & 1:0..1 Beneficiaries & 1:N Service_Requests
-  out += connectLine([[2100, 550], [2270, 550], [2270, 1372], [2100, 1372]]);
-  out += drawDiamondRel(2270, 960, 56, 26, 'يقدم', '1', [2122, 540], 'N', [2122, 1360]);
-
-  // Properties 1:N Service_Requests (bottom connector)
-  out += connectLine([[1100, 1140], [1230, 1140], [1230, 1390], [1840, 1390]]);
-  out += drawDiamondRel(1490, 1390, 62, 26, 'يرتبط بطلب', '0..1', [1248, 1375], 'N', [1815, 1378]);
-
-  // Conceptual ERD Legend
-  out += `<rect x="40" y="1520" width="${W - 80}" height="62" rx="8" fill="${PALETTE.surfaceLight}" stroke="${PALETTE.borderSubtle}" stroke-width="1.2" />`;
-  out += `<text x="${W / 2}" y="1556" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="13" font-weight="bold" fill="${PALETTE.navy}">دليل المخطط المفاهيمي (Chen / Conceptual ERD): المستطيل يمثل الكيان وخصائصه الأساسية · المعين يمثل العلاقة الدلالية · الرموز (1:1، 1:N، M:N) تمثل الكاردينالية قبل فك علاقات متعدد إلى متعدد.</text>`;
   out += svgFooter();
   return out;
 }
@@ -1079,7 +1167,7 @@ export function buildLogicalErdSvg(): string {
       <rect x="${t.x}" y="${t.y}" width="${t.w}" height="${hdrH}" rx="6" fill="${headerBg}" />
       <rect x="${t.x}" y="${t.y + 30}" width="${t.w}" height="14" fill="${headerBg}" />
       <text x="${t.x + t.w / 2}" y="${t.y + 20}" text-anchor="middle" font-family="${FONT_MONO}" font-size="13.5" font-weight="bold" fill="#FFFFFF">${escXml(t.nameEn)}</text>
-      <text x="${t.x + t.w / 2}" y="${t.y + 37}" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="11.5" fill="#E2E8F0">${escXml(t.nameAr)}</text>
+      <text x="${t.x + t.w / 2}" y="${t.y + 37}" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="11.5" fill="#E2E8F0">${escXml(wrapBidi(t.nameAr))}</text>
     `;
 
     t.cols.forEach((c, i) => {
@@ -1416,10 +1504,59 @@ export function buildLogicalErdSvg(): string {
     },
   ];
 
-  // Draw Crow's Foot connectors FIRST (behind table borders slightly or cleanly routed in gaps)
+  // Draw Crow's Foot markers directly as vector geometry (100% Word Convert-to-Shape safe, no SVG <marker>)
+  function drawCrowsFootCap(xTip: number, yTip: number, xPrev: number, yPrev: number, type: string): string {
+    const dx = xTip - xPrev;
+    const dy = yTip - yPrev;
+    const dist = Math.hypot(dx, dy) || 1;
+    // Unit vector pointing FROM line INTO entity edge (xTip, yTip)
+    const ux = dx / dist;
+    const uy = dy / dist;
+    // Perpendicular vector
+    const px = -uy;
+    const py = ux;
+
+    const bar = (dBack: number, halfLen = 6) => {
+      const bx = xTip - ux * dBack;
+      const by = yTip - uy * dBack;
+      return `<line x1="${(bx + px * halfLen).toFixed(1)}" y1="${(by + py * halfLen).toFixed(1)}" x2="${(bx - px * halfLen).toFixed(1)}" y2="${(by - py * halfLen).toFixed(1)}" stroke="${PALETTE.navy}" stroke-width="1.8" />`;
+    };
+    const circle = (dBack: number) => {
+      const cx = xTip - ux * dBack;
+      const cy = yTip - uy * dBack;
+      return `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="3.6" fill="#FFFFFF" stroke="${PALETTE.navy}" stroke-width="1.6" />`;
+    };
+    const fork = (dBack: number, halfSpan = 6.2) => {
+      const bx = xTip - ux * dBack;
+      const by = yTip - uy * dBack;
+      const p1x = xTip + px * halfSpan;
+      const p1y = yTip + py * halfSpan;
+      const p2x = xTip - px * halfSpan;
+      const p2y = yTip - py * halfSpan;
+      return `
+        <line x1="${bx.toFixed(1)}" y1="${by.toFixed(1)}" x2="${p1x.toFixed(1)}" y2="${p1y.toFixed(1)}" stroke="${PALETTE.navy}" stroke-width="1.8" />
+        <line x1="${bx.toFixed(1)}" y1="${by.toFixed(1)}" x2="${p2x.toFixed(1)}" y2="${p2y.toFixed(1)}" stroke="${PALETTE.navy}" stroke-width="1.8" />
+      `;
+    };
+
+    if (type === 'cf-one') return bar(6) + bar(11);
+    if (type === 'cf-many') return fork(11) + bar(12);
+    if (type === 'cf-zero-one') return bar(6) + circle(14);
+    if (type === 'cf-zero-many') return fork(11) + circle(17);
+    return '';
+  }
+
   function cfLink(pts: [number, number][], startMarker: string, endMarker: string, dashed = false): string {
     const d = pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'} ${x} ${y}`).join(' ');
-    return `<path d="${d}" fill="none" stroke="${PALETTE.navy}" stroke-width="1.8" ${dashed ? 'stroke-dasharray="6,4"' : ''} marker-start="url(#${startMarker})" marker-end="url(#${endMarker})" />`;
+    let caps = '';
+    if (pts.length >= 2) {
+      caps += drawCrowsFootCap(pts[0][0], pts[0][1], pts[1][0], pts[1][1], startMarker);
+      caps += drawCrowsFootCap(pts[pts.length - 1][0], pts[pts.length - 1][1], pts[pts.length - 2][0], pts[pts.length - 2][1], endMarker);
+    }
+    return `<g class="cf-link">
+      <path d="${d}" fill="none" stroke="${PALETTE.navy}" stroke-width="1.8" ${dashed ? 'stroke-dasharray="6,4"' : ''} />
+      ${caps}
+    </g>`;
   }
 
   // roles 1--* role_permissions *--1 permissions
@@ -1474,8 +1611,8 @@ export function buildLogicalErdSvg(): string {
 
   // Logical ERD Legend
   out += `<rect x="40" y="1820" width="${W - 80}" height="80" rx="8" fill="${PALETTE.surfaceLight}" stroke="${PALETTE.borderSubtle}" stroke-width="1.2" />`;
-  out += `<text x="${W / 2}" y="1852" text-anchor="middle" direction="rtl" font-family="${FONT_AR}" font-size="13.5" font-weight="bold" fill="${PALETTE.navy}">دليل ترميز Crow's Foot ومعايير التطبيع (PostgreSQL + PostGIS · 3NF):</text>`;
-  out += `<text x="${W / 2}" y="1880" text-anchor="middle" direction="rtl" font-family="${FONT_AR_BODY}" font-size="12.5" fill="${PALETTE.slateDark}">PK: مفتاح أساسي · FK: مفتاح أجنبي · UQ: قيد فريد · الخط المتصل: علاقة إلزامية (1:1 أو 1:N) · الخط المتقطع: علاقة اختيارية (0..1 أو 0..N) · الجداول الذهبية: جداول وسيطة لفك علاقات M:N · الجداول الخضراء: خصائص PostGIS وOCR/SHA-256.</text>`;
+  out += `<text x="${W / 2}" y="1852" text-anchor="middle" font-family="${FONT_AR}" font-size="13.5" font-weight="bold" fill="${PALETTE.navy}">${escXml(wrapBidi("دليل ترميز Crow's Foot ومعايير التطبيع (PostgreSQL + PostGIS · 3NF)"))}</text>`;
+  out += `<text x="${W / 2}" y="1880" text-anchor="middle" font-family="${FONT_AR_BODY}" font-size="12.5" fill="${PALETTE.slateDark}">${escXml(wrapBidi('PK: مفتاح أساسي · FK: مفتاح أجنبي · UQ: قيد فريد · الخط المتصل: علاقة إلزامية (1:1 أو 1:N) · الخط المتقطع: علاقة اختيارية (0..1 أو 0..N) · الجداول الذهبية: جداول وسيطة لفك علاقات M:N · الجداول الخضراء: خصائص PostGIS وOCR/SHA-256.'))}</text>`;
 
   out += svgFooter();
   return out;

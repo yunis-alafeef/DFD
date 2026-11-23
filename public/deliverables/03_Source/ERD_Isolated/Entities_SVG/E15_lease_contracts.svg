@@ -54,68 +54,68 @@
 
   <!-- Central Entity Rectangle at Bottom -->
   <rect x="490" y="500" width="240" height="64" rx="4" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.4" />
-  <text x="610" y="528" text-anchor="middle" direction="rtl" font-family="'Noto Kufi Arabic', 'Noto Sans Arabic', 'Liberation Sans', sans-serif" font-size="16" font-weight="bold" fill="#0F172A">عقود الإيجار</text>
-  <text x="610" y="549" text-anchor="middle" font-family="'Liberation Sans', 'Noto Sans Arabic', 'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#0F766E">lease_contracts</text>
+  <text x="610" y="528" text-anchor="middle" font-family="Noto Kufi Arabic, Noto Sans Arabic, Tahoma, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0F172A">عقود الإيجار</text>
+  <text x="610" y="549" text-anchor="middle" font-family="Liberation Sans, Arial, Tahoma, sans-serif" font-size="12" font-weight="bold" fill="#0F766E">lease_contracts</text>
 
   <!-- Attribute Ellipses -->
   <g class="chen-attr">
     
     <ellipse cx="1024.5" cy="439.0" rx="76" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="1024.5" y="444.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم العقد</text>
+    <text x="1024.5" y="444.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#0F172A">رقم العقد</text>
     <line x1="980.5" y1="451.0" x2="1068.5" y2="451.0" stroke="#0F172A" stroke-width="1.5" />
   </g>
   <g class="chen-attr">
     
     <ellipse cx="1058.2" cy="344.9" rx="76" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="1058.2" y="349.9" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم العقار</text>
+    <text x="1058.2" y="349.9" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم العقار</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="880.2" cy="287.2" rx="84" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="880.2" y="292.2" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم المستأجر</text>
+    <text x="880.2" y="292.2" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">رقم المستأجر</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="814.0" cy="176.5" rx="89" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="814.0" y="181.5" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">المعتمد للعقد</text>
+    <text x="814.0" y="181.5" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">المعتمد للعقد</text>
     
   </g>
   <g class="chen-attr">
     <ellipse cx="610.0" cy="211.9" rx="95" ry="39" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.6" />
     <ellipse cx="610.0" cy="211.9" rx="89" ry="34" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
     
-          <text x="610.0" y="207.9" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="600" fill="#0F172A">الرقم المرجعي</text>
-          <text x="610.0" y="226.9" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13" font-weight="600" fill="#0F172A">للعقد</text>
+          <text x="610.0" y="207.9" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="600" fill="#0F172A">الرقم المرجعي</text>
+          <text x="610.0" y="226.9" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13" font-weight="600" fill="#0F172A">للعقد</text>
         
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="406.0" cy="176.5" rx="89" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="406.0" y="181.5" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تاريخ البداية</text>
+    <text x="406.0" y="181.5" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تاريخ البداية</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="333.3" cy="280.1" rx="89" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="333.3" y="285.1" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تاريخ النهاية</text>
+    <text x="333.3" y="285.1" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">تاريخ النهاية</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="168.2" cy="352.1" rx="93" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="168.2" y="357.1" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">الأجرة السنوية</text>
+    <text x="168.2" y="357.1" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">الأجرة السنوية</text>
     
   </g>
   <g class="chen-attr">
     
     <ellipse cx="195.5" cy="439.0" rx="76" ry="27" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1.8" />
-    <text x="195.5" y="444.0" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">حالة العقد</text>
+    <text x="195.5" y="444.0" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#0F172A">حالة العقد</text>
     
   </g>
 
   <!-- Bottom Academic Figure Caption -->
-  <text x="610" y="604" text-anchor="middle" direction="rtl" font-family="'Noto Sans Arabic', 'Noto Kufi Arabic', 'Liberation Sans', sans-serif" font-size="15" font-weight="bold" fill="#334155">الشكل (3-38): كيان عقود الإيجار (lease_contracts)</text>
+  <text x="610" y="604" text-anchor="middle" font-family="Noto Sans Arabic, Noto Kufi Arabic, Tahoma, Arial, sans-serif" font-size="15" font-weight="bold" fill="#334155">‫الشكل (3-38): كيان عقود الإيجار (lease_contracts)‬</text>
 </svg>
