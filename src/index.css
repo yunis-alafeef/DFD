@@ -14,3 +14,43 @@
     font-variant-numeric: tabular-nums;
   }
 }
+
+@page {
+  size: A4 landscape;
+  margin: 6mm;
+}
+
+@media print {
+  body {
+    background: #FFFFFF !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-canvas-only {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    width: 100% !important;
+    height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-canvas-only img {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 195mm !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
+

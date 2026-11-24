@@ -34,6 +34,7 @@ import {
 import {
   buildContextDiagramSvg,
   buildDfdLevel0Svg,
+  buildDfdLevel0AcademicSvg,
   buildDfdLevel1Svg,
   buildDfdLevel2Svg,
   buildConceptualErdSvg,
@@ -158,6 +159,7 @@ async function generateAll() {
   const svgGenerators: Record<string, () => string> = {
     context: buildContextDiagramSvg,
     dfd0: buildDfdLevel0Svg,
+    'dfd0-academic': buildDfdLevel0AcademicSvg,
     dfd1: buildDfdLevel1Svg,
     dfd2: buildDfdLevel2Svg,
     cerd: buildConceptualErdSvg,
@@ -284,12 +286,13 @@ async function generateAll() {
   fs.writeFileSync(path.join(DIR_SRC, 'Waqf_ERD_Isolated_SVG_Bundle.zip'), erdZipBuf);
   console.log(`   -> Waqf_ERD_Isolated_SVG_Bundle.zip (${Math.round(erdZipBuf.length / 1024)} KB)`);
 
-  // Package dedicated All-42 Native Vector EMF Bundle ZIP
+  // Package dedicated Native Vector EMF Bundle ZIP
+  const totalEmfCount = DIAGRAMS.length + ISOLATED_ERD_ENTITIES.length + ISOLATED_ERD_RELATIONSHIPS.length;
   const emfGuide = [
-    `# حزمة ملفات EMF المتجهية الأصلية (42 مخططاً) – ${PROJECT_INFO.titleAr}`,
+    `# حزمة ملفات EMF المتجهية الأصلية (${totalEmfCount} مخططاً) – ${PROJECT_INFO.titleAr}`,
     '',
     `تحتوي هذه الحزمة على جميع المخططات بصيغة Enhanced Metafile (.emf) متجهية أصلية (وليست صوراً نقطية):`,
-    `- 01_Main_Diagrams: المخططات الرئيسية الستة (Context / DFD 0,1,2 / Conceptual Chen ERD / Logical ERD)`,
+    `- 01_Main_Diagrams: المخططات الرئيسية (${DIAGRAMS.length} مخططات: Context / DFD 0, 0-A4, 1, 2 / Conceptual Chen ERD / Logical ERD)`,
     `- 02_ERD_Entities: الكيانات التسعة عشر المنعزلة بأسلوب تشين`,
     `- 03_ERD_Relationships: العلاقات الثنائية السبعة عشر المنعزلة`,
     '',

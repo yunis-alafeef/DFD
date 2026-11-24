@@ -382,7 +382,8 @@ class EmfRecordWriter {
     refY: number,
     text: string,
     options: number,
-    bounds: [number, number, number, number]
+    bounds: [number, number, number, number],
+    scaleTo01Mm = 2540 / (96 * SCALE)
   ): void {
     const strBuf = Buffer.from(text, 'utf16le');
     const chars = text.length; // UTF-16 code units
@@ -390,8 +391,6 @@ class EmfRecordWriter {
     const paddedStrLen = (strBuf.length + 3) & ~3;
     const totalSize = offString + paddedStrLen;
     const b = Buffer.alloc(totalSize);
-
-    const scaleTo01Mm = 2540 / (96 * SCALE);
 
     b.writeUInt32LE(EMR_EXTTEXTOUTW, 0);
     b.writeUInt32LE(totalSize, 4);
@@ -424,13 +423,13 @@ class EmfRecordWriter {
     }
   }
 
-  buildFile(svgW: number, svgH: number): Buffer {
+  buildFile(svgW: number, svgH: number, isA4Landscape = false): Buffer {
     const devW = Math.round(svgW * SCALE);
     const devH = Math.round(svgH * SCALE);
-    const frameW = Math.round((svgW * 2540) / 96); // 0.01 mm HIMETRIC
-    const frameH = Math.round((svgH * 2540) / 96);
-    const mmW = Math.max(1, Math.round((svgW * 25.4) / 96));
-    const mmH = Math.max(1, Math.round((svgH * 25.4) / 96));
+    const frameW = isA4Landscape ? 29700 : Math.round((svgW * 2540) / 96); // 0.01 mm HIMETRIC
+    const frameH = isA4Landscape ? 21000 : Math.round((svgH * 2540) / 96);
+    const mmW = isA4Landscape ? 297 : Math.max(1, Math.round((svgW * 25.4) / 96));
+    const mmH = isA4Landscape ? 210 : Math.max(1, Math.round((svgH * 25.4) / 96));
 
     // EMR_EOF (20 bytes)
     const eofBuf = Buffer.alloc(20);
@@ -489,10 +488,12 @@ export function convertSvgToEmfBuffer(svg: string): Buffer {
   const vbMatch = svg.match(/viewBox="0\s+0\s+([\d.]+)\s+([\d.]+)"/);
   const svgW = vbMatch ? parseFloat(vbMatch[1]) : 1600;
   const svgH = vbMatch ? parseFloat(vbMatch[2]) : 1000;
+  const isA4Landscape = /data-page="A4-landscape"/.test(svg);
 
   const w = new EmfRecordWriter();
   const devW = Math.round(svgW * SCALE);
   const devH = Math.round(svgH * SCALE);
+  const textScale01Mm = isA4Landscape ? 29700 / devW : 2540 / (96 * SCALE);
 
   // Initialize GDI Coordinate Mapping & Drawing Modes
   w.addSimple1Uint(EMR_SETMAPMODE, MM_ANISOTROPIC);
@@ -649,11 +650,12 @@ export function convertSvgToEmfBuffer(svg: string): Buffer {
         refY,
         plain,
         isArabic ? ETO_RTLREADING : 0,
-        [bLeft, refY - estAsc, bLeft + estW, refY + estDesc]
+        [bLeft, refY - estAsc, bLeft + estW, refY + estDesc],
+        textScale01Mm
       );
     }
   }
 
   w.cleanupAllHandles();
-  return w.buildFile(svgW, svgH);
+  return w.buildFile(svgW, svgH, isA4Landscape);
 }

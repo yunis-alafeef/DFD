@@ -700,11 +700,11 @@ export async function buildNativeWordShapesDocx(slots: NativeWordShapeSlot[]): P
             spaceAfter: 260,
           }),
           rtlTextPara(
-            'جميع المخططات الـ 42 في هذا المستند (المخطط البيئي، DFD 0/1/2، مخطط Chen ERD الكامل بحجم الصفحة، Logical ERD، و36 مخطط ERD منعزل) مبنية كأشكال ومربعات نصوص وخطوط أصلية مجمّعة في Word (DrawingML Grouped Shapes) تتيح النقر المباشر وفك التجميع (Ungroup) وتعديل أي نص أو شكل أو سهم دون الحاجة لأي تحويل إضافي.',
+            `جميع المخططات الـ ${slots.length} في هذا المستند (المخطط البيئي، DFD 0، DFD 0 المنسق A4، DFD 1/2، مخطط Chen ERD الكامل بحجم الصفحة، Logical ERD، و${ISOLATED_ERD_RELATIONSHIPS.length + ISOLATED_ERD_ENTITIES.length} مخطط ERD منعزل) مبنية كأشكال ومربعات نصوص وخطوط أصلية مجمّعة في Word (DrawingML Grouped Shapes) تتيح النقر المباشر وفك التجميع (Ungroup) وتعديل أي نص أو شكل أو سهم دون الحاجة لأي تحويل إضافي.`,
             { size: 22, color: '334155', align: AlignmentType.CENTER, spaceAfter: 300 }
           ),
           rtlTextPara(
-            `إجمالي المخططات المضمنة كأشكال أصلية: ${slots.length} مخططاً (6 رئيسية + ${ISOLATED_ERD_RELATIONSHIPS.length} علاقة + ${ISOLATED_ERD_ENTITIES.length} كياناً)`,
+            `إجمالي المخططات المضمنة كأشكال أصلية: ${slots.length} مخططاً (${DIAGRAMS.length} رئيسية + ${ISOLATED_ERD_RELATIONSHIPS.length} علاقة + ${ISOLATED_ERD_ENTITIES.length} كياناً)`,
             { bold: true, size: 21, color: '1E3A5F', align: AlignmentType.CENTER }
           ),
         ],

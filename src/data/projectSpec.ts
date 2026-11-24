@@ -42,6 +42,7 @@ export interface DataDictionaryEntry {
 export interface DiagramMetadata {
   id: string;
   order: number;
+  codeLabel?: string;
   figureNumber: string;
   titleAr: string;
   titleEn: string;
@@ -595,6 +596,27 @@ export const DIAGRAMS: DiagramMetadata[] = [
       'تغطية كاملة للعمليات السبع (1.0–7.0) دون إضافة أو حذف.',
       'اتزان تام (100% Balancing) مع مدخلات ومخرجات المخطط البيئي.',
       'ترابط منظم مع 8 مخازن بيانات متطابقة مع كيانات قاعدة البيانات.',
+    ],
+  },
+  {
+    id: 'dfd0-academic',
+    order: 2,
+    codeLabel: '02-ب',
+    figureNumber: 'الشكل (3-2 ب)',
+    titleAr: 'مخطط تدفق البيانات من المستوى الصفري — النسخة الهندسية A4 (DFD Level 0)',
+    titleEn: 'Data Flow Diagram – Level 0 (A4 Landscape Academic Edition)',
+    pngFilename: '02b_DFD_Level_0_Academic.png',
+    svgFilename: '02b_DFD_Level_0_Academic.svg',
+    emfFilename: '02b_DFD_Level_0_Academic.emf',
+    mmdFilename: '02b_DFD_Level_0_Academic.mmd',
+    drawioFilename: '02b_DFD_Level_0_Academic.drawio',
+    orientation: 'landscape',
+    academicSummaryAr:
+      'نسخة مستقلة مُعاد هندستها من مخطط تدفق البيانات للمستوى الصفري (DFD Level 0) بتوزيع شبكي ثلاثي المناطق مهيأ أصلاً للطباعة الأكاديمية على صفحة A4 أفقية واحدة (297 × 210 مم). تفصل الشبكة بين منطقة مخازن البيانات الثمانية (D1–D8) يساراً، والعمليات المركزية السبع المتسلسلة (1.0–7.0) في الوسط، والكيانات الخارجية الخمسة يميناً، مع توجيه متعامد صارم بزاوية 90 درجة لكافة التدفقات الـ 44 ومسارات مستقلة وقنوات عبور منسقة تمنع مرور الأسهم فوق العناصر أو تداخل التسميات العربية.',
+    keyHighlightsAr: [
+      'مقاس طباعة حقيقي لصفحة A4 أفقية (297 × 210 مم) بخطوط عربية واضحة ومقروءة.',
+      'تخطيط ثلاثي المناطق وتوجيه متعامد 90° (Orthogonal Routing) يحفظ كافة العناصر والتدفقات الـ 44 كما هي.',
+      'صفر تداخلات بين النصوص والعناصر مع فواصل عبور واضحة عند تقاطع المسارات الرأسية والأفقية.',
     ],
   },
   {

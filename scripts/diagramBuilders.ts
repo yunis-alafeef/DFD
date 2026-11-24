@@ -1,5 +1,12 @@
 import { DIAGRAMS } from '../src/data/projectSpec';
 import { getMainSvgFontsCss } from './svgFontEmbed';
+import {
+  buildDfdLevel0AcademicSvg,
+  DFD0_ACADEMIC_MERMAID,
+  buildDfd0AcademicDrawioXml,
+} from './dfd0AcademicBuilder';
+
+export { buildDfdLevel0AcademicSvg };
 
 // Unified Academic Color System (High-contrast, print & B/W friendly)
 export const PALETTE = {
@@ -1702,6 +1709,7 @@ export function buildMermaidSources(): Record<string, string> {
   D4 -.-> P6
   P7 <--> D7
 `,
+    '02b_DFD_Level_0_Academic.mmd': DFD0_ACADEMIC_MERMAID,
     '03_DFD_Level_1.mmd': `flowchart TB
   subgraph M1["1.0 إدارة الحسابات والصلاحيات"]
     P11(["1.1 تسجيل الدخول والتحقق"]) --> P12(["1.2 إدارة الأدوار RBAC"]) --> P13(["1.3 التدقيق الأمني"])
@@ -1885,6 +1893,7 @@ export function buildAllDrawioFiles(): Record<string, string> {
         { id: 'l11', source: 'p7', target: 'd7', label: 'تذاكر الطلبات' },
       ]
     ),
+    '02b_DFD_Level_0_Academic.drawio': buildDfd0AcademicDrawioXml(buildDrawioXml),
     '03_DFD_Level_1.drawio': buildDrawioXml(
       'dfd1',
       'DFD Level 1',
