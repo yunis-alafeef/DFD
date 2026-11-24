@@ -47,6 +47,7 @@ export interface DiagramMetadata {
   titleEn: string;
   pngFilename: string;
   svgFilename: string;
+  emfFilename: string;
   mmdFilename: string;
   drawioFilename: string;
   orientation: 'portrait' | 'landscape';
@@ -564,6 +565,7 @@ export const DIAGRAMS: DiagramMetadata[] = [
     titleEn: 'System Context Diagram (DFD Level -1)',
     pngFilename: '01_Context_Diagram.png',
     svgFilename: '01_Context_Diagram.svg',
+    emfFilename: '01_Context_Diagram.emf',
     mmdFilename: '01_Context_Diagram.mmd',
     drawioFilename: '01_Context_Diagram.drawio',
     orientation: 'landscape',
@@ -583,6 +585,7 @@ export const DIAGRAMS: DiagramMetadata[] = [
     titleEn: 'Data Flow Diagram – Level 0',
     pngFilename: '02_DFD_Level_0.png',
     svgFilename: '02_DFD_Level_0.svg',
+    emfFilename: '02_DFD_Level_0.emf',
     mmdFilename: '02_DFD_Level_0.mmd',
     drawioFilename: '02_DFD_Level_0.drawio',
     orientation: 'landscape',
@@ -602,6 +605,7 @@ export const DIAGRAMS: DiagramMetadata[] = [
     titleEn: 'Data Flow Diagram – Level 1',
     pngFilename: '03_DFD_Level_1.png',
     svgFilename: '03_DFD_Level_1.svg',
+    emfFilename: '03_DFD_Level_1.emf',
     mmdFilename: '03_DFD_Level_1.mmd',
     drawioFilename: '03_DFD_Level_1.drawio',
     orientation: 'landscape',
@@ -621,6 +625,7 @@ export const DIAGRAMS: DiagramMetadata[] = [
     titleEn: 'Data Flow Diagram – Level 2 (Complex Processes)',
     pngFilename: '04_DFD_Level_2.png',
     svgFilename: '04_DFD_Level_2.svg',
+    emfFilename: '04_DFD_Level_2.emf',
     mmdFilename: '04_DFD_Level_2.mmd',
     drawioFilename: '04_DFD_Level_2.drawio',
     orientation: 'landscape',
@@ -640,6 +645,7 @@ export const DIAGRAMS: DiagramMetadata[] = [
     titleEn: 'Conceptual Entity-Relationship Diagram',
     pngFilename: '05_Conceptual_ERD.png',
     svgFilename: '05_Conceptual_ERD.svg',
+    emfFilename: '05_Conceptual_ERD.emf',
     mmdFilename: '05_Conceptual_ERD.mmd',
     drawioFilename: '05_Conceptual_ERD.drawio',
     orientation: 'portrait',
@@ -659,6 +665,7 @@ export const DIAGRAMS: DiagramMetadata[] = [
     titleEn: 'Logical Entity-Relationship Diagram (PostgreSQL + PostGIS)',
     pngFilename: '06_Logical_ERD.png',
     svgFilename: '06_Logical_ERD.svg',
+    emfFilename: '06_Logical_ERD.emf',
     mmdFilename: '06_Logical_ERD.mmd',
     drawioFilename: '06_Logical_ERD.drawio',
     orientation: 'landscape',

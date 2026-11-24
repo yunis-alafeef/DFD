@@ -48,17 +48,21 @@ import {
   buildIsolatedRelationshipSvg,
 } from './chenErdIsolatedBuilders';
 import { buildNativeWordShapesDocx, NativeWordShapeSlot } from './wordShapesDocxBuilder';
+import { convertSvgToEmfBuffer } from './emfBuilder';
 
 const OUT_ROOT = path.resolve(process.cwd(), 'public', 'deliverables');
 const DIR_WORD = path.join(OUT_ROOT, '01_Word');
 const DIR_PNG = path.join(OUT_ROOT, '02_PNG');
 const DIR_SRC = path.join(OUT_ROOT, '03_Source');
 const DIR_SRC_SVG = path.join(DIR_SRC, 'SVG');
+const DIR_SRC_EMF = path.join(DIR_SRC, 'EMF');
 const DIR_SRC_MMD = path.join(DIR_SRC, 'Mermaid');
 const DIR_SRC_DRAWIO = path.join(DIR_SRC, 'DrawIO');
 const DIR_ERD_ISO = path.join(DIR_SRC, 'ERD_Isolated');
 const DIR_ERD_ISO_ENT = path.join(DIR_ERD_ISO, 'Entities_SVG');
 const DIR_ERD_ISO_REL = path.join(DIR_ERD_ISO, 'Relationships_SVG');
+const DIR_ERD_ISO_ENT_EMF = path.join(DIR_ERD_ISO, 'Entities_EMF');
+const DIR_ERD_ISO_REL_EMF = path.join(DIR_ERD_ISO, 'Relationships_EMF');
 const DIR_DOCS = path.join(OUT_ROOT, '04_Documentation');
 
 function ensureDirs() {
@@ -68,11 +72,14 @@ function ensureDirs() {
     DIR_PNG,
     DIR_SRC,
     DIR_SRC_SVG,
+    DIR_SRC_EMF,
     DIR_SRC_MMD,
     DIR_SRC_DRAWIO,
     DIR_ERD_ISO,
     DIR_ERD_ISO_ENT,
     DIR_ERD_ISO_REL,
+    DIR_ERD_ISO_ENT_EMF,
+    DIR_ERD_ISO_REL_EMF,
     DIR_DOCS,
   ]) {
     fs.mkdirSync(d, { recursive: true });
@@ -167,6 +174,9 @@ async function generateAll() {
     const svgPath = path.join(DIR_SRC_SVG, diag.svgFilename);
     fs.writeFileSync(svgPath, svg, 'utf-8');
 
+    const emfBuf = convertSvgToEmfBuffer(svg);
+    fs.writeFileSync(path.join(DIR_SRC_EMF, diag.emfFilename), emfBuf);
+
     // Render crisp high-resolution PNG with 300 DPI metadata
     const renderDensity = diag.id === 'context' ? 180 : diag.id === 'cerd' ? 170 : 150;
     const pngPath = path.join(DIR_PNG, diag.pngFilename);
@@ -191,7 +201,7 @@ async function generateAll() {
       heading: `${diag.figureNumber}: ${diag.titleAr}`,
       caption: `الشرح الأكاديمي: ${diag.academicSummaryAr}`,
     });
-    console.log(`   -> ${diag.pngFilename}: ${meta.width}x${meta.height}px (${Math.round(pngBuf.length / 1024)} KB)`);
+    console.log(`   -> ${diag.pngFilename} + ${diag.emfFilename} (${Math.round(emfBuf.length / 1024)} KB EMF)`);
   }
 
   console.log('2. Writing Mermaid (.mmd) and Draw.io (.drawio) source files...');
@@ -205,13 +215,14 @@ async function generateAll() {
     fs.writeFileSync(path.join(DIR_SRC_DRAWIO, name), content, 'utf-8');
   }
 
-  console.log('2b. Generating Isolated Chen ERD SVG Bundle (17 relationships + 19 entities)...');
+  console.log('2b. Generating Isolated Chen ERD SVG & Native Vector EMF Bundles (17 relationships + 19 entities)...');
   const isoRelPngs: { spec: (typeof ISOLATED_ERD_RELATIONSHIPS)[number]; buffer: Buffer; width: number; height: number }[] = [];
   const isoEntPngs: { spec: (typeof ISOLATED_ERD_ENTITIES)[number]; buffer: Buffer; width: number; height: number }[] = [];
 
   for (const rel of ISOLATED_ERD_RELATIONSHIPS) {
     const svg = buildIsolatedRelationshipSvg(rel);
     fs.writeFileSync(path.join(DIR_ERD_ISO_REL, rel.filename), svg, 'utf-8');
+    fs.writeFileSync(path.join(DIR_ERD_ISO_REL_EMF, rel.filename.replace(/\.svg$/, '.emf')), convertSvgToEmfBuffer(svg));
     const pngBuf = await sharp(Buffer.from(svg), { density: 144 })
       .flatten({ background: '#FFFFFF' })
       .png({ compressionLevel: 9 })
@@ -229,6 +240,7 @@ async function generateAll() {
   for (const ent of ISOLATED_ERD_ENTITIES) {
     const svg = buildIsolatedEntitySvg(ent);
     fs.writeFileSync(path.join(DIR_ERD_ISO_ENT, ent.filename), svg, 'utf-8');
+    fs.writeFileSync(path.join(DIR_ERD_ISO_ENT_EMF, ent.filename.replace(/\.svg$/, '.emf')), convertSvgToEmfBuffer(svg));
     const pngBuf = await sharp(Buffer.from(svg), { density: 144 })
       .flatten({ background: '#FFFFFF' })
       .png({ compressionLevel: 9 })
@@ -257,7 +269,7 @@ async function generateAll() {
   ].join('\n');
   fs.writeFileSync(path.join(DIR_ERD_ISO, 'README.md'), isoReadme, 'utf-8');
 
-  // Package dedicated Isolated Chen ERD SVG ZIP bundle
+  // Package dedicated Isolated Chen ERD SVG ZIP bundle (unchanged)
   const erdZip = new JSZip();
   erdZip.file('README.md', isoReadme);
   const erdEntFolder = erdZip.folder('Entities_SVG')!;
@@ -271,6 +283,41 @@ async function generateAll() {
   const erdZipBuf = await erdZip.generateAsync({ type: 'nodebuffer', compression: 'DEFLATE' });
   fs.writeFileSync(path.join(DIR_SRC, 'Waqf_ERD_Isolated_SVG_Bundle.zip'), erdZipBuf);
   console.log(`   -> Waqf_ERD_Isolated_SVG_Bundle.zip (${Math.round(erdZipBuf.length / 1024)} KB)`);
+
+  // Package dedicated All-42 Native Vector EMF Bundle ZIP
+  const emfGuide = [
+    `# حزمة ملفات EMF المتجهية الأصلية (42 مخططاً) – ${PROJECT_INFO.titleAr}`,
+    '',
+    `تحتوي هذه الحزمة على جميع المخططات بصيغة Enhanced Metafile (.emf) متجهية أصلية (وليست صوراً نقطية):`,
+    `- 01_Main_Diagrams: المخططات الرئيسية الستة (Context / DFD 0,1,2 / Conceptual Chen ERD / Logical ERD)`,
+    `- 02_ERD_Entities: الكيانات التسعة عشر المنعزلة بأسلوب تشين`,
+    `- 03_ERD_Relationships: العلاقات الثنائية السبعة عشر المنعزلة`,
+    '',
+    `## طريقة التحرير وفك التجميع داخل Microsoft Word:`,
+    `1. في Word: إدراج (Insert) -> صور (Pictures) -> هذا الجهاز، ثم اختر أي ملف (.emf).`,
+    `2. انقر بزر الفأرة الأيمن على المخطط -> تجميع (Group) -> فك التجميع (Ungroup)، ووافق على التحويل إلى كائن رسومي من Microsoft Office.`,
+    `3. يمكنك الآن النقر على أي مستطيل أو معين أو سهم أو نص عربي وتحريره أو نقله بشكل مستقل تماماً.`,
+  ].join('\n');
+
+  const emfZip = new JSZip();
+  emfZip.file('README_EMF_Word.md', emfGuide);
+  const emfMainFolder = emfZip.folder('01_Main_Diagrams')!;
+  const emfEntFolder = emfZip.folder('02_ERD_Entities')!;
+  const emfRelFolder = emfZip.folder('03_ERD_Relationships')!;
+  for (const diag of DIAGRAMS) {
+    emfMainFolder.file(diag.emfFilename, fs.readFileSync(path.join(DIR_SRC_EMF, diag.emfFilename)));
+  }
+  for (const ent of ISOLATED_ERD_ENTITIES) {
+    const fname = ent.filename.replace(/\.svg$/, '.emf');
+    emfEntFolder.file(fname, fs.readFileSync(path.join(DIR_ERD_ISO_ENT_EMF, fname)));
+  }
+  for (const rel of ISOLATED_ERD_RELATIONSHIPS) {
+    const fname = rel.filename.replace(/\.svg$/, '.emf');
+    emfRelFolder.file(fname, fs.readFileSync(path.join(DIR_ERD_ISO_REL_EMF, fname)));
+  }
+  const emfZipBuf = await emfZip.generateAsync({ type: 'nodebuffer', compression: 'DEFLATE' });
+  fs.writeFileSync(path.join(DIR_SRC, 'Waqf_All_Diagrams_EMF_Bundle.zip'), emfZipBuf);
+  console.log(`   -> Waqf_All_Diagrams_EMF_Bundle.zip (${Math.round(emfZipBuf.length / 1024)} KB)`);
 
   console.log('3. Generating Documentation files (.md and .csv)...');
   const docGuideLines: string[] = [
